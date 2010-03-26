@@ -13,7 +13,28 @@
 #include	<stdio.h>
 #include	"SDL/SDL.h"
 #include	"t_image.h"
+#include	"define.h"
 
-int		init_image(t_image *img)
+SDL_Surface	*img_load(char *path)
 {
+  SDL_Surface	*img;
+  SDL_Surface	*tmp;
+
+  tmp = SDL_LoadBMP(path);
+  if (tmp)
+    {
+      img = SDL_DisplayFormat(tmp);
+      SDL_FreeSurface(tmp);
+      return (img);
+    }
+  return (NULL);
+}
+
+int		img_init(t_image *img)
+{
+  img->wall = img_load(WALL_DIR);
+  img->ladder = img_load(LAD_DIR);
+  img->monster = img_load(MON_DIR);
+  img->exit = img_load(EXIT_DIR);
+  img->enter = img_load(ENT_DIR);
 }
