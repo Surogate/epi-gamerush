@@ -13,11 +13,11 @@
 
 typedef struct
 {
-  SDL_Surface *wall;
-  SDL_Surface *ladder;
-  SDL_Surface *monster;
-  SDL_Surface *exit;  
-  SDL_Surface *enter;
-}
+  SDL_Surface	*wall;
+  SDL_Surface	*ladder;
+  SDL_Surface	*monster;
+  SDL_Surface	*exit;  
+  SDL_Surface	*enter;
+}		t_image;
 
 #endif

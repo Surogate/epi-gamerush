@@ -11,6 +11,7 @@
 #include	<unistd.h>
 #include	<stdlib.h>
 #include	<stdio.h>
+#include	"SDL/SDL.h"
 #include	"t_image.h"
 
 int		init_image(t_image *img)
