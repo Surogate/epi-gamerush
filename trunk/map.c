@@ -30,7 +30,7 @@ void			get_map_dim(char *buffer, int *width, int *height)
       cur_width++;
       i++;
     }
-  write(1, &buffer, 0);
+  cur_width = write(1, &buffer, 0);
   if (buffer[i - 1] != '\n')
     (*height)++;
 }
