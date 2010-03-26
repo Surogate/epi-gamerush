@@ -16,5 +16,4 @@
 
 int		init_image(t_image *img)
 {
-  img->wall = 
 }
