@@ -13,7 +13,7 @@
 
 typedef struct	s_func
 {
-  SDL_Event	event
+  Uint8		type;
   int		(*func)();
 }		t_func;
 int exec_fct();
