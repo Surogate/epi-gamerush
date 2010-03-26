@@ -14,7 +14,7 @@
 #include	"SDL/SDL.h"
 #include	"exec_fct.h"
 
-int		main(int ac, char **av)
+int		main()
 {
   int		result;
   SDL_Surface	*screen;
