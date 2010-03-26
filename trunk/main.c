@@ -15,11 +15,16 @@
 #include	"exec_fct.h"
 #include	"define.h"
 
-int		main()
+int		main(int ac, char **av)
 {
   int		result;
   SDL_Surface	*screen;
+  t_map		*map;
 
+  if (ac > 1)
+    map = get_map(av[1]);
+  else
+    return (EXIT_SUCCESS);
   if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
       fprintf(stderr, "Can't init SDL: %s\n", SDL_GetError());
@@ -33,10 +38,7 @@ int		main()
       fprintf(stderr, "screen load fail %s\n", SDL_GetError());
       return (EXIT_FAILURE);
     }
-  test_map();
   result = exec_fct(screen);
-  if (result == EXIT_FAILURE)
-    perror("exec_fct");
   SDL_Quit();
   return (result);
 }
