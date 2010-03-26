@@ -30,6 +30,9 @@ void			get_map_dim(char *buffer, int *width, int *height)
       cur_width++;
       i++;
     }
+  write(1, &buffer, 0);
+  if (buffer[i - 1] != '\n')
+    (*height)++;
 }
 
 t_map			*get_map(char *path)
@@ -58,27 +61,4 @@ t_map			*get_map(char *path)
   map->width--;
   free(buffer);
   return (map);
-}
-
-void			test_map()
-{
-  t_map			*map;
-  int			x;
-  int			y;
-  char			c;
-
-  map = get_map("./map.map");
-  y = 0;
-  while (y < map->height)
-    {
-      x = 0;
-      while (x < map->width)
-	{
-	  xwrite(1, &map->map[y][x], 1);
-	  x++;
-	}
-      c = '\n';
-      xwrite(1, &c, 1);
-      y++;
-    }
 }
