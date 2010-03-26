@@ -32,6 +32,7 @@ int		main()
       fprintf(stderr, "screen load fail %s\n", SDL_GetError());
       return (EXIT_FAILURE);
     }
+  test_map();
   result = exec_fct(screen);
   if (result == EXIT_FAILURE)
     perror("exec_fct");
