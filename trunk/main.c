@@ -13,6 +13,7 @@
 #include	<stdio.h>
 #include	"SDL/SDL.h"
 #include	"exec_fct.h"
+#include	"map.h"
 #include	"define.h"
 
 int		main(int ac, char **av)
@@ -38,7 +39,7 @@ int		main(int ac, char **av)
       fprintf(stderr, "screen load fail %s\n", SDL_GetError());
       return (EXIT_FAILURE);
     }
-  result = exec_fct(screen);
+  result = exec_fct(screen, map);
   SDL_Quit();
   return (result);
 }

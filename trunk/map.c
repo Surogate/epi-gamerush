@@ -60,7 +60,7 @@ t_map			*get_map(char *path)
   return (map);
 }
 
-void			test_map(char *path)
+void			test_map()
 {
   t_map			*map;
   int			x;

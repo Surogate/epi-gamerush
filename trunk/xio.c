@@ -59,6 +59,7 @@ char		*get_file_content(char *path)
   int           fd;
   int           file_size;
 
+  buffer = NULL;
   if ((fd = open(path, O_RDONLY)) != -1)
     {
       if ((file_size = lseek(fd, 0, SEEK_END)) == -1)
