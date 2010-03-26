@@ -25,6 +25,24 @@ t_func		event_func[]=
     {0,0}
   };
 
+void		init_screen(SDL_Surface *screen)
+{
+  SDL_Surface	*rectangle = NULL, *imageDeFond = NULL;
+  SDL_Rect	position;
+
+  position.x = 0;
+  position.y = 0;
+  SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
+  rectangle = SDL_CreateRGBSurface(SDL_HWSURFACE, 220, 180, 32, 0, 0, 0, 0);
+  SDL_FillRect(rectangle, NULL, SDL_MapRGB(screen->format, 255, 0, 0));
+  SDL_BlitSurface(rectangle, NULL, screen, &position);
+  imageDeFond = SDL_LoadBMP("CLOUDS.BMP");
+  SDL_BlitSurface(imageDeFond, NULL, screen, &position);
+  SDL_Flip(screen);
+  SDL_FreeSurface(rectangle);
+  SDL_FreeSurface(imageDeFond);
+}
+
 int		exec_fct(SDL_Surface *screen)
 {
   SDL_Event	event;
@@ -32,6 +50,7 @@ int		exec_fct(SDL_Surface *screen)
   int		continuer;
 
   continuer = 1;
+  init_screen(screen);
   while (continuer > 0)
     {
       SDL_WaitEvent(&event);

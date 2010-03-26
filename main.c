@@ -25,6 +25,7 @@ int		main()
       fprintf(stderr, "Can't init SDL: %s\n", SDL_GetError());
       return (EXIT_FAILURE);
     }
+  SDL_WM_SetIcon(SDL_LoadBMP("DonkeyKong2.bmp"), NULL);
   screen = SDL_SetVideoMode(WIN_LENGTH, WIN_HEIGHT, WIN_COLOR, SDL_SWSURFACE);
   SDL_WM_SetCaption("Epikong", NULL);
   if (!screen)
