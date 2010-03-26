@@ -37,4 +37,14 @@ int		img_init(t_image *img)
   img->monster = img_load(MON_DIR);
   img->exit = img_load(EXIT_DIR);
   img->enter = img_load(ENT_DIR);
+  return (EXIT_SUCCESS);
+}
+
+int		img_delete(t_image *img)
+{
+  SDL_FreeSurface(img->wall);
+  SDL_FreeSurface(img->ladder);
+  SDL_FreeSurface(img->monster);
+  SDL_FreeSurface(img->exit);
+  SDL_FreeSurface(img->enter);
 }
