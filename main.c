@@ -25,7 +25,7 @@ int		main()
       return (EXIT_FAILURE);
     }
   screen = SDL_SetVideoMode(640, 480, 16, SDL_SWSURFACE);
-  SDL_WM_SetCaption( "Epikong", NULL );
+  SDL_WM_SetCaption("Epikong", NULL);
   if (!screen)
     {
       fprintf(stderr, "screen load fail %s\n", SDL_GetError());

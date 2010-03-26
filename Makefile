@@ -19,7 +19,7 @@ SRCS	= err.c		\
 
 OBJS	= $(SRCS:.c=.o)
 CFLAGS	= -W -Wall -Wextra -O3 -ansi
-LDFLAGS	= -lc
+LDFLAGS	= -lSDLmain -lSDL
 
 $(NAME)	: $(OBJS)
 	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS)
