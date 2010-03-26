@@ -11,11 +11,12 @@
 NAME	= prog
 CC	= gcc
 RM	= rm -rf
-SRCS	= err.c		\
+SRCS	= err.c			\
 	exec_fct.c		\
 	image_fct.c		\
-	map.c		\
-	main.c
+	map.c			\
+	main.c			\
+	xio.c
 
 OBJS	= $(SRCS:.c=.o)
 CFLAGS	= -W -Wall -Wextra -O3 -ansi
