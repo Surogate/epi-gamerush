@@ -11,6 +11,11 @@
 #ifndef EXEC_FCT_C_INCLUDED
 # define EXEC_FCT_C_INCLUDED
 
+typedef struct	s_func
+{
+  SDL_Event	event
+  int		(*func)();
+}		t_func;
 int exec_fct();
 
 #endif
