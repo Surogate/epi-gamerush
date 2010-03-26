@@ -11,8 +11,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "SDL/SDL.h"
 
-int exec_fct()
+int exec_fct(SDL_Surface *screen)
 {
+  sleep(10);
   return (EXIT_SUCCESS);
 }
