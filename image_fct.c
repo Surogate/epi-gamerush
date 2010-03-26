@@ -47,4 +47,5 @@ int		img_delete(t_image *img)
   SDL_FreeSurface(img->monster);
   SDL_FreeSurface(img->exit);
   SDL_FreeSurface(img->enter);
+  return (EXIT_SUCCESS);
 }

@@ -13,6 +13,7 @@
 #include	<stdio.h>
 #include	"SDL/SDL.h"
 #include	"exec_fct.h"
+#include	"define.h"
 
 int		main()
 {
@@ -24,7 +25,7 @@ int		main()
       fprintf(stderr, "Can't init SDL: %s\n", SDL_GetError());
       return (EXIT_FAILURE);
     }
-  screen = SDL_SetVideoMode(640, 480, 16, SDL_SWSURFACE);
+  screen = SDL_SetVideoMode(WIN_LENGTH, WIN_HEIGHT, WIN_COLOR, SDL_SWSURFACE);
   SDL_WM_SetCaption("Epikong", NULL);
   if (!screen)
     {
