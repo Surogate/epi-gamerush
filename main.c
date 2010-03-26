@@ -11,7 +11,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <SDL.h>
+#include "SDL/SDL.h"
+#include "exec_fct.h"
 
 int main(int ac, char **av)
 {

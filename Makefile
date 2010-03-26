@@ -16,7 +16,7 @@ SRCS	= exec_fct.c		\
 
 OBJS	= $(SRCS:.c=.o)
 CFLAGS	= -W -Wall -Wextra -O3 -ansi
-LDFLAGS	= -lSDL-1.2
+LDFLAGS	= -lSDLmain -lSDL
 
 $(NAME)	: $(OBJS)
 	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS)
