@@ -13,6 +13,9 @@
 #include <stdio.h>
 #include "SDL/SDL.h"
 #include "exec_fct.h"
+#include "map.h"
+#include "t_image.h"
+#include "image_fct.h"
 
 int		exit_func()
 {
@@ -43,13 +46,15 @@ void		init_screen(SDL_Surface *screen)
   SDL_FreeSurface(imageDeFond);
 }
 
-int		exec_fct(SDL_Surface *screen)
+int		exec_fct(SDL_Surface *screen, t_map *map)
 {
   SDL_Event	event;
   int		i; 
   int		continuer;
+  t_image	img;
 
   continuer = 1;
+  img_init(&img);
   init_screen(screen);
   while (continuer > 0)
     {
