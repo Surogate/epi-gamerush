@@ -26,7 +26,4 @@ int			**get_map(char *path)
   if ((size = get_file_size(fd)) == -1)
     err("Lseek failed", 1);
   
-
-
-
 }
