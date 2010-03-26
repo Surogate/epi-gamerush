@@ -11,9 +11,20 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <SDL.h>
 
 int main(int ac, char **av)
 {
-  printf("hello world !\n");
-  return (EXIT_SUCCESS);
+  int result;
+
+  if (SDL_Init(SDL_INIT_VIDEO) < 0)
+    {
+      perror("SDL init fail");
+      return (EXIT_FAILURE);
+    }
+  result = exec_fct();
+  if (result == EXIT_FAILURE)
+    perror("exec_fct");
+  SDL_Quit();
+  return (result);
 }
