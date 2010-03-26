@@ -1,5 +1,5 @@
 /*
-** xio.c for ftp in /u/all/muller_b/cu/rendu/c/my_ftp
+** xio.c for epikong
 **
 ** Made by quentin muller
 ** Login   <muller_b@epitech.net>
