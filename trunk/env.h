@@ -11,10 +11,6 @@
 #ifndef		ENV_H
 # define	ENV_H
 
-#include	<SDL/SDL.h>
-#include	"map.h"
-#include	"npc.h"
-
 typedef struct	s_obj
 {
   int		keys;
