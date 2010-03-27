@@ -25,7 +25,7 @@
 /*Img's define*/
 #define HERO_DIR	"./image/kong.bmp"
 #define	WHIT_DIR	"./image/white.bmp"
-#define MON_DIR		"./image/monstre.bmp"
+#define MON_DIR		"./image/zombi-1.bmp"
 #define WALL_DIR	"./image/Wall.bmp"
 #define LAD_DIR		"./image/ladder.bmp"
 #define EXIT_DIR	"./image/exit2.bmp"
