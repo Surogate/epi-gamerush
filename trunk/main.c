@@ -12,6 +12,7 @@
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<SDL/SDL.h>
+#include	"err.h"
 #include	"exec_fct.h"
 #include	"map.h"
 #include	"define.h"
@@ -31,16 +32,10 @@ int		main(int ac, char **av)
       return (EXIT_SUCCESS);
     }
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
-    {
-      fprintf(stderr, "Can't init SDL: %s\n", SDL_GetError());
-      return (EXIT_FAILURE);
-    }
+    err_SDL("Can't init SDL", 1);
   screen = creat_win(map);
   if (!screen)
-    {
-      fprintf(stderr, "screen load fail %s\n", SDL_GetError());
-      return (EXIT_FAILURE);
-    }
+    err_SDL("screen load fail", 1);
   result = exec_fct(screen, map);
   SDL_Quit();
   return (result);
