@@ -21,6 +21,7 @@ SRCS	= err.c			\
 	main.c			\
 	npc.c			\
 	windows.c		\
+	monster.c		\
 	xio.c
 
 OBJS	= $(SRCS:.c=.o)

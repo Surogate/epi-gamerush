@@ -107,22 +107,24 @@ int		find_path(SDL_Rect *position, t_map *map, int i)
 */
 void		gravite(t_player *player, t_map *map)
 {
-  static int	i = 1;
+  static int		tempsActuel = 0;
+  static int		tempsPrecedent = 0;
 
-  if (player->position.y + 1 < map->height)
+  if (map->map[player->position.y + 1][player->position.x] != 'w' &&
+      map->map[player->position.y + 1][player->position.x] != 's')
     {
-      if (map->map[player->position.y + (1)][player->position.x] != 'w' &&
-	  map->map[player->position.y][player->position.x] != 's' &&
-	  map->map[player->position.y + (1)][player->position.x] != 's')
+      tempsActuel = SDL_GetTicks();
+      if (tempsActuel - tempsPrecedent > 30)
 	{
 	  player->position.y += 1;
-	  i *= 2;
+	  tempsPrecedent = tempsActuel;
 	}
-      else
-	i = 1;
+      else /* Si ça fait moins de 30ms depuis le dernier tour de boucle, on endort le programme le temps qu'il faut */
+	{
+	  SDL_Delay(30 - (tempsActuel - tempsPrecedent));
+	}
+      /*SDL_Delay(100);*/
     }
-  else
-    i = 1;
 }
 
 int		exec_fct(SDL_Surface *screen, t_map *map)
