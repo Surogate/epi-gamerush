@@ -116,11 +116,26 @@ void		display_npcs(SDL_Surface *screen, t_npc *npc)
       if (npc->frame == 6)
 	npc->frame = 0;
       if (npc->frame < 2)
-	blit_img_case(npc->img1, screen, npc->x, npc->y);
+	{
+	  if (npc->vx == 1)
+	    blit_img_case(npc->img1, screen, npc->x, npc->y);
+	  else
+	    blit_img_case(npc->img4, screen, npc->x, npc->y);
+	}
       else if (npc->frame < 4)
-	blit_img_case(npc->img2, screen, npc->x, npc->y);
+	{
+	  if (npc->vx == 1)
+	    blit_img_case(npc->img2, screen, npc->x, npc->y);
+	  else
+	    blit_img_case(npc->img5, screen, npc->x, npc->y);
+	}
       else
-	blit_img_case(npc->img3, screen, npc->x, npc->y);
+	{
+	  if (npc->vx == 1)
+	    blit_img_case(npc->img3, screen, npc->x, npc->y);
+	  else
+	    blit_img_case(npc->img6, screen, npc->x, npc->y);
+	}
       npc = npc->next;
     }
 }
