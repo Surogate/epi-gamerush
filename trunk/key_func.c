@@ -20,25 +20,26 @@ int		press_up(t_player *player, t_map *map)
 	  return (42);
 	}
       monster_time(player, map);
-    }
-  return (1);
-}
+      return (1);
+     }
+   return (1);
+ }
 
-int		press_down(t_player *player, t_map *map)
-{
-  if (map->map[player->position.y + 1][player->position.x] != 'w')
-    {
-      if (player->move < 5)
-	{
-	  player->position.y += 1;
-	  player->move += 1;
-	  return (1);
-	}
-      monster_time(player, map);
-    }
-  else
-    return (2);
-}
+ int		press_down(t_player *player, t_map *map)
+ {
+   if (map->map[player->position.y + 1][player->position.x] != 'w')
+     {
+       if (player->move < 5)
+	 {
+	   player->position.y += 1;
+	   player->move += 1;
+	   return (1);
+	 }
+       monster_time(player, map);
+       return (1);
+     }
+   return (2);
+ }
 
 int		press_left(t_player *player, t_map *map)
 {
@@ -51,9 +52,9 @@ int		press_left(t_player *player, t_map *map)
 	  return (1);
 	}
       monster_time(player, map);
+      return (1);
     }
-  else
-    return (2);
+  return (2);
 }
 
 int		press_right(t_player *player, t_map *map)
@@ -67,7 +68,7 @@ int		press_right(t_player *player, t_map *map)
 	  return (1);
 	}
       monster_time(player, map);
+      return (1);
     }
-  else
-    return (2);
+  return (2);
 }
