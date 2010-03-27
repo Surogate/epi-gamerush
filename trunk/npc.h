@@ -1,11 +1,14 @@
 #ifndef			__NPC_H__
 # define		__NPC_H__
 
+#include		"t_image.h"
+
 typedef struct		s_npc
 {
   int			x;
   int			y;
   int			vx;
+  int			move;
   int			frame;
   SDL_Surface		*img1;
   SDL_Surface		*img2;
