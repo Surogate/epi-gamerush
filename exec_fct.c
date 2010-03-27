@@ -105,7 +105,6 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   continuer = 1;
   img_init(&img);
   init(screen, &player, map);
-  printf("player %p\n", &player);
   while (continuer > 0)
     {
       blit_img_case(player.imageDeFond, screen, 0, 0);
