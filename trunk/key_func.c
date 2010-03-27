@@ -8,19 +8,14 @@
 
 int		press_up(t_player *player, t_map *map)
 {
-  if (player->position.y > 0)
+  if (map->map[player->position.y - 1][player->position.x] != 'w' &&
+      (map->map[player->position.y + 1][player->position.x] == 'w' ||
+       map->map[player->position.y + 1][player->position.x] == 's'))
     {
-      if (map->map[player->position.y - 2][player->position.x] != 'w' &&
-	  map->map[player->position.y - 1][player->position.x] != 'w' &&
-	  (map->map[player->position.y - 1][player->position.x] != 'w' ||
-	   map->map[player->position.y + 1][player->position.x] == 's'))
-	{
-	  player->position.y -= 2;
-	}
-      return (1);
+      player->position.y -= 1;
+      return (42);
     }
-  else
-    return (2);
+  return (1);
 }
 
 int		press_down(t_player *player, t_map *map)

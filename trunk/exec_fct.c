@@ -106,20 +106,38 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   int		continuer;
   t_image	img;
   int		test;
+  int		pouet;
 
   SDL_EnableKeyRepeat(10, 50);
   continuer = 1;
   img_init(&img);
   init(&player, map);
+  pouet = 0;
   while (continuer > 0)
     {
       display_map(screen, map, &img);
       display_npc(screen, &player);
-      gravite(&player, map);
       SDL_Flip(screen);
-      test = SDL_PollEvent(&event);
-      if (test)
-	continuer = event_loop(&event, &player, map);
+      if (continuer != 42)
+	{
+	  test = SDL_PollEvent(&event);
+	  if (test)
+	    continuer = event_loop(&event, &player, map);
+	}
+      else
+	{
+	  pouet++;
+	  if (map->map[player.position.y - 1][player.position.x] != 'w')
+	    player.position.y--;
+	  continuer = 1;
+	}
+      if (continuer == 42)
+	pouet++;
+      if (pouet == 0)
+	gravite(&player, map);
+      if (pouet >= 2)
+	  pouet = 0;
+      SDL_Delay(50);
     }
   return (EXIT_SUCCESS);
 }
