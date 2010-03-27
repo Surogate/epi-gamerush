@@ -111,7 +111,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   SDL_EnableKeyRepeat(10, 50);
   continuer = 1;
   img_init(&img);
-  init(&player, map);
+  init(&player, map, img.hero);
   pouet = 0;
   while (continuer > 0)
     {

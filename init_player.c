@@ -29,7 +29,7 @@ void		search_pos(t_map *map, int *res)
     }
 }
 
-void		init(t_player *player, t_map *map)
+void		init(t_player *player, t_map *map, SDL_Surface *img)
 {
   int		pos[2];
 
@@ -43,5 +43,5 @@ void		init(t_player *player, t_map *map)
   player->direction = 1;
   player->img_lenght = 10;
   player->img_height = 10;
-  player->player_img = SDL_LoadBMP("image/Kong.bmp");
+  player->player_img = img;
 }
