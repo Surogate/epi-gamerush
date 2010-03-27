@@ -14,8 +14,10 @@
 #include	<SDL/SDL.h>
 #include	"t_image.h"
 #include	"err.h"
-#include	"exec_fct.h"
 #include	"map.h"
+#include	"npc.h"
+#include	"env.h"
+#include	"exec_fct.h"
 #include	"define.h"
 #include	"windows.h"
 
