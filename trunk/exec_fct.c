@@ -12,6 +12,7 @@
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<SDL/SDL.h>
+
 #include	"t_image.h"
 #include	"env.h"
 #include	"exec_fct.h"
