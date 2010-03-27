@@ -12,7 +12,9 @@
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<SDL/SDL.h>
+#include	"define.h"
 #include	"t_image.h"
+#include	"image_fct.h"
 #include	"map.h"
 #include	"npc.h"
 #include	"env.h"
@@ -84,4 +86,60 @@ void		display_npcs(SDL_Surface *screen, t_npc *npc)
 	}
       npc = npc->next;
     }
+}
+
+void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
+{
+  int width;
+  int height;
+
+  height = 0;
+  while (height < map->height)
+    {
+      width = 0;
+      while (width < map->width)
+	{
+	  if (map->map[height][width] == 'w')
+	    blit_img_case(img->wall, screen, width, height);
+	  else if (map->map[height][width] == 's')
+	    blit_img_case(img->ladder, screen, width, height);
+	  else if (map->map[height][width] == '.')
+	    blit_img_case(img->white, screen, width, height);
+	  else if (map->map[height][width] == 'i')
+	    blit_img_case(img->enter, screen, width, height);
+	  else if (map->map[height][width] == 'o')
+	    blit_img_case(img->exit, screen, width, height);
+	  else if (map->map[height][width] == 'm')
+	    blit_img_case(img->monster1, screen, width, height);
+	  else if (map->map[height][width] == 'k')
+	    blit_img_case(img->key, screen, width, height);
+	  width++;
+	}
+      height++;
+    }
+}
+
+test		*init_da_tab()
+{
+  test		*res;
+
+  res = malloc(7 * sizeof(*res));
+  if (res)
+    {
+      res[0].obj = '.';
+      res[0].img = img_load(WHIT_DIR);
+      res[1].obj = 's';
+      res[1].img = img_load(WALL_DIR);
+      res[2].obj = 'w';
+      res[2].img = img_load(LAD_DIR);
+      res[3].obj = 'm';
+      res[3].img = img_load(MON_DIR1);
+      res[4].obj = 'o';
+      res[4].img = img_load(EXIT_DIR);
+      res[5].obj = 'i';
+      res[5].img = img_load(ENT_DIR);
+      res[6].obj = 'k';
+      res[6].img = img_load(KEY_DIR);
+    }
+  return (res);
 }
