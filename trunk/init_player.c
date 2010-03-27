@@ -40,7 +40,7 @@ void		init(t_player *player, t_map *map, t_image *img)
   search_pos(map, pos);
   player->position.x = pos[0];
   player->position.y = pos[1];
-  player->move = 0;
+  player->move = 5;
   player->life = 1;
   player->weapon = 0;
   player->direction = 1;

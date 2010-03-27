@@ -199,6 +199,12 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 	gravite(&player, map);
       if (pouet >= 2)
 	pouet = 0;
+      if (!player.move)
+	{
+	  if (!monsters->move)
+	    monsters->move = 5;
+	  monster_time(&player, map, monsters);
+	}
       SDL_Delay(50);
     }
   return (EXIT_SUCCESS);
