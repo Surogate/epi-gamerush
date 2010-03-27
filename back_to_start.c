@@ -13,6 +13,7 @@
 #include	"map.h"
 #include	"npc.h"
 #include	"env.h"
+#include	"init_player.h"
 #include	"back_to_start.h"
 
 void		are_you_dying(t_npc *npc, t_player *player, t_map *map)
