@@ -18,6 +18,11 @@
 
 #define WIN_COLOR  16
 
+/*Player's define*/
+#define	LIFE		1
+#define	START_WEAPON	0
+
+/*Img's define*/
 #define MON_DIR "./image/monstre.bmp"
 #define WALL_DIR "./image/wall.bmp"
 #define LAD_DIR "./image/ladder.bmp"
