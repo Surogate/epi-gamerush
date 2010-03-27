@@ -48,13 +48,13 @@ int		event_loop(SDL_Event *event, t_player *player, t_map *map)
   while (event_func[i].type)
     {
       if (event->type == event_func[i].type)
-	continuer = event_func[i].func(event, player, map);
+	continuer = event_func[i].func(player, map);
       i++;
     }
   return (continuer);
 }
 
-int		key_func(SDL_Event *event, t_player *player, t_map *map)
+int		key_func(t_player *player, t_map *map)
 {
   int		i;
   int		retour;
