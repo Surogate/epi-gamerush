@@ -29,7 +29,7 @@ int		press_down(t_player *player)
 
 int		press_left(t_player *player)
 {
-  if (player->position.x)
+  if (player->position.x > 0)
     {
       player->position.x -= 10;
       return (1);
