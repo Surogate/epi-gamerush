@@ -51,7 +51,6 @@ int		img_init(t_image *img)
   SDL_SetColorKey(img->hero2, SDL_RLEACCEL | SDL_SRCCOLORKEY, SDL_MapRGB(img->hero2->format, 255, 255, 255));
   SDL_SetColorKey(img->hero3, SDL_RLEACCEL | SDL_SRCCOLORKEY, SDL_MapRGB(img->hero3->format, 255, 255, 255));
   img->key = img_load(KEY_DIR);
-  /*  SDL_SetColorKey(img->key, SDL_SRCCOLORKEY, SDL_MapRGB(img->key->format, 255, 255, 255));*/
   return (EXIT_SUCCESS);
 }
 
