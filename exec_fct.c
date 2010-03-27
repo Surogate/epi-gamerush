@@ -85,9 +85,11 @@ void		display_npc(SDL_Surface *screen, t_map *map, t_player *player)
   blit_img_case(player->player_img, screen, player->position.x, player->position.y);
 }
 
-void		gravite(t_player *player)
+void		gravite(t_player *player, t_map *map)
 {
-  player->position.y += 1;
+  if (map->map[player->position.y + 1][player->position.x] != 'w' &&
+      map->map[player->position.y + 1][player->position.x] != 's')
+    player->position.y += 1;
 }
 
 int		exec_fct(SDL_Surface *screen, t_map *map)
@@ -120,8 +122,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 	      i++;
 	    }
 	}
-      /*gravite(&player);*/
-      /* aff(screen, &player);*/
+      gravite(&player, map);
     }
   return (EXIT_SUCCESS);
 }

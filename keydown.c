@@ -4,6 +4,7 @@
 #include	<SDL/SDL.h>
 #include	"key.h"
 #include	"env.h"
+#include	"map.h"
 
 t_key		key_list[]=
   {
@@ -15,7 +16,7 @@ t_key		key_list[]=
     {0,0}
   };
 
-int		key_func(SDL_Event *event, SDL_Surface *screen, t_player *player)
+int		key_func(SDL_Event *event, SDL_Surface *screen, t_player *player, t_map *map)
 {
   int		i;
   int		retour;
@@ -25,7 +26,7 @@ int		key_func(SDL_Event *event, SDL_Surface *screen, t_player *player)
   while (key_list[i].keycode)
     {
       if (key_list[i].keycode == event->key.keysym.sym)
-	retour = key_list[i].func(player);
+	retour = key_list[i].func(player, map);
       i++;
     }
   return (retour);
