@@ -36,6 +36,8 @@ $(NAME)	: $(OBJS)
 
 all	: $(NAME)
 
+.c.o	: $(CC) -c -o $@ $<
+
 clean	:
 	$(RM) $(OBJS)
 
