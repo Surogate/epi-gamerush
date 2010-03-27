@@ -9,12 +9,17 @@
 
 void			add_npc(t_npc **list, int x, int y, t_image *img)
 {
+  static int		nb = 0;
   t_npc			*new;
 
+  nb++;
+  if (nb == 3)
+    nb = 0;
   new = xmalloc(sizeof(*new));
   new->x = x;
   new->y = y;
   new->vx = 1;
+  new->frame = nb;
   new->img1 = img->monster1;
   new->img2 = img->monster2;
   new->img3 = img->monster3;
