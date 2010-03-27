@@ -13,7 +13,6 @@
 #include		<stdlib.h>
 #include		<string.h>
 #include		<unistd.h>
-
 #include		"err.h"
 
 int			xwrite(int fd, char *str, int len)
@@ -53,11 +52,11 @@ void			*xrealloc(void *ptr, int s)
 }
 
 
-char		*get_file_content(char *path)
+char			*get_file_content(char *path)
 {
-  char          *buffer;
-  int           fd;
-  int           file_size;
+  char			*buffer;
+  int			fd;
+  int			file_size;
 
   buffer = NULL;
   if ((fd = open(path, O_RDONLY)) != -1)
