@@ -246,18 +246,6 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
       display_player(screen, &player);
       SDL_Flip(screen);
       player_act(&jump, &continuer, map, &player);
-      /*
-      if (continuer == 42)
-	{
-	  jump++;
-	  if (map->map[player.position.y - 1][player.position.x] != 'w')
-	    player.position.y--;
-	  continuer = 1;
-	}
-      else
-	continuer = handle_event(&player, map);
-      if (continuer == 42)
-      jump++;*/
       env_act(&jump, map, &player, monsters);
     }
   return (EXIT_SUCCESS);
