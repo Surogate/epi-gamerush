@@ -54,6 +54,11 @@ void		display_npc(SDL_Surface *screen, t_map *map)
 {
 }
 
+void		gravite(t_player *player)
+{
+  player->position.y += 1;
+}
+
 int		exec_fct(SDL_Surface *screen, t_map *map)
 {
   SDL_Event	event;
@@ -61,6 +66,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   int		i; 
   int		continuer;
   t_image	img;
+  int		test;
 
   SDL_EnableKeyRepeat(1, 10);
   continuer = 1;
@@ -69,14 +75,19 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
     {
       display_map(screen, map);
       display_npc(screen, map);
-      SDL_WaitEvent(&event);
-      i = 0;
-      while (event_func[i].type)
+      test = SDL_PollEvent(&event);
+      if (test)
 	{
-	  if (event.type == event_func[i].type)
-	    continuer = event_func[i].func(&event, screen, &player);
-	  i++;
+	  i = 0;
+	  while (event_func[i].type)
+	    {
+	      if (event.type == event_func[i].type)
+		continuer = event_func[i].func(&event, screen, &player);
+	      i++;
+	    }
 	}
+      gravite(&player);
+      aff(screen, &player);
     }
   return (EXIT_SUCCESS);
 }
