@@ -26,7 +26,10 @@ int		main(int ac, char **av)
   if (ac > 1)
     map = get_map(av[1]);
   else
-    return (EXIT_SUCCESS);
+    {
+      printf("Usage : ./prog [map/?.map]");
+      return (EXIT_SUCCESS);
+    }
   if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
       fprintf(stderr, "Can't init SDL: %s\n", SDL_GetError());
