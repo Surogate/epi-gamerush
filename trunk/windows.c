@@ -55,10 +55,11 @@ void		print_menu(SDL_Surface *screen, TTF_Font *font)
     "Stage 3",
     "Stage 4",
     "Stage 5",
+    "Exit",
     NULL};
 
-  pos.x = 388 + 10;
-  pos.y = 380;
+  pos.x = MENU_X + 10;
+  pos.y = MENU_Y;
   i = 0;
   while (name[i])
     {
