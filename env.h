@@ -10,6 +10,7 @@
 typedef	struct	s_player
 {
   SDL_Rect	position;
+  SDL_Rect	vitesse;
   SDL_Surface	*player_img;
   SDL_Surface	*imageDeFond;
   int		img_height;
