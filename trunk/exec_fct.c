@@ -115,11 +115,11 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
     {
       display_map(screen, map, &img);
       display_npc(screen, &player);
+      gravite(&player, map);
       SDL_Flip(screen);
       test = SDL_PollEvent(&event);
       if (test)
 	continuer = event_loop(&event, &player, map);
-      gravite(&player, map);
     }
   return (EXIT_SUCCESS);
 }
