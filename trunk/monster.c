@@ -8,6 +8,8 @@
 ** Last update Fri Mar 26 22:14:43 2010 francois1 ancel
 */
 
+#include		<SDL/SDL.h>
+#include		"t_image.h"
 #include		"env.h"
 
 int			monster_time(t_player *player, t_map *map, t_npc *npc)

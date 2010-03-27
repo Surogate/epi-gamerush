@@ -3,6 +3,7 @@
 */
 
 #include	<SDL/SDL.h>
+#include	"t_image.h"
 #include	"key.h"
 #include	"env.h"
 #include	"map.h"

@@ -11,8 +11,6 @@
 #ifndef			__NPC_H__
 # define		__NPC_H__
 
-#include		"t_image.h"
-
 typedef struct		s_npc
 {
   int			x;
