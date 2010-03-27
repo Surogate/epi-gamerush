@@ -46,6 +46,15 @@ void		init_screen(SDL_Surface *screen)
   SDL_FreeSurface(imageDeFond);
 }
 
+void		display_map(SDL_Surface *screen, t_map *map)
+{
+  
+}
+
+void		display_npc(SDL_Surface *screen, t_map *map)
+{
+}
+
 int		exec_fct(SDL_Surface *screen, t_map *map)
 {
   SDL_Event	event;
@@ -58,6 +67,8 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   init_screen(screen);
   while (continuer > 0)
     {
+      display_map(screen, map);
+      display_npc()
       SDL_WaitEvent(&event);
       i = 0;
       while (event_func[i].type)
