@@ -19,6 +19,12 @@ typedef struct	s_func
   int		(*func)();
 }		t_func;
 
+typedef struct
+{
+  char		*str;
+  SDL_Surface	*img;
+}		t_dispmap;
+
 int		exec_fct();
 int		key_func(SDL_Event *event, SDL_Surface *screen, t_player *player);
 #endif

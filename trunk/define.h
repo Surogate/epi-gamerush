@@ -23,11 +23,13 @@
 #define	START_WEAPON	0
 
 /*Img's define*/
-#define MON_DIR "./image/monstre.bmp"
-#define WALL_DIR "./image/Wall.bmp"
-#define LAD_DIR "./image/ladder.bmp"
-#define EXIT_DIR "./image/exit2.bmp"
-#define ENT_DIR "./image/enter.bmp"
-#define PLA_DIR "./image/Kong.h"
+#define HERO_DIR	"./image/kong.bmp"
+#define	WHIT_DIR	"./image/white.bmp"
+#define MON_DIR		"./image/monstre.bmp"
+#define WALL_DIR	"./image/Wall.bmp"
+#define LAD_DIR		"./image/ladder.bmp"
+#define EXIT_DIR	"./image/exit2.bmp"
+#define ENT_DIR		"./image/enter.bmp"
+#define PLA_DIR		"./image/Kong.h"
 
 #endif
