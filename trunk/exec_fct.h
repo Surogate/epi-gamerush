@@ -10,6 +10,7 @@
 
 #ifndef EXEC_FCT_C_INCLUDED
 # define EXEC_FCT_C_INCLUDED
+
 #include	<SDL/SDL.h>
 #include	"env.h"
 #include	"map.h"
