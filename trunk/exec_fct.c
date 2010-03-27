@@ -21,6 +21,31 @@
 #include "keydown.h"
 #include "exec_fct.h"
 
+test		*init_da_tab()
+{
+  test		*res;
+
+  test = malloc(7 * sizeof(*res));
+  if (test)
+    {
+      test[0]->obj = '.';
+      test[0]->img = img_load(WHIT_DIR);
+      test[1]->obj = 's';
+      test[1]->img = img_load(WALL_DIR);
+      test[2]->obj = 'w';
+      test[2]->img = img_load(LAD_DIR);
+      test[3]->obj = 'm';
+      test[3]->img = img_load(MON_DIR);
+      test[4]->obj = 'o';
+      test[4]->img = img_load(EXIT_DIR);
+      test[5]->obj = 'i';
+      test[5]->img = img_load(ENT_DIR);
+      test[6]->obj = 'k';
+      test[6]->img = img_load(KEY_DIR);
+    }
+  return (res);
+}
+
 void		blit_img_case(SDL_Surface *img, SDL_Surface *to, int x, int y)
 {
   SDL_Rect	pos;
