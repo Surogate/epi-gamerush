@@ -27,7 +27,7 @@ void		search_pos(t_map *map, int *res)
       width = 0;
       while (width < map->width)
 	{
-	  if (map->map[height][width] == 'i')
+	  if (map->map[height][width] == ENTER_CHAR)
 	    {
 	      res[0] = width;
 	      res[1] = height;

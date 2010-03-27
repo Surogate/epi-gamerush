@@ -14,8 +14,8 @@ void		gravite(t_player *player, t_map *map)
   static int		tempsActuel = 0;
   static int		tempsPrecedent = 0;
 
-  if (map->map[player->position.y + 1][player->position.x] != 'w' &&
-      map->map[player->position.y + 1][player->position.x] != 's')
+  if (map->map[player->position.y + 1][player->position.x] != WALL_CHAR &&
+      map->map[player->position.y + 1][player->position.x] != LADDER_CHAR)
     {
       tempsActuel = SDL_GetTicks();
       if (tempsActuel - tempsPrecedent > 30)
@@ -62,7 +62,7 @@ void		player_act(int *jump, int *continuer,
   if (*continuer == 42)
     {
       *jump = *jump + 1;
-      if (map->map[player->position.y - 1][player->position.x] != 'w')
+      if (map->map[player->position.y - 1][player->position.x] != WALL_CHAR)
 	player->position.y--;
       *continuer = 1;
     }

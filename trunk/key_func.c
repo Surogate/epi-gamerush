@@ -23,10 +23,10 @@ int		pass(t_player *player)
 
 int		press_up(t_player *player, t_map *map)
 {
-  if (map->map[player->position.y - 1][player->position.x] != 'w' &&
-      (map->map[player->position.y + 1][player->position.x] == 'w' ||
-       map->map[player->position.y + 1][player->position.x] == 's' ||
-       map->map[player->position.y][player->position.x] == 's'))
+  if (map->map[player->position.y - 1][player->position.x] != WALL_CHAR &&
+      (map->map[player->position.y + 1][player->position.x] == WALL_CHAR ||
+       map->map[player->position.y + 1][player->position.x] == LADDER_CHAR ||
+       map->map[player->position.y][player->position.x] == LADDER_CHAR))
     {
       if (player->move)
 	{
@@ -41,7 +41,7 @@ int		press_up(t_player *player, t_map *map)
 
  int		press_down(t_player *player, t_map *map)
  {
-   if (map->map[player->position.y + 1][player->position.x] != 'w')
+   if (map->map[player->position.y + 1][player->position.x] != WALL_CHAR)
      {
        if (player->move)
 	 {
@@ -55,7 +55,7 @@ int		press_up(t_player *player, t_map *map)
 
 int		press_left(t_player *player, t_map *map)
 {
-  if (map->map[player->position.y][player->position.x - 1] != 'w')
+  if (map->map[player->position.y][player->position.x - 1] != WALL_CHAR)
     {
       if (player->move)
 	{
@@ -70,7 +70,7 @@ int		press_left(t_player *player, t_map *map)
 
 int		press_right(t_player *player, t_map *map)
 {
-  if (map->map[player->position.y][player->position.x + 1] != 'w')
+  if (map->map[player->position.y][player->position.x + 1] != WALL_CHAR)
     {
       if (player->move)
 	{
