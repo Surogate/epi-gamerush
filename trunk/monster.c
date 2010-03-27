@@ -23,9 +23,11 @@ int			monster_time(t_player *player, t_map *map, t_npc *npc)
     {
       while (npc)
 	{
-	  if (map->map[npc->y][npc->x + npc->vx] != 'w' &&
+	  if ((map->map[npc->y][npc->x + npc->vx] != 'w' ||
+	       map->map[npc->y][npc->x + npc->vx] == 's') &&
 	      (map->map[npc->y + 1][npc->x + npc->vx] == 'w' ||
-	       map->map[npc->y + 1][npc->x + npc->vx] == 's'))
+	       map->map[npc->y + 1][npc->x + npc->vx] == 's') &&
+	      map->map[npc->y][npc->x + npc->vx] != 'i')
 	    npc->x += npc->vx;
 	  else
 	    npc->vx *= -1;
