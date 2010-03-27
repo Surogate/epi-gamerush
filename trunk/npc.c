@@ -12,6 +12,7 @@ void			add_npc(t_npc **list, int x, int y)
   new = xmalloc(sizeof(*new));
   new->x = x;
   new->y = y;
+  new->vx = 1;
   new->next = *list;
   *list = new;
 }

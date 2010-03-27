@@ -21,7 +21,7 @@ SRCS	= err.c			\
 	xio.c
 
 OBJS	= $(SRCS:.c=.o)
-CFLAGS	= -W -Wall -Wextra -O3 -ansi
+CFLAGS	= -W -Wall -Wextra -O3 -ansi -pedantic
 LDFLAGS	= -lSDLmain -lSDL
 
 $(NAME)	: $(OBJS)
