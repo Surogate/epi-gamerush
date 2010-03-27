@@ -8,12 +8,12 @@
 ** Last update Fri Mar 26 23:59:40 2010 francois1 ancel
 */
 
-#ifndef IMAGE_FCT_C_INCLUDED
-# define IMAGE_FCT_C_INCLUDED
+#ifndef		IMAGE_FCT_C_INCLUDED
+# define	IMAGE_FCT_C_INCLUDED
 
 SDL_Surface	*img_load(char *path);
 int		img_init(t_image *img);
 int		img_delete(t_image *img);
 void		next_lvl(SDL_Surface *ecran);
 
-#endif
+#endif		/* IMAGE_FCT_C_INCLUDED */
