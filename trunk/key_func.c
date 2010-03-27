@@ -14,6 +14,12 @@
 #include	"env.h"
 #include	"map.h"
 
+int		pass(t_player *player)
+{
+  player->move = 0;
+  return (1);
+}
+
 int		press_up(t_player *player, t_map *map)
 {
   if (map->map[player->position.y - 1][player->position.x] != 'w' &&

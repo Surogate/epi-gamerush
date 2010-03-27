@@ -23,6 +23,7 @@ t_key		key_list[]=
     {SDLK_RIGHT, press_right},
     {SDLK_UP, press_up},
     {SDLK_DOWN, press_down},
+    {SDLK_SPACE, pass},
     {0,0}
   };
 
