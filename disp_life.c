@@ -1,12 +1,17 @@
 /*
+** define for project in /u/all/ancel_a/cu/travail/c/
 **
+** Made by francois1 ancel
+** Login   <ancel_a@epitech.net>
+**
+** Started on  Fri Mar 26 22:16:19 2010 francois1 ancel
+** Last update Fri Mar 26 22:16:19 2010 francois1 ancel
 */
 
 #include	<unistd.h>
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<SDL/SDL.h>
-
 #include	"err.h"
 #include	"exec_fct.h"
 #include	"map.h"
@@ -16,15 +21,13 @@
 #include	"t_image.h"
 #include	"image_fct.h"
 
-
-/*gcc -lSDLmain -lSDL -o test disp_life.c image_fct.c*/
-
 void			act_life()
 {
   
 }
 
-void			disp_life(SDL_Surface *ecran, int px, int py, t_player *player)
+void			disp_life(SDL_Surface *ecran, int px, 
+				  int py, t_player *player)
 {
   SDL_Surface		*lvl = NULL;
   SDL_Rect		pos_lvl;
