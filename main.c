@@ -21,14 +21,15 @@
 #include	"define.h"
 #include	"windows.h"
 
-int		main(int ac, char **av)
+int		main()
 {
   int		result;
 
-  result = EXIT_SUCCESS;
+  /*  result = EXIT_SUCCESS;
   if (ac > 1)
     result = exec_map(av[1]);
   else
     printf("Usage : ./prog [map/?.map]\n");
-  return (result);
+    return (result);*/
+  exec_menu();
 }
