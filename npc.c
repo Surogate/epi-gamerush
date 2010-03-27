@@ -28,7 +28,7 @@ void			add_npc(t_npc **list, int x, int y, t_image *img)
   new->x = x;
   new->y = y;
   new->move = 0;
-  new->vx = 1;
+  new->vx = -1;
   new->frame = nb;
   new->img1 = img->monster1;
   new->img2 = img->monster2;
