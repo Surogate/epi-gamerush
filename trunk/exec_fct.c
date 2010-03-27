@@ -112,6 +112,7 @@ void		gravite(t_player *player, t_map *map)
   if (player->position.y + 1 < map->height)
     {
       if (map->map[player->position.y + (1)][player->position.x] != 'w' &&
+	  map->map[player->position.y][player->position.x] != 's' &&
 	  map->map[player->position.y + (1)][player->position.x] != 's')
 	{
 	  player->position.y += 1;
