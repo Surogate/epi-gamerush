@@ -30,6 +30,6 @@
 #define LAD_DIR		"./image/ladder.bmp"
 #define EXIT_DIR	"./image/exit2.bmp"
 #define ENT_DIR		"./image/enter.bmp"
-#define PLA_DIR		"./image/Kong.h"
+#define KEY_DIR		
 
 #endif

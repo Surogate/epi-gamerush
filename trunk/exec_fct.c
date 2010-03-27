@@ -20,29 +20,17 @@
 #include "image_fct.h"
 #include "exec_fct.h"
 
-int		exit_func()
-{
-  return (0);
-}
-
-void		aff(SDL_Surface *screen, t_player *player)
-{
-  SDL_Rect	position;
-
-  position.x = 0;
-  position.y = 0;
-  SDL_BlitSurface(player->imageDeFond, NULL, screen, &position);
-  SDL_BlitSurface(player->player_img, NULL, screen, &player->position);
-  SDL_Flip(screen);
-}
-
-
 t_func		event_func[]=
   {
     {SDL_QUIT, exit_func},
     {SDL_KEYDOWN, key_func},
     {0,0}
   };
+
+int		exit_func()
+{
+  return (0);
+}
 
 void		blit_img_case(SDL_Surface *img, SDL_Surface *to, int x, int y)
 {
@@ -84,7 +72,8 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
 
 void		display_npc(SDL_Surface *screen, t_player *player)
 {
-  blit_img_case(player->player_img, screen, player->position.x, player->position.y);
+  blit_img_case(player->player_img, screen,
+		player->position.x, player->position.y);
 }
 
 void		gravite(t_player *player, t_map *map)
@@ -98,7 +87,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 {
   SDL_Event	event;
   t_player	player;
-  int		i; 
+  int		i;
   int		continuer;
   t_image	img;
   int		test;

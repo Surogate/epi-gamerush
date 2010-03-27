@@ -39,6 +39,7 @@ int		img_init(t_image *img)
   img->exit = img_load(EXIT_DIR);
   img->enter = img_load(ENT_DIR);
   img->hero = img_load(HERO_DIR);
+  img->key = img_load(KEY_DIR);
   return (EXIT_SUCCESS);
 }
 
@@ -51,5 +52,6 @@ int		img_delete(t_image *img)
   SDL_FreeSurface(img->exit);
   SDL_FreeSurface(img->enter);
   SDL_FreeSurface(img->hero);
+  SDL_FreeSurface(img->key);
   return (EXIT_SUCCESS);
 }

@@ -20,6 +20,7 @@ typedef struct
   SDL_Surface	*exit;  
   SDL_Surface	*enter;
   SDL_Surface	*hero;
+  SDL_Surface	*key;
 }		t_image;
 
 #endif
