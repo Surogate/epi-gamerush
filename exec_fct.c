@@ -22,7 +22,7 @@
 #include	"keydown.h"
 #include	"map.h"
 #include	"npc.h"
-
+#include	"back_to_start.h"
 
 test		*init_da_tab()
 {

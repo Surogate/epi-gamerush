@@ -13,6 +13,6 @@
 
 int		exit_func();
 int		event_loop(SDL_Event *event, t_player *player, t_map *map);
-int		key_func(SDL_Event *event, t_player *player, t_map *map);
+int		key_func(t_player *player, t_map *map);
 
 #endif
