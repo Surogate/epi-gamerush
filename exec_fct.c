@@ -100,6 +100,7 @@ void		display_npc(SDL_Surface *screen, t_player *player, t_npc *npc)
       npc = npc->next;
     }
 }
+
 /*
 int		find_path(SDL_Rect *position, t_map *map, int i)
 {
@@ -108,6 +109,7 @@ int		find_path(SDL_Rect *position, t_map *map, int i)
 
 }
 */
+
 void		gravite(t_player *player, t_map *map)
 {
   static int		tempsActuel = 0;
