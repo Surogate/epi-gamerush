@@ -13,7 +13,7 @@ int		press_up(t_player *player)
       return (1);
     }
   else
-    return (0);
+    return (2);
 }
 
 int		press_down(t_player *player)
@@ -24,7 +24,7 @@ int		press_down(t_player *player)
       return (1);
     }
   else
-    return (0);
+    return (2);
 }
 
 int		press_left(t_player *player)
@@ -35,7 +35,7 @@ int		press_left(t_player *player)
       return (1);
     }
   else
-    return (0);
+    return (2);
 }
 
 int		press_right(t_player *player)
@@ -46,5 +46,5 @@ int		press_right(t_player *player)
       return (1);
     }
   else
-    return (0);
+    return (2);
 }
