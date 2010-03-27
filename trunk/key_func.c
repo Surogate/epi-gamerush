@@ -7,7 +7,7 @@
 
 int		press_up(t_player *player)
 {
-  if (player->position.y)
+  if (player->position.y > 0)
     {
       player->position.y -= 10;
       return (1);
