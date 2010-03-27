@@ -90,13 +90,39 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
     }
 }
 
-void		display_npc(SDL_Surface *screen, t_player *player, t_npc *npc)
+void		display_player(SDL_Surface *screen, t_player *player)
 {
-  blit_img_case(player->player_img1, screen,
-		player->position.x, player->position.y);
+  static int	cpt = 0;
+
+  cpt++;
+  if (cpt == 3)
+    {
+      cpt = 0;
+      blit_img_case(player->player_img1, screen,
+		    player->position.x, player->position.y);
+    }
+  else if (cpt == 1)
+    blit_img_case(player->player_img2, screen,
+		  player->position.x, player->position.y);
+  else
+    blit_img_case(player->player_img3, screen,
+		  player->position.x, player->position.y);
+}
+
+void		display_npcs(SDL_Surface *screen, t_npc *npc)
+{
   while (npc != 0)
     {
-      blit_img_case(npc->img1, screen, npc->x, npc->y);
+      npc->frame++;
+      if (npc->frame == 3)
+	{
+	  npc->frame = 0;
+	  blit_img_case(npc->img1, screen, npc->x, npc->y);
+	}
+      else if (npc->frame == 1)
+	blit_img_case(npc->img2, screen, npc->x, npc->y);
+      else
+	blit_img_case(npc->img3, screen, npc->x, npc->y);
       npc = npc->next;
     }
 }
@@ -151,7 +177,8 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   while (continuer > 0)
     {
       display_map(screen, map, &img);
-      display_npc(screen, &player, monsters);
+      display_npcs(screen, monsters);
+      display_player(screen, &player);
       SDL_Flip(screen);
       if (continuer != 42)
 	{

@@ -6,6 +6,7 @@ typedef struct		s_npc
   int			x;
   int			y;
   int			vx;
+  int			frame;
   SDL_Surface		*img1;
   SDL_Surface		*img2;
   SDL_Surface		*img3;
