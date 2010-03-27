@@ -8,8 +8,8 @@
 ** Last update Fri Mar 26 21:46:17 2010 francois1 ancel
 */
 
-#ifndef T_IMAGE_INCLUDED
-# define T_IMAGE_INCLUDED
+#ifndef		T_IMAGE_INCLUDED
+# define	T_IMAGE_INCLUDED
 
 typedef struct	s_image
 {
