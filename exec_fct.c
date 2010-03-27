@@ -68,7 +68,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   while (continuer > 0)
     {
       display_map(screen, map);
-      display_npc()
+      display_npc(screen, map);
       SDL_WaitEvent(&event);
       i = 0;
       while (event_func[i].type)

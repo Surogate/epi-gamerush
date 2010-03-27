@@ -16,6 +16,7 @@ SRCS	= err.c			\
 	image_fct.c		\
 	map.c			\
 	main.c			\
+	windows.c		\
 	xio.c
 
 OBJS	= $(SRCS:.c=.o)
