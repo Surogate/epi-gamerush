@@ -8,7 +8,7 @@
 ## Last update Fri Mar 26 22:19:44 2010 francois1 ancel
 ##
 
-NAME	= epikong_etape_1
+NAME	= epikong_etape_2
 CC	= gcc
 RM	= rm -rf
 SRCS	= err.c			\
@@ -29,7 +29,7 @@ SRCS	= err.c			\
 
 OBJS	= $(SRCS:.c=.o)
 CFLAGS	= -W -Wall -Wextra -g3 -ansi -pedantic
-LDFLAGS	= -lSDLmain -lSDL
+LDFLAGS	= -lSDLmain -lSDL -lSDL_ttf
 
 $(NAME)	: $(OBJS)
 	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS)

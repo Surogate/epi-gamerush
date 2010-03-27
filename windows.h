@@ -12,5 +12,7 @@
 # define WINDOWS_C_INCLUDED
 
 SDL_Surface	*creat_win(t_map *map);
+char		*exec_menu();
+int		exec_map(char *path);
 
 #endif
