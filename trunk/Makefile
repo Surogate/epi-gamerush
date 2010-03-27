@@ -14,6 +14,9 @@ RM	= rm -rf
 SRCS	= err.c			\
 	exec_fct.c		\
 	image_fct.c		\
+	key_func.c		\
+	init_player.c		\
+	keydown.c		\
 	map.c			\
 	main.c			\
 	npc.c			\
