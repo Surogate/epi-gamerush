@@ -17,6 +17,7 @@
 # define ENTER_CHAR	'i'
 # define EXIT_CHAR	'o'
 # define EMPTY_CHAR	'.'
+# define KEY_CHAR	'k'
 
 typedef struct		s_map
 {

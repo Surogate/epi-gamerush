@@ -74,23 +74,40 @@ t_map			*get_map(char *path)
   return (map);
 }
 
+void			checks(char cur, int *entry)
+{
+  if (cur == ENTER_CHAR)
+    *entry = 1;
+  if (cur != WALL_CHAR && cur != KEY_CHAR && cur != MONSTER_CHAR
+      && cur != LADDER_CHAR && cur != EMPTY_CHAR && cur != EXIT_CHAR
+      && cur != ENTER_CHAR)
+    err_inside("The map contains an unknown object.", 1);
+}
+
 t_map			*check_map(t_map *map)
 {
   int			x;
   int			y;
+  char			cur;
+  int			enter_exists;
 
   y = 0;
+  enter_exists = 0;
   while (y < map->height)
     {
       x = 0;
       while (x < map->width)
 	{
-	  if (map->map[y][x] != WALL_CHAR &&
+	  cur = map->map[y][x];
+	  checks(cur, &enter_exists);
+	  if (cur != WALL_CHAR &&
 	      (y == 0 || y == map->height - 1 || x == 0 || x == map->width - 1))
 	    err_inside("Invalid map, holes exist on the edges.", 1);
 	  x++;
 	}
       y++;
     }
+  if (!enter_exists)
+    err_inside("No entry for spawning player character on the map.", 1);
   return (map);
 }
