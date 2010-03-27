@@ -75,9 +75,9 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
     }
 }
 
-void		display_npc(SDL_Surface *screen, t_map *map)
+void		display_npc(SDL_Surface *screen, t_map *map, t_player *player)
 {
-  
+  blit_img_case(player->player_img, screen, player->position.x, player->position.y);
 }
 
 void		gravite(t_player *player)
@@ -94,13 +94,16 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   t_image	img;
   int		test;
 
-  SDL_EnableKeyRepeat(1, 10);
+  SDL_EnableKeyRepeat(10, 50);
   continuer = 1;
   img_init(&img);
+  init(screen, &player, map);
   while (continuer > 0)
     {
+      blit_img_case(player.imageDeFond, screen, 0, 0);
       display_map(screen, map, &img);
-      display_npc(screen, map);
+      display_npc(screen, map, &player);
+      SDL_Flip(screen);
       test = SDL_PollEvent(&event);
       if (test)
 	{
@@ -112,8 +115,8 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 	      i++;
 	    }
 	}
-      gravite(&player);
-      aff(screen, &player);
+      /*gravite(&player);*/
+      /* aff(screen, &player);*/
     }
   return (EXIT_SUCCESS);
 }
