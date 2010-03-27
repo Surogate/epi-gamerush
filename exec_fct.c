@@ -125,15 +125,6 @@ void		display_npcs(SDL_Surface *screen, t_npc *npc)
     }
 }
 
-/*
-int		find_path(SDL_Rect *position, t_map *map, int i)
-{
-  int		res;
-
-
-}
-*/
-
 void		gravite(t_player *player, t_map *map)
 {
   static int		tempsActuel = 0;
@@ -203,6 +194,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 	    monsters->move = 5;
 	  monster_time(&player, map, monsters);
 	}
+      are_you_dieing(monsters, &player, map);
       SDL_Delay(50);
     }
   return (EXIT_SUCCESS);
