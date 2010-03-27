@@ -91,12 +91,31 @@ void		display_npc(SDL_Surface *screen, t_player *player)
   blit_img_case(player->player_img, screen,
 		player->position.x, player->position.y);
 }
+/*
+int		find_path(SDL_Rect *position, t_map *map, int i)
+{
+  int		res;
 
+
+}
+*/
 void		gravite(t_player *player, t_map *map)
 {
-  if (map->map[player->position.y + 1][player->position.x] != 'w' &&
-      map->map[player->position.y + 1][player->position.x] != 's')
-    player->position.y += 1;
+  static int	i = 1;
+
+  if (player->position.y + 1 < map->height)
+    {
+      if (map->map[player->position.y + (1)][player->position.x] != 'w' &&
+	  map->map[player->position.y + (1)][player->position.x] != 's')
+	{
+	  player->position.y += 1;
+	  i *= 2;
+	}
+      else
+	i = 1;
+    }
+  else
+    i = 1;
 }
 
 int		exec_fct(SDL_Surface *screen, t_map *map)
@@ -108,7 +127,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   int		test;
   int		pouet;
 
-  SDL_EnableKeyRepeat(10, 50);
+  SDL_EnableKeyRepeat(10, 10);
   continuer = 1;
   img_init(&img);
   init(&player, map, img.hero);
