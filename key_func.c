@@ -13,13 +13,12 @@ int		press_up(t_player *player, t_map *map)
        map->map[player->position.y + 1][player->position.x] == 's' ||
        map->map[player->position.y][player->position.x] == 's'))
     {
-      if (player->move < 5)
+      if (player->move)
 	{
 	  player->position.y -= 1;
-	  player->move += 1;
+	  player->move -= 1;
 	  return (42);
 	}
-      monster_time(player, map);
       return (1);
      }
    return (1);
@@ -29,13 +28,11 @@ int		press_up(t_player *player, t_map *map)
  {
    if (map->map[player->position.y + 1][player->position.x] != 'w')
      {
-       if (player->move < 5)
+       if (player->move)
 	 {
 	   player->position.y += 1;
-	   player->move += 1;
-	   return (1);
+	   player->move -= 1;
 	 }
-       monster_time(player, map);
        return (1);
      }
    return (2);
@@ -45,13 +42,11 @@ int		press_left(t_player *player, t_map *map)
 {
   if (map->map[player->position.y][player->position.x - 1] != 'w')
     {
-      if (player->move < 5)
+      if (player->move)
 	{
 	  player->position.x -= 1;
-	  player->move += 1;
-	  return (1);
+	  player->move -= 1;
 	}
-      monster_time(player, map);
       return (1);
     }
   return (2);
@@ -61,13 +56,11 @@ int		press_right(t_player *player, t_map *map)
 {
   if (map->map[player->position.y][player->position.x + 1] != 'w')
     {
-      if (player->move < 5)
+      if (player->move)
 	{
 	  player->position.x += 1;
-	  player->move += 1;
-	  return (1);
+	  player->move -= 1;
 	}
-      monster_time(player, map);
       return (1);
     }
   return (2);

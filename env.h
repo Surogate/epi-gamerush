@@ -7,6 +7,7 @@
 
 #include	<SDL/SDL.h>
 #include	"map.h"
+#include	"npc.h"
 
 typedef struct	s_obj
 {
@@ -31,6 +32,6 @@ typedef	struct	s_player
   int		move;
 }		t_player;
 
-int		monster_time(t_player *player, t_map *map);
+int		monster_time(t_player *player, t_map *map, t_npc *npc);
 
 #endif
