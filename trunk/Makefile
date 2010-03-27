@@ -18,6 +18,7 @@ SRCS	= err.c			\
 	init_player.c		\
 	keydown.c		\
 	map.c			\
+	back_to_start.c		\
 	main.c			\
 	npc.c			\
 	windows.c		\
