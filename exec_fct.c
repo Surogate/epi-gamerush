@@ -12,14 +12,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <SDL/SDL.h>
-#include "exec_fct.h"
 #include "env.h"
 #include "define.h"
 #include "key.h"
 #include "map.h"
 #include "t_image.h"
 #include "image_fct.h"
-
+#include "exec_fct.h"
 
 int		exit_func()
 {
@@ -69,6 +68,12 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
 	    blit_img_case(img->wall, screen, width, height);
 	  else if (map->map[height][width] == 's')
 	    blit_img_case(img->ladder, screen, width, height);
+	  else if (map->map[height][width] == '.')
+	    blit_img_case(img->white, screen, width, height);
+	  else if (map->map[height][width] == 'i')
+	    blit_img_case(img->enter, screen, width, height);
+	  else if (map->map[height][width] == 'o')
+	    blit_img_case(img->exit, screen, width, height);
 	  width++;
 	}
       height++;
