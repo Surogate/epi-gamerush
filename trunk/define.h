@@ -43,5 +43,7 @@
 #define KEY_DIR		"./image/key.bmp"
 
 #define MENU_BACK	"./image/menu.bmp"
+#define MENU_FONT	"./font/28 Days Later.ttf"
+#define FONT_SIZE	10
 
 #endif

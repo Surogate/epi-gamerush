@@ -12,6 +12,7 @@
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<SDL/SDL.h>
+#include	<SDL/SDL_ttf.h>
 #include	"t_image.h"
 #include	"image_fct.h"
 #include	"map.h"
@@ -42,6 +43,32 @@ int		exec_map(char *path)
   return (EXIT_SUCCESS);
 }
 
+void		print_menu(SDL_Surface *screen, TTF_Font *font)
+{
+  SDL_Rect	pos;
+  int		i;
+  SDL_Color	color = {0, 0, 0, 0};
+  SDL_Surface	*text;
+  char		*name[] = {
+    "Stage 1",
+    "Stage 2",
+    "Stage 3",
+    "Stage 4",
+    "Stage 5",
+    NULL};
+
+  pos.x = 388 + 10;
+  pos.y = 380;
+  i = 0;
+  while (name[i])
+    {
+      text = TTF_RenderText_Solid(font, name[i], color);
+      pos.y = 380 + i * (FONT_SIZE + 5);
+      SDL_BlitSurface(text, NULL, screen, &pos);
+      i++;
+    }
+}
+
 void		disp_menu(SDL_Surface *screen)
 {
   TTF_Font	*font;
@@ -49,9 +76,17 @@ void		disp_menu(SDL_Surface *screen)
   if (TTF_Init() < 0)
     {
       fprintf(stderr, "TTF error : %s", TTF_GetError());
-      return (EXIT_FAILURE);
+      return ;
     }
-  
+  font = TTF_OpenFont(MENU_FONT, FONT_SIZE);
+  if (!font)
+    {
+      fprintf(stderr, "TTF error : %s", TTF_GetError());
+      return ;
+    }
+  print_menu(screen, font);
+  SDL_Flip(screen);
+  TTF_CloseFont(font);
   TTF_Quit();
 }
 
@@ -64,14 +99,16 @@ char		*exec_menu()
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
     err_SDL("Can't init SDL", 1);
   SDL_WM_SetIcon(SDL_LoadBMP("image/DonkeyKong2.bmp"), NULL);
-  screen = SDL_SetVideoMode(MWIN_WIDTH, MWIN_HEIGHT, WIN_COLOR, 
+  screen = SDL_SetVideoMode(MWIN_WIDTH, MWIN_HEIGHT, WIN_COLOR,
 			    SDL_HWSURFACE | SDL_DOUBLEBUF );
   SDL_WM_SetCaption("Epikong", NULL);
   background = img_load(MENU_BACK);
   pos.x = 0;
   pos.y = 0;
   SDL_BlitSurface(background, NULL, screen, &pos);
-  disp_menu();
+  disp_menu(screen);
+  pause();
+  SDL_Quit();
   return (NULL);
 }
 
@@ -88,7 +125,7 @@ SDL_Surface	*creat_win(t_map *map)
   if (win_height > MWIN_HEIGHT)
     win_height = MWIN_HEIGHT;
   SDL_WM_SetIcon(SDL_LoadBMP("image/DonkeyKong2.bmp"), NULL);
-  screen = SDL_SetVideoMode(win_width, win_height, WIN_COLOR, 
+  screen = SDL_SetVideoMode(win_width, win_height, WIN_COLOR,
 			    SDL_HWSURFACE | SDL_DOUBLEBUF );
   SDL_WM_SetCaption("Epikong", NULL);
   return (screen);
