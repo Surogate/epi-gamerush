@@ -27,11 +27,6 @@ t_func		event_func[]=
     {0,0}
   };
 
-int		exit_func()
-{
-  return (0);
-}
-
 void		blit_img_case(SDL_Surface *img, SDL_Surface *to, int x, int y)
 {
   SDL_Rect	pos;
@@ -64,6 +59,8 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
 	    blit_img_case(img->exit, screen, width, height);
 	  else if (map->map[height][width] == 'm')
 	    blit_img_case(img->monster, screen, width, height);
+	  else if (map->map[height][width] == 'k')
+	    blit_img_case(img->key, screen, width, height);
 	  width++;
 	}
       height++;

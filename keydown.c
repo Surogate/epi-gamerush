@@ -16,6 +16,11 @@ t_key		key_list[]=
     {0,0}
   };
 
+int		exit_func()
+{
+  return (0);
+}
+
 int		key_func(SDL_Event *event, t_player *player, t_map *map)
 {
   int		i;
