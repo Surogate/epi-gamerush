@@ -29,10 +29,12 @@ void		search_pos(t_map *map, int *res)
     }
 }
 
-void		init(SDL_Surface *screen, t_player *player, t_map *map)
+void		init(t_player *player, t_map *map)
 {
   int		pos[2];
 
+  pos[0] = 0;
+  pos[1] = 0;
   search_pos(map, pos);
   player->position.x = pos[0];
   player->position.y = pos[1];
@@ -43,5 +45,4 @@ void		init(SDL_Surface *screen, t_player *player, t_map *map)
   player->img_height = 10;
   player->imageDeFond = SDL_LoadBMP("CLOUDS.BMP");
   player->player_img = SDL_LoadBMP("image/Kong.bmp");
-  aff(screen, player);
 }

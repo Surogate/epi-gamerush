@@ -104,10 +104,9 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   SDL_EnableKeyRepeat(10, 50);
   continuer = 1;
   img_init(&img);
-  init(screen, &player, map);
+  init(&player, map);
   while (continuer > 0)
     {
-      blit_img_case(player.imageDeFond, screen, 0, 0);
       display_map(screen, map, &img);
       display_npc(screen, &player);
       SDL_Flip(screen);
@@ -123,6 +122,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 	    }
 	}
       gravite(&player, map);
+      /*usleep(10000);*/
     }
   return (EXIT_SUCCESS);
 }

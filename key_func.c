@@ -10,7 +10,9 @@ int		press_up(t_player *player, t_map *map)
 {
   if (player->position.y > 0)
     {
-      if (map->map[player->position.y - 2][player->position.x] != 'w')
+      if (map->map[player->position.y - 2][player->position.x] != 'w' &&
+	  map->map[player->position.y - 1][player->position.x] != 'w' &&
+	  map->map[player->position.y + 1][player->position.x] == 'w')
 	{
 	  player->position.y -= 2;
 	}
