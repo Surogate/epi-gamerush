@@ -11,11 +11,15 @@
 #include	<unistd.h>
 #include	<stdlib.h>
 #include	<stdio.h>
+#include	<SDL/SDL.h>
+#include	"map.h"
+#include	"define.h"
 
 SDL_Surface	*creat_win(t_map *map)
 {
   int		win_height;
   int		win_width;
+  SDL_Surface	*screen;
 
   win_width = map->width * IMG_SIZE;
   win_height = map->height * IMG_SIZE;
