@@ -74,6 +74,8 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
 	    blit_img_case(img->enter, screen, width, height);
 	  else if (map->map[height][width] == 'o')
 	    blit_img_case(img->exit, screen, width, height);
+	  else if (map->map[height][width] == 'm')
+	    blit_img_case(img->monster, screen, width, height);
 	  width++;
 	}
       height++;
@@ -122,7 +124,6 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 	    }
 	}
       gravite(&player, map);
-      /*usleep(10000);*/
     }
   return (EXIT_SUCCESS);
 }
