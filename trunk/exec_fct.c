@@ -105,6 +105,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   continuer = 1;
   img_init(&img);
   init(screen, &player, map);
+  printf("player %p\n", &player);
   while (continuer > 0)
     {
       blit_img_case(player.imageDeFond, screen, 0, 0);
@@ -118,7 +119,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 	  while (event_func[i].type)
 	    {
 	      if (event.type == event_func[i].type)
-		continuer = event_func[i].func(&event, screen, &player, map);
+		continuer = event_func[i].func(&event, &player, map);
 	      i++;
 	    }
 	}
