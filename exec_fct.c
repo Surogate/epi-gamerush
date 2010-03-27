@@ -16,6 +16,7 @@
 #include "define.h"
 #include "key.h"
 #include "map.h"
+#include "npc.h"
 #include "t_image.h"
 #include "image_fct.h"
 #include "keydown.h"
@@ -86,10 +87,15 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
     }
 }
 
-void		display_npc(SDL_Surface *screen, t_player *player)
+void		display_npc(SDL_Surface *screen, t_player *player, t_npc *npc)
 {
   blit_img_case(player->player_img, screen,
 		player->position.x, player->position.y);
+  while (npc != 0)
+    {
+      blit_img_case(npc->img, screen, npc->x, npc->y);
+      npc = npc->next;
+    }
 }
 /*
 int		find_path(SDL_Rect *position, t_map *map, int i)
@@ -126,16 +132,18 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   t_image	img;
   int		test;
   int		pouet;
+  t_npc		*monsters;
 
   SDL_EnableKeyRepeat(10, 10);
   continuer = 1;
   img_init(&img);
   init(&player, map, img.hero);
+  monsters = get_npc_monsters(map, img.monster);
   pouet = 0;
   while (continuer > 0)
     {
       display_map(screen, map, &img);
-      display_npc(screen, &player);
+      display_npc(screen, &player, monsters);
       SDL_Flip(screen);
       if (continuer != 42)
 	{
@@ -155,7 +163,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
       if (pouet == 0)
 	gravite(&player, map);
       if (pouet >= 2)
-	  pouet = 0;
+	pouet = 0;
       SDL_Delay(50);
     }
   return (EXIT_SUCCESS);
