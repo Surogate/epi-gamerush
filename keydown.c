@@ -51,8 +51,9 @@ int		key_func(SDL_Event *event, t_player *player, t_map *map)
 {
   int		i;
   int		retour;
-  Uint8		*keystate = SDL_GetKeyState(NULL);
+  Uint8		*keystate;
 
+  keystate = SDL_GetKeyState(NULL);
   i = 0;
   retour = 1;
   while (key_list[i].keycode)
