@@ -8,11 +8,21 @@
 ** Last update Sun Mar 14 18:31:17 2010 quentin muller
 */
 
-#include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+#include		<errno.h>
+#include		<SDL/SDL.h>
+#include		<stdio.h>
+#include		<stdlib.h>
+#include		<string.h>
+#include		<unistd.h>
+
+void			err_SDL(char *str, char quit)
+{
+  fprintf(stderr, "SDL Error: %s - %s\n", str, SDL_GetError());
+  if (quit)
+    exit(EXIT_FAILURE);
+  else
+    return ;
+}
 
 void			err(char *str, char quit)
 {
@@ -21,4 +31,9 @@ void			err(char *str, char quit)
     exit(EXIT_FAILURE);
   else
     return ;
+}
+
+void			putstr(char *str)
+{
+  write(1, str, strlen(str));
 }
