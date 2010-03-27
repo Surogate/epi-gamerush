@@ -118,18 +118,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
       SDL_Flip(screen);
       test = SDL_PollEvent(&event);
       if (test)
-	{
-	  continuer = event_loop(&event, &player, map);
-	  /*
-	  int i = 0;
-	  while (event_func[i].type)
-	    {
-	      if (event.type == event_func[i].type)
-		continuer = event_func[i].func(&event, &player, map);
-	      i++;
-	    }
-	  */
-	}
+	continuer = event_loop(&event, &player, map);
       gravite(&player, map);
     }
   return (EXIT_SUCCESS);
