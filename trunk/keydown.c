@@ -1,5 +1,11 @@
 /*
+** windows for project in /u/all/ancel_a/cu/travail/c/
 **
+** Made by francois1 ancel
+** Login   <ancel_a@epitech.net>
+**
+** Started on  Sat Mar 27 01:06:35 2010 francois1 ancel
+** Last update Sat Mar 27 01:06:35 2010 francois1 ancel
 */
 
 #include	<SDL/SDL.h>
