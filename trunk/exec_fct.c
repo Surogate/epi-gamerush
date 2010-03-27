@@ -183,17 +183,19 @@ t_npc		*init_all( t_image *img, t_player *player, t_map *map)
   return (get_npc_monsters(map, img));
 }
 
-int		go_event(SDL_Event *event, t_player *player, t_map *map)
+int		handle_event(t_player *player, t_map *map)
 {
+  SDL_Event	event;
   int		temp;
 
-  temp = SDL_PollEvent(event);
+  temp = SDL_PollEvent(&event);
   if (temp)
-    return (event_loop(event, player, map));
+    return (event_loop(&event, player, map));
   return (1);
 }
 
-void		env_act(int *jump, t_map *map, t_player *player, t_npc *monsters)
+void		env_act(int *jump, t_map *map, 
+			t_player *player, t_npc *monsters)
 {
   if (*jump == 0)
     gravite(player, map);
@@ -209,9 +211,24 @@ void		env_act(int *jump, t_map *map, t_player *player, t_npc *monsters)
   SDL_Delay(50);
 }
 
+void		player_act(int *jump, int *continuer,
+			   t_map *map, t_player *player)
+{
+  if (*continuer == 42)
+    {
+      *jump = *jump + 1;
+      if (map->map[player->position.y - 1][player->position.x] != 'w')
+	player->position.y--;
+      *continuer = 1;
+    }
+  else
+    *continuer = handle_event(player, map);
+  if (*continuer == 42)
+    *jump = *jump + 1;
+}
+
 int		exec_fct(SDL_Surface *screen, t_map *map)
 {
-  SDL_Event	event;
   t_player	player;
   int		continuer;
   t_image	img;
@@ -228,6 +245,8 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
       display_npcs(screen, monsters);
       display_player(screen, &player);
       SDL_Flip(screen);
+      player_act(&jump, &continuer, map, &player);
+      /*
       if (continuer == 42)
 	{
 	  jump++;
@@ -235,19 +254,10 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 	    player.position.y--;
 	  continuer = 1;
 	}
-      continuer = go_event(&event, &player, map);
-      /*
-      if (continuer != 42)
-	continuer = go_event(event, &player, map, continuer);
       else
-	{
-	  jump++;
-	  if (map->map[player.position.y - 1][player.position.x] != 'w')
-	    player.position.y--;
-	  continuer = 1;
-	  }*/
+	continuer = handle_event(&player, map);
       if (continuer == 42)
-	jump++;
+      jump++;*/
       env_act(&jump, map, &player, monsters);
     }
   return (EXIT_SUCCESS);
