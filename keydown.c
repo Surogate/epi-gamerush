@@ -10,8 +10,9 @@
 
 #include	<SDL/SDL.h>
 #include	"t_image.h"
-#include	"env.h"
 #include	"map.h"
+#include	"npc.h"
+#include	"env.h"
 #include	"key.h"
 #include	"exec_fct.h"
 #include	"keydown.h"

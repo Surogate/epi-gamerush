@@ -10,6 +10,8 @@
 
 #include		<SDL/SDL.h>
 #include		"t_image.h"
+#include		"map.h"
+#include		"npc.h"
 #include		"env.h"
 
 int			monster_time(t_player *player, t_map *map, t_npc *npc)

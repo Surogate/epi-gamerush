@@ -14,6 +14,8 @@
 #include	<SDL/SDL.h>
 
 #include	"t_image.h"
+#include	"map.h"
+#include	"npc.h"
 #include	"env.h"
 #include	"exec_fct.h"
 #include	"define.h"
@@ -21,8 +23,6 @@
 #include	"init_player.h"
 #include	"key.h"
 #include	"keydown.h"
-#include	"map.h"
-#include	"npc.h"
 #include	"back_to_start.h"
 
 test		*init_da_tab()
