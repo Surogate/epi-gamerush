@@ -49,6 +49,7 @@ void		init(t_player *player, t_map *map, t_image *img)
   player->position.y = pos[1];
   player->move = 5;
   player->life = 3;
+  player->wait = 0;
   player->weapon = 0;
   player->direction = 1;
   player->img_lenght = 10;

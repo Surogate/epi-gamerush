@@ -29,6 +29,7 @@ typedef	struct	s_player
   SDL_Surface	*player_img6;
   SDL_Surface	*imageDeFond;
   t_obj		item[1];
+  int		wait;
   int		img_height;
   int		img_lenght;
   int		life;
