@@ -18,14 +18,8 @@
 #include "map.h"
 #include "t_image.h"
 #include "image_fct.h"
+#include "keydown.h"
 #include "exec_fct.h"
-
-t_func		event_func[]=
-  {
-    {SDL_QUIT, exit_func},
-    {SDL_KEYDOWN, key_func},
-    {0,0}
-  };
 
 void		blit_img_case(SDL_Surface *img, SDL_Surface *to, int x, int y)
 {
@@ -84,7 +78,6 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 {
   SDL_Event	event;
   t_player	player;
-  int		i;
   int		continuer;
   t_image	img;
   int		test;
@@ -101,13 +94,16 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
       test = SDL_PollEvent(&event);
       if (test)
 	{
-	  i = 0;
+	  /*event_loop(&event, &player, map);*/
+	  
+	  int i = 0;
 	  while (event_func[i].type)
 	    {
 	      if (event.type == event_func[i].type)
 		continuer = event_func[i].func(&event, &player, map);
 	      i++;
 	    }
+	  
 	}
       gravite(&player, map);
     }
