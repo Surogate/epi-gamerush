@@ -43,6 +43,5 @@ void		init(t_player *player, t_map *map)
   player->direction = 1;
   player->img_lenght = 10;
   player->img_height = 10;
-  player->imageDeFond = SDL_LoadBMP("CLOUDS.BMP");
   player->player_img = SDL_LoadBMP("image/Kong.bmp");
 }
