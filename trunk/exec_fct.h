@@ -24,5 +24,7 @@ typedef struct
 }		t_dispmap;
 
 int		exec_fct();
+void		blit_img_case(SDL_Surface *img, SDL_Surface *to,
+			      int x, int y);
 
 #endif
