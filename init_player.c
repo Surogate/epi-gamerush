@@ -1,6 +1,4 @@
-/*
-**
-*/
+
 #include	<SDL/SDL.h>
 
 #include	"t_image.h"
