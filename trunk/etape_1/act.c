@@ -59,15 +59,7 @@ void		env_act(int *jump, t_map *map,
 void		player_act(int *jump, int *continuer,
 			   t_map *map, t_player *player)
 {
-  if (*continuer == 42)
-    {
-      *jump = *jump + 1;
-      if (map->map[player->position.y - 1][player->position.x] != 'w')
-	player->position.y--;
-      *continuer = 1;
-    }
-  else
-    *continuer = handle_event(player, map);
+  *continuer = handle_event(player, map);
   if (*continuer == 42)
     *jump = *jump + 1;
 }
