@@ -11,7 +11,7 @@
 #include	<unistd.h>
 #include	<stdlib.h>
 #include	<stdio.h>
-#include	"SDL/SDL.h"
+#include	<SDL/SDL.h>
 #include	"exec_fct.h"
 #include	"map.h"
 #include	"define.h"
