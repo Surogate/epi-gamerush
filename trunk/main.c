@@ -23,8 +23,6 @@
 
 int		main()
 {
-  int		result;
-
   /*  result = EXIT_SUCCESS;
   if (ac > 1)
     result = exec_map(av[1]);
@@ -32,4 +30,5 @@ int		main()
     printf("Usage : ./prog [map/?.map]\n");
     return (result);*/
   exec_menu();
+  return (EXIT_SUCCESS);
 }
