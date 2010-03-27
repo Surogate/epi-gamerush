@@ -26,14 +26,16 @@ void			get_map_dim(char *buffer, int *width, int *height)
   i = 0;
   *height = 0;
   *width = 0;
-  cur_width = -1;
+  cur_width = 1;
   while (buffer[i] != '\0')
     {
       if (buffer[i] == '\n')
 	{
 	  (*height)++;
-	  if (cur_width > *width)
+	  if (cur_width > *width && *width == 0)
 	    *width = cur_width;
+	  else if (cur_width != *width)
+	    err_inside("Bad dimensions for map.", 1);
 	  cur_width = 0;
 	}
       cur_width++;
@@ -69,5 +71,26 @@ t_map			*get_map(char *path)
     }
   map->width--;
   free(buffer);
+  return (map);
+}
+
+t_map			*check_map(t_map *map)
+{
+  int			x;
+  int			y;
+
+  y = 0;
+  while (y < map->height)
+    {
+      x = 0;
+      while (x < map->width)
+	{
+	  if (map->map[y][x] != WALL_CHAR &&
+	      (y == 0 || y == map->height - 1 || x == 0 || x == map->width - 1))
+	    err_inside("Invalid map, holes exist on the edges.", 1);
+	  x++;
+	}
+      y++;
+    }
   return (map);
 }

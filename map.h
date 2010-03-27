@@ -26,5 +26,6 @@ typedef struct		s_map
 }			t_map;
 
 t_map			*get_map(char *path);
+t_map			*check_map(t_map *map);
 
 #endif			/* __MAP_H__ */

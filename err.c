@@ -33,6 +33,15 @@ void			err(char *str, char quit)
     return ;
 }
 
+void			err_inside(char *str, char quit)
+{
+  fprintf(stderr, "Error: %s\n", str);
+  if (quit)
+    exit(EXIT_FAILURE);
+  else
+    return ;
+}
+
 void			putstr(char *str)
 {
   write(1, str, strlen(str));

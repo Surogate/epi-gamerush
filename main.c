@@ -28,7 +28,7 @@ int		main(int ac, char **av)
   t_map		*map;
 
   if (ac > 1)
-    map = get_map(av[1]);
+    map = check_map(get_map(av[1]));
   else
     {
       printf("Usage : ./prog [map/?.map]\n");
