@@ -111,7 +111,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 	  while (event_func[i].type)
 	    {
 	      if (event.type == event_func[i].type)
-		continuer = event_func[i].func(&event, screen, &player);
+		continuer = event_func[i].func(&event, screen, &player, map);
 	      i++;
 	    }
 	}
