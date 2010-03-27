@@ -14,5 +14,6 @@
 SDL_Surface	*img_load(char *path);
 int		img_init(t_image *img);
 int		img_delete(t_image *img);
+void		next_lvl(SDL_Surface *ecran);
 
 #endif
