@@ -16,6 +16,7 @@ SRCS	= err.c			\
 	image_fct.c		\
 	map.c			\
 	main.c			\
+	npc.c			\
 	windows.c		\
 	xio.c
 
