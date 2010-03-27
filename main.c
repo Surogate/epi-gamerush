@@ -38,6 +38,7 @@ int		main(int ac, char **av)
       fprintf(stderr, "screen load fail %s\n", SDL_GetError());
       return (EXIT_FAILURE);
     }
+  
   result = exec_fct(screen, map);
   SDL_Quit();
   return (result);
