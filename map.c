@@ -1,5 +1,5 @@
 /*
-** define for project in /u/all/ancel_a/cu/travail/c/
+** map.c for project in /u/all/ancel_a/cu/travail/c/
 **
 ** Made by francois1 ancel
 ** Login   <ancel_a@epitech.net>
