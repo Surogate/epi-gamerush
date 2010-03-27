@@ -25,23 +25,23 @@ test		*init_da_tab()
 {
   test		*res;
 
-  test = malloc(7 * sizeof(*res));
-  if (test)
+  res = malloc(7 * sizeof(*res));
+  if (res)
     {
-      test[0]->obj = '.';
-      test[0]->img = img_load(WHIT_DIR);
-      test[1]->obj = 's';
-      test[1]->img = img_load(WALL_DIR);
-      test[2]->obj = 'w';
-      test[2]->img = img_load(LAD_DIR);
-      test[3]->obj = 'm';
-      test[3]->img = img_load(MON_DIR);
-      test[4]->obj = 'o';
-      test[4]->img = img_load(EXIT_DIR);
-      test[5]->obj = 'i';
-      test[5]->img = img_load(ENT_DIR);
-      test[6]->obj = 'k';
-      test[6]->img = img_load(KEY_DIR);
+      res[0].obj = '.';
+      res[0].img = img_load(WHIT_DIR);
+      res[1].obj = 's';
+      res[1].img = img_load(WALL_DIR);
+      res[2].obj = 'w';
+      res[2].img = img_load(LAD_DIR);
+      res[3].obj = 'm';
+      res[3].img = img_load(MON_DIR);
+      res[4].obj = 'o';
+      res[4].img = img_load(EXIT_DIR);
+      res[5].obj = 'i';
+      res[5].img = img_load(ENT_DIR);
+      res[6].obj = 'k';
+      res[6].img = img_load(KEY_DIR);
     }
   return (res);
 }
