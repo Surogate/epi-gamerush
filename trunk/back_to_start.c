@@ -8,7 +8,7 @@
 #include	"env.h"
 #include	"back_to_start.h"
 
-void		are_you_dieing(t_npc *npc, t_player *player, t_map *map)
+void		are_you_dying(t_npc *npc, t_player *player, t_map *map)
 {
   while (npc)
     {
