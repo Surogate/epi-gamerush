@@ -13,7 +13,6 @@
 #include		<stdlib.h>
 #include		<string.h>
 #include		<unistd.h>
-
 #include		"err.h"
 
 int			xwrite(int fd, char *str, int len)
