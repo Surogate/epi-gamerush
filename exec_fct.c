@@ -114,12 +114,11 @@ void		display_npcs(SDL_Surface *screen, t_npc *npc)
   while (npc != 0)
     {
       npc->frame++;
-      if (npc->frame == 3)
-	{
-	  npc->frame = 0;
-	  blit_img_case(npc->img1, screen, npc->x, npc->y);
-	}
-      else if (npc->frame == 1)
+      if (npc->frame == 6)
+	npc->frame = 0;
+      if (npc->frame < 2)
+	blit_img_case(npc->img1, screen, npc->x, npc->y);
+      else if (npc->frame < 4)
 	blit_img_case(npc->img2, screen, npc->x, npc->y);
       else
 	blit_img_case(npc->img3, screen, npc->x, npc->y);
