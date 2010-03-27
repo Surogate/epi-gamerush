@@ -72,7 +72,7 @@ int		handle_event(t_player *player, t_map *map)
   return (1);
 }
 
-void		env_act(int *jump, t_map *map, 
+void		env_act(t_map *map, 
 			t_player *player, t_npc *monsters)
 {
   if (!player->move)
@@ -85,7 +85,7 @@ void		env_act(int *jump, t_map *map,
   SDL_Delay(50);
 }
 
-void		player_act(int *jump, int *continuer,
+void		player_act(int *continuer,
 			   t_map *map, t_player *player)
 {
   *continuer = handle_event(player, map);

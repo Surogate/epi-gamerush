@@ -21,6 +21,32 @@ int		pass(t_player *player)
   return (1);
 }
 
+int		jump_in_front(t_player *player, t_map *map)
+{
+  if ((map->map[player->position.y + 1][player->position.x] == WALL_CHAR ||
+       map->map[player->position.y + 1][player->position.x] == LADDER_CHAR ||
+       map->map[player->position.y][player->position.x] == LADDER_CHAR) &&
+      map->map[player->position.y - 1][player->position.x] != WALL_CHAR)
+    {
+      if (player->move && !player->wait)
+	{
+	  player->position.y--;
+	  player->wait = 1;
+	  player->move--;
+	  if (map->map[player->position.y][player->position.x + player->direction] != WALL_CHAR)
+	    {
+	      player->position.x += player->direction;
+	      if (map->map[player->position.y][player->position.x] != LADDER_CHAR &&
+		  map->map[player->position.y][player->position.x + player->direction] != WALL_CHAR)
+		{
+		  player->position.x += player->direction;
+		}
+	    }
+	}
+    }
+  return (1);
+}
+
 int		press_up(t_player *player, t_map *map)
 {
   if (map->map[player->position.y -1][player->position.x] != WALL_CHAR &&

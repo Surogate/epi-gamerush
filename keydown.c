@@ -64,11 +64,22 @@ int		key_func(t_player *player, t_map *map)
   keystate = SDL_GetKeyState(NULL);
   i = 0;
   retour = 1;
-  while (key_list[i].keycode)
+  if (keystate[SDLK_UP] && keystate[SDLK_RIGHT])
     {
-      if (keystate[key_list[i].keycode])
-	retour = key_list[i].func(player, map);
-      i++;
+      player->direction = 1;
+      jump_in_front(player, map);
     }
+  else if (keystate[SDLK_UP] && keystate[SDLK_LEFT])
+    {
+      player->direction = -1;
+      jump_in_front(player, map);
+    }
+  else
+    while (key_list[i].keycode)
+      {
+	if (keystate[key_list[i].keycode])
+	  retour = key_list[i].func(player, map);
+	i++;
+      }
   return (retour);
 }
