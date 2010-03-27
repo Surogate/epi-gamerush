@@ -56,4 +56,7 @@ void		init(t_player *player, t_map *map, t_image *img)
   player->player_img1 = img->hero1;
   player->player_img2 = img->hero2;
   player->player_img3 = img->hero3;
+  player->player_img4 = img->hero4;
+  player->player_img5 = img->hero5;
+  player->player_img6 = img->hero6;
 }
