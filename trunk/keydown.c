@@ -28,6 +28,5 @@ int		key_func(SDL_Event *event, SDL_Surface *screen, t_player *player)
 	retour = key_list[i].func(player);
       i++;
     }
-  aff(screen, player);
   return (retour);
 }
