@@ -10,12 +10,15 @@
 
 #ifndef EXEC_FCT_C_INCLUDED
 # define EXEC_FCT_C_INCLUDED
+#include	<SDL/SDL.h>
+#include	"env.h"
 
 typedef struct	s_func
 {
   Uint8		type;
   int		(*func)();
 }		t_func;
-int exec_fct();
 
+int		exec_fct();
+int		key_func(SDL_Event *event, SDL_Surface *screen, t_player *player);
 #endif
