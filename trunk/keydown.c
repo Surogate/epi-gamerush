@@ -16,7 +16,8 @@ t_key		key_list[]=
     {0,0}
   };
 
-int		key_func(SDL_Event *event, SDL_Surface *screen, t_player *player, t_map *map)
+int		key_func(SDL_Event *event, SDL_Surface *screen, 
+			 t_player *player, t_map *map)
 {
   int		i;
   int		retour;
