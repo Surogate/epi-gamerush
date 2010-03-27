@@ -139,30 +139,45 @@ void		gravite(t_player *player, t_map *map)
 	  player->position.y += 1;
 	  tempsPrecedent = tempsActuel;
 	}
-      else /* Si ça fait moins de 30ms depuis le dernier tour de boucle, on endort le programme le temps qu'il faut */
-	{
-	  SDL_Delay(30 - (tempsActuel - tempsPrecedent));
-	}
-      /*SDL_Delay(100);*/
+      else
+	SDL_Delay(30 - (tempsActuel - tempsPrecedent));
     }
 }
 
-int		exec_fct(SDL_Surface *screen, t_map *map)
+void		init_all( t_image *img, t_player *player, t_map *map, t_npc *monsters)
+{
+  img_init(img);
+  init(player, map, img);
+  monsters = get_npc_monsters(map, img);
+  return (1);
+}
+
+int		go_event(int event, t_player *player, t_map *map)
+{
+  int		temp;
+
+  event = SDL_PollEvent(&event);
+  if (event)
+    {
+      temp = event_loop(&event, player, map);
+      return (temp);
+    }
+  return (continuer);
+}
+
+int		exec_fct(SDL_Surface *screen, t_map *map, int continuer)
 {
   SDL_Event	event;
   t_player	player;
   int		continuer;
   t_image	img;
-  int		test;
-  int		pouet;
+  int		event;
+  int		jump;
   t_npc		*monsters;
 
   SDL_EnableKeyRepeat(10, 10);
-  continuer = 1;
-  img_init(&img);
-  init(&player, map, &img);
-  monsters = get_npc_monsters(map, &img);
-  pouet = 0;
+  continuer = init_all(&img, &player, map, monsters);
+  jump = 0;
   while (continuer > 0)
     {
       display_map(screen, map, &img);
@@ -170,24 +185,21 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
       display_player(screen, &player);
       SDL_Flip(screen);
       if (continuer != 42)
-	{
-	  test = SDL_PollEvent(&event);
-	  if (test)
-	    continuer = event_loop(&event, &player, map);
-	}
+	continuer = go_event(event, &player, map, continuer);
       else
 	{
-	  pouet++;
+	  jump++;
 	  if (map->map[player.position.y - 1][player.position.x] != 'w')
 	    player.position.y--;
 	  continuer = 1;
 	}
       if (continuer == 42)
-	pouet++;
-      if (pouet == 0)
+	jump++;
+      /*start cut*/
+      if (jump == 0)
 	gravite(&player, map);
-      if (pouet >= 2)
-	pouet = 0;
+      if (jump >= 2)
+	jump = 0;
       if (!player.move)
 	{
 	  if (!monsters->move)
@@ -195,6 +207,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 	  monster_time(&player, map, monsters);
 	}
       are_you_dying(monsters, &player, map);
+      /*end cut*/
       SDL_Delay(50);
     }
   return (EXIT_SUCCESS);
