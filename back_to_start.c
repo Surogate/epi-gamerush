@@ -1,8 +1,12 @@
 /*
 ** header
 */
+
+#include	<SDL/SDL.h>
+#include	"t_image.h"
 #include	"map.h"
 #include	"env.h"
+#include	"back_to_start.h"
 
 void		are_you_dieing(t_npc *npc, t_player *player, t_map *map)
 {

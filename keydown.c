@@ -10,27 +10,27 @@
 
 #include	<SDL/SDL.h>
 #include	"t_image.h"
-#include	"key.h"
 #include	"env.h"
 #include	"map.h"
+#include	"key.h"
 #include	"exec_fct.h"
 #include	"keydown.h"
 
 t_key		key_list[]=
   {
-    {SDLK_ESCAPE, exit_func},
-    {SDLK_LEFT, press_left},
-    {SDLK_RIGHT, press_right},
-    {SDLK_UP, press_up},
-    {SDLK_DOWN, press_down},
+    {SDLK_ESCAPE	, exit_func},
+    {SDLK_LEFT		, press_left},
+    {SDLK_RIGHT		, press_right},
+    {SDLK_UP		, press_up},
+    {SDLK_DOWN		, press_down},
     {SDLK_SPACE, pass},
     {0,0}
   };
 
 t_func		event_func[]=
   {
-    {SDL_QUIT, exit_func},
-    {SDL_KEYDOWN, key_func},
+    {SDL_QUIT		, exit_func},
+    {SDL_KEYDOWN	, key_func},
     {0,0}
   };
 
