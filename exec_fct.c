@@ -194,7 +194,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 	    monsters->move = 5;
 	  monster_time(&player, map, monsters);
 	}
-      are_you_dieing(monsters, &player, map);
+      are_you_dying(monsters, &player, map);
       SDL_Delay(50);
     }
   return (EXIT_SUCCESS);
