@@ -36,10 +36,13 @@ int		img_init(t_image *img)
   img->wall = img_load(WALL_DIR);
   img->ladder = img_load(LAD_DIR);
   img->monster = img_load(MON_DIR);
+  SDL_SetColorKey(img->monster, SDL_SRCCOLORKEY, SDL_MapRGB(img->monster->format, 255, 255, 255));
   img->exit = img_load(EXIT_DIR);
   img->enter = img_load(ENT_DIR);
   img->hero = img_load(HERO_DIR);
+  /*  SDL_SetColorKey(img->hero, SDL_SRCCOLORKEY, SDL_MapRGB(img->hero->format, 255, 255, 255));*/
   img->key = img_load(KEY_DIR);
+  /*  SDL_SetColorKey(img->key, SDL_SRCCOLORKEY, SDL_MapRGB(img->key->format, 255, 255, 255));*/
   return (EXIT_SUCCESS);
 }
 
