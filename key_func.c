@@ -59,6 +59,7 @@ int		press_left(t_player *player, t_map *map)
     {
       if (player->move)
 	{
+	  player->direction = -1;
 	  player->position.x -= 1;
 	  player->move -= 1;
 	}
@@ -73,6 +74,7 @@ int		press_right(t_player *player, t_map *map)
     {
       if (player->move)
 	{
+	  player->direction = 1;
 	  player->position.x += 1;
 	  player->move -= 1;
 	}

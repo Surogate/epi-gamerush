@@ -94,18 +94,35 @@ void		display_player(SDL_Surface *screen, t_player *player)
   static int	cpt = 0;
 
   cpt++;
-  if (cpt == 3)
+  if (cpt == 6)
+    cpt = 0;
+  if (cpt < 2)
     {
-      cpt = 0;
-      blit_img_case(player->player_img1, screen,
-		    player->position.x, player->position.y);
+      if (player->direction == -1)
+	blit_img_case(player->player_img1, screen,
+		      player->position.x, player->position.y);
+      else
+	blit_img_case(player->player_img4, screen,
+		      player->position.x, player->position.y);
     }
-  else if (cpt == 1)
-    blit_img_case(player->player_img2, screen,
-		  player->position.x, player->position.y);
+  else if (cpt < 4)
+    {
+      if (player->direction == -1)
+	blit_img_case(player->player_img2, screen,
+		      player->position.x, player->position.y);
+      else
+	blit_img_case(player->player_img5, screen,
+		      player->position.x, player->position.y);
+    }
   else
-    blit_img_case(player->player_img3, screen,
-		  player->position.x, player->position.y);
+    {
+      if (player->direction == -1)
+	blit_img_case(player->player_img3, screen,
+		      player->position.x, player->position.y);
+      else
+	blit_img_case(player->player_img6, screen,
+		      player->position.x, player->position.y);
+    }
 }
 
 void		display_npcs(SDL_Surface *screen, t_npc *npc)
