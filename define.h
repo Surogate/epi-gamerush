@@ -23,9 +23,13 @@
 #define	START_WEAPON	0
 
 /*Img's define*/
-#define HERO_DIR	"./image/Kong.bmp"
+#define HERO_DIR1	"./image/Kong-1.bmp"
+#define HERO_DIR2	"./image/Kong-2.bmp"
+#define HERO_DIR3	"./image/Kong-3.bmp"
 #define	WHIT_DIR	"./image/bg.bmp"
-#define MON_DIR		"./image/zombi-1.bmp"
+#define MON_DIR1	"./image/zombi-1.bmp"
+#define MON_DIR2	"./image/zombi-2.bmp"
+#define MON_DIR3	"./image/zombi-3.bmp"
 #define WALL_DIR	"./image/Wall.bmp"
 #define LAD_DIR		"./image/ladder.bmp"
 #define EXIT_DIR	"./image/exit2.bmp"

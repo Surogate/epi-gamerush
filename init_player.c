@@ -2,6 +2,8 @@
 **
 */
 #include	<SDL/SDL.h>
+
+#include	"t_image.h"
 #include	"env.h"
 #include	"map.h"
 #include	"exec_fct.h"	
@@ -29,7 +31,7 @@ void		search_pos(t_map *map, int *res)
     }
 }
 
-void		init(t_player *player, t_map *map, SDL_Surface *img)
+void		init(t_player *player, t_map *map, t_image *img)
 {
   int		pos[2];
 
@@ -44,5 +46,7 @@ void		init(t_player *player, t_map *map, SDL_Surface *img)
   player->direction = 1;
   player->img_lenght = 10;
   player->img_height = 10;
-  player->player_img = img;
+  player->player_img1 = img->hero1;
+  player->player_img2 = img->hero2;
+  player->player_img3 = img->hero3;
 }

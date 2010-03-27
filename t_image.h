@@ -10,17 +10,20 @@
 
 #ifndef T_IMAGE_INCLUDED
 # define T_IMAGE_INCLUDED
-#include <SDL/SDL.h>
 
-typedef struct
+typedef struct	s_image
 {
   SDL_Surface	*white;
   SDL_Surface	*wall;
   SDL_Surface	*ladder;
-  SDL_Surface	*monster;
+  SDL_Surface	*monster1;
+  SDL_Surface	*monster2;
+  SDL_Surface	*monster3;
   SDL_Surface	*exit;  
   SDL_Surface	*enter;
-  SDL_Surface	*hero;
+  SDL_Surface	*hero1;
+  SDL_Surface	*hero2;
+  SDL_Surface	*hero3;
   SDL_Surface	*key;
 }		t_image;
 
