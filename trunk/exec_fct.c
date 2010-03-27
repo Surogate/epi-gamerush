@@ -45,13 +45,39 @@ t_func		event_func[]=
     {0,0}
   };
 
-void		display_map(SDL_Surface *screen, t_map *map)
+void		blit_img_case(SDL_Surface *img, SDL_Surface *to, int x, int y)
 {
-  
+  SDL_Rect	pos;
+
+  pos.x = x * IMG_SIZE;
+  pos.y = y * IMG_SIZE;
+  SDL_BlitSurface(img, NULL, to, &pos);
+}
+
+void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
+{
+  int width;
+  int height;
+
+  height = 0;
+  while (height < map->height)
+    {
+      width = 0;
+      while (width < map->width)
+	{
+	  if (map->map[height][width] == 'w')
+	    blit_img_case(img->wall, screen, width, height);
+	  else if (map->map[height][width] == 's')
+	    blit_img_case(img->ladder, screen, width, height);
+	  width++;
+	}
+      height++;
+    }
 }
 
 void		display_npc(SDL_Surface *screen, t_map *map)
 {
+  
 }
 
 void		gravite(t_player *player)
@@ -70,10 +96,10 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
 
   SDL_EnableKeyRepeat(1, 10);
   continuer = 1;
-  init(screen, &player);
+  img_init(&img);
   while (continuer > 0)
     {
-      display_map(screen, map);
+      display_map(screen, map, &img);
       display_npc(screen, map);
       test = SDL_PollEvent(&event);
       if (test)
