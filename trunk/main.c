@@ -27,7 +27,7 @@ int		main(int ac, char **av)
     map = get_map(av[1]);
   else
     {
-      printf("Usage : ./prog [map/?.map]");
+      printf("Usage : ./prog [map/?.map]\n");
       return (EXIT_SUCCESS);
     }
   if (SDL_Init(SDL_INIT_VIDEO) < 0)
