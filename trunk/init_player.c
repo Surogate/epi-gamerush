@@ -4,6 +4,8 @@
 #include	<SDL/SDL.h>
 #include	"env.h"
 #include	"map.h"
+#include	"exec_fct.h"	
+#include	"init_player.h"
 
 void		search_pos(t_map *map, int *res)
 {
