@@ -21,6 +21,9 @@ typedef struct		s_npc
   SDL_Surface		*img1;
   SDL_Surface		*img2;
   SDL_Surface		*img3;
+  SDL_Surface		*img4;
+  SDL_Surface		*img5;
+  SDL_Surface		*img6;
   struct s_npc		*next;
 }			t_npc;
 

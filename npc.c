@@ -33,6 +33,9 @@ void			add_npc(t_npc **list, int x, int y, t_image *img)
   new->img1 = img->monster1;
   new->img2 = img->monster2;
   new->img3 = img->monster3;
+  new->img4 = img->monster4;
+  new->img5 = img->monster5;
+  new->img6 = img->monster6;
   new->next = *list;
   *list = new;
 }
