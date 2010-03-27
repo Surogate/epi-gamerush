@@ -12,6 +12,7 @@
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<SDL/SDL.h>
+#include	"t_image.h"
 #include	"err.h"
 #include	"exec_fct.h"
 #include	"map.h"

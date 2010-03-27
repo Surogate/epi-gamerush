@@ -10,6 +10,7 @@
 
 #include	<SDL/SDL.h>
 #include	"define.h"
+#include	"t_image.h"
 #include	"env.h"
 #include	"map.h"
 
