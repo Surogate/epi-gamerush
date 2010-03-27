@@ -8,10 +8,10 @@
 ** Last update Sat Mar 27 04:26:36 2010 francois1 ancel
 */
 
-#ifndef INIT_PLAYER_C_INCLUDED
-# define INIT_PLAYER_C_INCLUDED
+#ifndef		INIT_PLAYER_C_INCLUDED
+# define	INIT_PLAYER_C_INCLUDED
 
 void		search_pos(t_map *map, int *res);
 void		init(t_player *player, t_map *map, t_image *img);
 
-#endif
+#endif		/* INIT_PLAYER_C_INCLUDED */
