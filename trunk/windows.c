@@ -12,8 +12,68 @@
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<SDL/SDL.h>
+#include	"t_image.h"
+#include	"image_fct.h"
 #include	"map.h"
+#include	"npc.h"
+#include	"env.h"
 #include	"define.h"
+#include	"err.h"
+#include	"windows.h"
+#include	"exec_fct.h"
+
+int		exec_map(char *path)
+{
+  int		result;
+  SDL_Surface	*screen;
+  t_map		*map;
+
+  map = check_map(get_map(path));
+  if (!map)
+    return (EXIT_FAILURE);
+  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
+    err_SDL("Can't init SDL", 1);
+  screen = creat_win(map);
+  if (!screen)
+    err_SDL("screen load fail", 1);
+  result = exec_fct(screen, map);
+  SDL_FreeSurface(screen);
+  SDL_Quit();
+  return (EXIT_SUCCESS);
+}
+
+void		disp_menu(SDL_Surface *screen)
+{
+  TTF_Font	*font;
+
+  if (TTF_Init() < 0)
+    {
+      fprintf(stderr, "TTF error : %s", TTF_GetError());
+      return (EXIT_FAILURE);
+    }
+  
+  TTF_Quit();
+}
+
+char		*exec_menu()
+{
+  SDL_Surface	*screen;
+  SDL_Surface	*background;
+  SDL_Rect	pos;
+
+  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
+    err_SDL("Can't init SDL", 1);
+  SDL_WM_SetIcon(SDL_LoadBMP("image/DonkeyKong2.bmp"), NULL);
+  screen = SDL_SetVideoMode(MWIN_WIDTH, MWIN_HEIGHT, WIN_COLOR, 
+			    SDL_HWSURFACE | SDL_DOUBLEBUF );
+  SDL_WM_SetCaption("Epikong", NULL);
+  background = img_load(MENU_BACK);
+  pos.x = 0;
+  pos.y = 0;
+  SDL_BlitSurface(background, NULL, screen, &pos);
+  disp_menu();
+  return (NULL);
+}
 
 SDL_Surface	*creat_win(t_map *map)
 {

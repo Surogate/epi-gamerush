@@ -24,22 +24,11 @@
 int		main(int ac, char **av)
 {
   int		result;
-  SDL_Surface	*screen;
-  t_map		*map;
 
+  result = EXIT_SUCCESS;
   if (ac > 1)
-    map = check_map(get_map(av[1]));
+    result = exec_map(av[1]);
   else
-    {
-      printf("Usage : ./prog [map/?.map]\n");
-      return (EXIT_SUCCESS);
-    }
-  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
-    err_SDL("Can't init SDL", 1);
-  screen = creat_win(map);
-  if (!screen)
-    err_SDL("screen load fail", 1);
-  result = exec_fct(screen, map);
-  SDL_Quit();
+    printf("Usage : ./prog [map/?.map]\n");
   return (result);
 }

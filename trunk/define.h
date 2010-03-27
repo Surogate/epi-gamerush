@@ -42,4 +42,6 @@
 #define ENT_DIR		"./image/enter.bmp"
 #define KEY_DIR		"./image/key.bmp"
 
+#define MENU_BACK	"./image/menu.bmp"
+
 #endif
