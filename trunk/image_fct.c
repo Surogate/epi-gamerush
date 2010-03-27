@@ -33,6 +33,8 @@ SDL_Surface	*img_load(char *path)
 
 int		img_init(t_image *img)
 {
+  unsigned int	col;
+
   img->white = img_load(WHIT_DIR);
   img->wall = img_load(WALL_DIR);
   img->ladder = img_load(LAD_DIR);
@@ -41,15 +43,16 @@ int		img_init(t_image *img)
   img->monster1 = img_load(MON_DIR1);
   img->monster2 = img_load(MON_DIR2);
   img->monster3 = img_load(MON_DIR3);
-  SDL_SetColorKey(img->monster1, SDL_RLEACCEL | SDL_SRCCOLORKEY, SDL_MapRGB(img->monster1->format, 255, 255, 255));
-  SDL_SetColorKey(img->monster2, SDL_RLEACCEL | SDL_SRCCOLORKEY, SDL_MapRGB(img->monster2->format, 255, 255, 255));
-  SDL_SetColorKey(img->monster3, SDL_RLEACCEL | SDL_SRCCOLORKEY, SDL_MapRGB(img->monster3->format, 255, 255, 255));
+  col = SDL_MapRGB(img->monster1->format, 255, 255, 255);
+  SDL_SetColorKey(img->monster1, SDL_RLEACCEL | SDL_SRCCOLORKEY, col);
+  SDL_SetColorKey(img->monster2, SDL_RLEACCEL | SDL_SRCCOLORKEY, col);
+  SDL_SetColorKey(img->monster3, SDL_RLEACCEL | SDL_SRCCOLORKEY, col);
   img->hero1 = img_load(HERO_DIR1);
   img->hero2 = img_load(HERO_DIR2);
   img->hero3 = img_load(HERO_DIR3);
-  SDL_SetColorKey(img->hero1, SDL_RLEACCEL | SDL_SRCCOLORKEY, SDL_MapRGB(img->hero1->format, 255, 255, 255));
-  SDL_SetColorKey(img->hero2, SDL_RLEACCEL | SDL_SRCCOLORKEY, SDL_MapRGB(img->hero2->format, 255, 255, 255));
-  SDL_SetColorKey(img->hero3, SDL_RLEACCEL | SDL_SRCCOLORKEY, SDL_MapRGB(img->hero3->format, 255, 255, 255));
+  SDL_SetColorKey(img->hero1, SDL_RLEACCEL | SDL_SRCCOLORKEY, col);
+  SDL_SetColorKey(img->hero2, SDL_RLEACCEL | SDL_SRCCOLORKEY, col);
+  SDL_SetColorKey(img->hero3, SDL_RLEACCEL | SDL_SRCCOLORKEY, col);
   img->key = img_load(KEY_DIR);
   return (EXIT_SUCCESS);
 }
