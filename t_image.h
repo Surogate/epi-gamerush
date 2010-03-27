@@ -10,6 +10,7 @@
 
 #ifndef T_IMAGE_INCLUDED
 # define T_IMAGE_INCLUDED
+#include <SDL/SDL.h>
 
 typedef struct
 {
@@ -22,5 +23,11 @@ typedef struct
   SDL_Surface	*hero;
   SDL_Surface	*key;
 }		t_image;
+
+typedef	struct
+{
+  char		obj;
+  SDL_Surface	*img;
+}		test;
 
 #endif
