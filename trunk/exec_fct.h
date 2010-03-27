@@ -12,6 +12,7 @@
 # define EXEC_FCT_C_INCLUDED
 #include	<SDL/SDL.h>
 #include	"env.h"
+#include	"map.h"
 
 typedef struct	s_func
 {
@@ -27,4 +28,5 @@ typedef struct
 
 int		exec_fct();
 int		key_func(SDL_Event *event, SDL_Surface *screen, t_player *player);
+void		init(SDL_Surface *screen, t_player *player, t_map *map);
 #endif

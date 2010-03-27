@@ -80,7 +80,7 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
     }
 }
 
-void		display_npc(SDL_Surface *screen, t_map *map, t_player *player)
+void		display_npc(SDL_Surface *screen, t_player *player)
 {
   blit_img_case(player->player_img, screen, player->position.x, player->position.y);
 }
@@ -109,7 +109,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
     {
       blit_img_case(player.imageDeFond, screen, 0, 0);
       display_map(screen, map, &img);
-      display_npc(screen, map, &player);
+      display_npc(screen, &player);
       SDL_Flip(screen);
       test = SDL_PollEvent(&event);
       if (test)
