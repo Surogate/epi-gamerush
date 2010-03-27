@@ -12,7 +12,6 @@
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<SDL/SDL.h>
-
 #include	"t_image.h"
 #include	"map.h"
 #include	"npc.h"
