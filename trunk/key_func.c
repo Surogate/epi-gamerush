@@ -18,7 +18,7 @@ int		press_up(t_player *player)
 
 int		press_down(t_player *player)
 {
-  if (player->position.y + player->img_height < WIN_HEIGHT)
+  if (player->position.y + player->img_height < MWIN_HEIGHT)
     {
       player->position.y += 10;
       return (1);
@@ -40,7 +40,7 @@ int		press_left(t_player *player)
 
 int		press_right(t_player *player)
 {
-  if (player->position.x + player->img_lenght < WIN_LENGTH)
+  if (player->position.x + player->img_lenght < MWIN_WIDTH)
     {
       player->position.x += 10;
       return (1);
