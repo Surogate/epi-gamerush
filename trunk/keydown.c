@@ -5,6 +5,8 @@
 #include	"key.h"
 #include	"env.h"
 #include	"map.h"
+#include	"exec_fct.h"
+#include	"keydown.h"
 
 t_key		key_list[]=
   {
@@ -16,9 +18,31 @@ t_key		key_list[]=
     {0,0}
   };
 
+t_func		event_func[]=
+  {
+    {SDL_QUIT, exit_func},
+    {SDL_KEYDOWN, key_func},
+    {0,0}
+  };
+
 int		exit_func()
 {
   return (0);
+}
+
+int		event_loop(SDL_Event *event, t_player *player, t_map *map)
+{
+  int		i;
+  int		continuer;
+
+  i = 0;
+  while (event_func[i].type)
+    {
+      if (event->type == event_func[i].type)
+	continuer = event_func[i].func(event, player, map);
+      i++;
+    }
+  return (continuer);
 }
 
 int		key_func(SDL_Event *event, t_player *player, t_map *map)

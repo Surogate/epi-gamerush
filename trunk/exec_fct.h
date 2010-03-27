@@ -27,7 +27,6 @@ typedef struct
 }		t_dispmap;
 
 int		exec_fct();
-int		key_func(SDL_Event *event, SDL_Surface *screen, t_player *player);
 void		init(t_player *player, t_map *map);
 
 #endif
