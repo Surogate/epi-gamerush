@@ -28,6 +28,7 @@ SDL_Surface	*creat_win(t_map *map)
   if (win_height > MWIN_HEIGHT)
     win_height = MWIN_HEIGHT;
   SDL_WM_SetIcon(SDL_LoadBMP("DonkeyKong2.bmp"), NULL);
+  printf("width : %i, height : %i\n", win_width, win_height);
   screen = SDL_SetVideoMode(win_width, win_height, WIN_COLOR, SDL_SWSURFACE);
   SDL_WM_SetCaption("Epikong", NULL);
   return (screen);
