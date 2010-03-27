@@ -8,19 +8,22 @@
 ** Last update Fri Mar 26 20:47:17 2010 francois1 ancel
 */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <SDL/SDL.h>
-#include "env.h"
-#include "define.h"
-#include "key.h"
-#include "map.h"
-#include "npc.h"
-#include "t_image.h"
-#include "image_fct.h"
-#include "keydown.h"
-#include "exec_fct.h"
+#include	<unistd.h>
+#include	<stdlib.h>
+#include	<stdio.h>
+#include	<SDL/SDL.h>
+
+#include	"t_image.h"
+#include	"env.h"
+#include	"exec_fct.h"
+#include	"define.h"
+#include	"image_fct.h"
+#include	"init_player.h"
+#include	"key.h"
+#include	"keydown.h"
+#include	"map.h"
+#include	"npc.h"
+
 
 test		*init_da_tab()
 {
@@ -36,7 +39,7 @@ test		*init_da_tab()
       res[2].obj = 'w';
       res[2].img = img_load(LAD_DIR);
       res[3].obj = 'm';
-      res[3].img = img_load(MON_DIR);
+      res[3].img = img_load(MON_DIR1);
       res[4].obj = 'o';
       res[4].img = img_load(EXIT_DIR);
       res[5].obj = 'i';
@@ -78,7 +81,7 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
 	  else if (map->map[height][width] == 'o')
 	    blit_img_case(img->exit, screen, width, height);
 	  else if (map->map[height][width] == 'm')
-	    blit_img_case(img->monster, screen, width, height);
+	    blit_img_case(img->monster1, screen, width, height);
 	  else if (map->map[height][width] == 'k')
 	    blit_img_case(img->key, screen, width, height);
 	  width++;
@@ -89,11 +92,11 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
 
 void		display_npc(SDL_Surface *screen, t_player *player, t_npc *npc)
 {
-  blit_img_case(player->player_img, screen,
+  blit_img_case(player->player_img1, screen,
 		player->position.x, player->position.y);
   while (npc != 0)
     {
-      blit_img_case(npc->img, screen, npc->x, npc->y);
+      blit_img_case(npc->img1, screen, npc->x, npc->y);
       npc = npc->next;
     }
 }
@@ -140,8 +143,8 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
   SDL_EnableKeyRepeat(10, 10);
   continuer = 1;
   img_init(&img);
-  init(&player, map, img.hero);
-  monsters = get_npc_monsters(map, img.monster);
+  init(&player, map, &img);
+  monsters = get_npc_monsters(map, &img);
   pouet = 0;
   while (continuer > 0)
     {

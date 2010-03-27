@@ -27,6 +27,5 @@ typedef struct
 }		t_dispmap;
 
 int		exec_fct();
-void		init(t_player *player, t_map *map, SDL_Surface *img);
 
 #endif

@@ -12,6 +12,6 @@
 # define INIT_PLAYER_C_INCLUDED
 
 void		search_pos(t_map *map, int *res);
-void		init(t_player *player, t_map *map, SDL_Surface *img);
+void		init(t_player *player, t_map *map, t_image *img);
 
 #endif

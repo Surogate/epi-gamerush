@@ -2,11 +2,12 @@
 #include		<stdio.h>
 #include		<unistd.h>
 
+#include		"t_image.h"
 #include		"map.h"
 #include		"npc.h"
 #include		"xio.h"
 
-void			add_npc(t_npc **list, int x, int y, SDL_Surface *img)
+void			add_npc(t_npc **list, int x, int y, t_image *img)
 {
   t_npc			*new;
 
@@ -14,7 +15,9 @@ void			add_npc(t_npc **list, int x, int y, SDL_Surface *img)
   new->x = x;
   new->y = y;
   new->vx = 1;
-  new->img = img;
+  new->img1 = img->monster1;
+  new->img2 = img->monster2;
+  new->img3 = img->monster3;
   new->next = *list;
   *list = new;
 }
@@ -26,7 +29,7 @@ void			disp_monsters(t_npc *list)
     disp_monsters(list->next);
 }
 
-t_npc			*get_npc_monsters(t_map *map, SDL_Surface *img)
+t_npc			*get_npc_monsters(t_map *map, t_image *img)
 {
   t_npc			*npc_list;
   int			x;
