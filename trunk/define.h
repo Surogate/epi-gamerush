@@ -43,6 +43,7 @@
 #define EXIT_DIR	"./image/exit2.bmp"
 #define ENT_DIR		"./image/enter.bmp"
 #define KEY_DIR		"./image/key.bmp"
+#define GUN_DIR		"./image/ammo.bmp"
 
 /*Menu's define*/
 #define MENU_BACK	"./image/menu.bmp"
