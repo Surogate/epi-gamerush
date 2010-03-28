@@ -26,7 +26,8 @@ int		something_on_da_way(t_player *player, t_map *map, int fall_len)
   height = 0;
   while (height < fall_len)
     {
-      if (map->map[player->position.y + height + 1][player->position.x] == 'w' ||
+      if (map->map[player->position.y + height + 1][player->position.x]
+	  == 'w' ||
 	  map->map[player->position.y + height + 1][player->position.x] == 's')
 	{
 	  return (height);
