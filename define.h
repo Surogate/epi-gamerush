@@ -61,6 +61,6 @@
 /*Move define*/
 #define	NB_MOVE		4
 #define	DEAD_FALL	4
-#define	NB_LIFE		3
+#define	NB_LIFE		3000
 
 #endif
