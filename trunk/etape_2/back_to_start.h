@@ -8,10 +8,12 @@
 ** Last update Sat Mar 27 16:50:54 2010 francois1 ancel
 */
 
-#ifndef BACK_TO_START_C_INCLUDED
-# define BACK_TO_START_C_INCLUDED
+#ifndef		BACK_TO_START_C_INCLUDED
+# define	BACK_TO_START_C_INCLUDED
 
 int		are_you_dying(t_npc *npc, t_player *player, t_map *map);
 int		you_loose(t_player *player, t_map *map);
+int		falling(t_player *player, t_map *map, int fall_len);
+int		life_verif(t_player *player, t_map *map, int *save);
 
 #endif
