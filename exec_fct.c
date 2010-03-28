@@ -60,8 +60,9 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
       display_player(screen, &player);
       display_life(screen, &player);
       SDL_Flip(screen);
-      gravite(&player, map);
-      player_act(&continuer, map, &player);
+      continuer = gravite(&player, map);
+      if (continuer >= 0)
+	player_act(&continuer, map, &player);
       if (continuer > 0)
 	continuer = env_act(map, &player, monsters);
     }
