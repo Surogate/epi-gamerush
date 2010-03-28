@@ -80,7 +80,7 @@ void			checks(char cur, int *entry)
     *entry = 1;
   if (cur != WALL_CHAR && cur != KEY_CHAR && cur != MONSTER_CHAR
       && cur != LADDER_CHAR && cur != EMPTY_CHAR && cur != EXIT_CHAR
-      && cur != ENTER_CHAR && cur != BLOOD_CHAR)
+      && cur != ENTER_CHAR && cur != BLOOD_CHAR && cur != LIFE_CHAR)
     err_inside("The map contains an unknown object.", 1);
 }
 
