@@ -103,7 +103,7 @@ int		env_act(t_map *map,
 
   monster_time(map, monsters);
   retour = are_you_dying(monsters, player, map);
-  SDL_Delay(5);
+  SDL_Delay(40);
   return (retour);
 }
 
