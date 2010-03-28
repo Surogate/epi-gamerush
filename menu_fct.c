@@ -28,6 +28,8 @@ void			print_mark(SDL_Surface *screen, int select)
 
   pos.x = MENU_X - 50;
   pos.y = MENU_Y + select * (FONT_SIZE + 5);
+  SDL_SetColorKey(mark, SDL_SRCCOLORKEY,
+		  SDL_MapRGB(mark->format, 255, 255, 255));
   SDL_BlitSurface(mark, NULL, screen, &pos);
   SDL_Flip(screen);
 }
