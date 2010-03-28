@@ -20,6 +20,7 @@ SRCS	= err.c			\
 	image_fct.c		\
 	key_func.c		\
 	act.c			\
+	act2.c			\
 	init_player.c		\
 	keydown.c		\
 	map.c			\

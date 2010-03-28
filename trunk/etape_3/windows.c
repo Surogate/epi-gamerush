@@ -105,7 +105,7 @@ char		*exec_menu()
     err_SDL("Can't init SDL", 1);
   SDL_WM_SetIcon(SDL_LoadBMP("image/DonkeyKong2.bmp"), NULL);
   screen = SDL_SetVideoMode(MWIN_WIDTH, MWIN_HEIGHT, WIN_COLOR,
-			    SDL_HWSURFACE | SDL_DOUBLEBUF );
+			    SDL_HWSURFACE | SDL_DOUBLEBUF);
   SDL_WM_SetCaption("Epikong", NULL);
   background = img_load(MENU_BACK);
   pos.x = 0;
@@ -136,7 +136,7 @@ SDL_Surface	*creat_win(t_map *map)
     win_height = MWIN_HEIGHT;
   SDL_WM_SetIcon(SDL_LoadBMP("image/DonkeyKong2.bmp"), NULL);
   screen = SDL_SetVideoMode(win_width, win_height, WIN_COLOR,
-			    SDL_HWSURFACE | SDL_DOUBLEBUF );
+			    SDL_HWSURFACE | SDL_DOUBLEBUF);
   SDL_WM_SetCaption("Epikong", NULL);
   return (screen);
 }

@@ -13,5 +13,7 @@
 
 int		are_you_dying(t_npc *npc, t_player *player, t_map *map);
 int		you_loose(t_player *player, t_map *map);
+int		falling(t_player *player, t_map *map, int fall_len);
+int		life_verif(t_player *player, t_map *map, int *save);
 
 #endif

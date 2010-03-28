@@ -51,7 +51,6 @@ void			*xrealloc(void *ptr, int s)
   return (ptr);
 }
 
-
 char			*get_file_content(char *path)
 {
   char			*buffer;
