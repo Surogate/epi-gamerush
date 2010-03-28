@@ -20,6 +20,7 @@
 #include	"npc.h"
 #include	"env.h"
 #include	"exec_fct.h"
+#include	"xio.h"
 
 void		display_player(SDL_Surface *screen, t_player *player)
 {
@@ -104,32 +105,29 @@ t_imgtab	*init_da_tab()
 {
   t_imgtab	*res;
 
-  res = malloc(11 * sizeof(*res));
-  if (res)
-    {
-      res[0].obj = EMPTY_CHAR;
-      res[0].img = img_load(WHIT_DIR);
-      res[1].obj = WALL_CHAR;
-      res[1].img = img_load(WALL_DIR);
-      res[2].obj = LADDER_CHAR;
-      res[2].img = img_load(LAD_DIR);
-      res[3].obj = MONSTER_CHAR;
-      res[3].img = img_load(MON_DIR1);
-      res[4].obj = EXIT_CHAR;
-      res[4].img = img_load(EXIT_DIR);
-      res[5].obj = ENTER_CHAR;
-      res[5].img = img_load(ENT_DIR);
-      res[6].obj = KEY_CHAR;
-      res[6].img = img_load(KEY_DIR);
-      res[7].obj = BLOOD_CHAR;
-      res[7].img = img_load(BLOOD_DIR);
-      res[8].obj = GUN_CHAR;
-      res[8].img = img_load(GUN_DIR);
-      res[9].obj = LIFE_CHAR;
-      res[9].img = img_load(LIFE_DIR);
-      res[10].obj = '\0';
-      res[10].img = NULL;
-    }
+  res = xmalloc(11 * sizeof(*res));
+  res[0].obj = EMPTY_CHAR;
+  res[0].img = img_load(WHIT_DIR);
+  res[1].obj = WALL_CHAR;
+  res[1].img = img_load(WALL_DIR);
+  res[2].obj = LADDER_CHAR;
+  res[2].img = img_load(LAD_DIR);
+  res[3].obj = MONSTER_CHAR;
+  res[3].img = img_load(MON_DIR1);
+  res[4].obj = EXIT_CHAR;
+  res[4].img = img_load(EXIT_DIR);
+  res[5].obj = ENTER_CHAR;
+  res[5].img = img_load(ENT_DIR);
+  res[6].obj = KEY_CHAR;
+  res[6].img = img_load(KEY_DIR);
+  res[7].obj = BLOOD_CHAR;
+  res[7].img = img_load(BLOOD_DIR);
+  res[8].obj = GUN_CHAR;
+  res[8].img = img_load(GUN_DIR);
+  res[9].obj = LIFE_CHAR;
+  res[9].img = img_load(LIFE_DIR);
+  res[10].obj = '\0';
+  res[10].img = NULL;
   return (res);
 }
 
@@ -152,12 +150,12 @@ void		display_life(SDL_Surface *screen, t_player *player)
       fprintf(stderr, "TTF error : %s", TTF_GetError());
       return ;
     }
-  snprintf(str, 50,  "%i life remaining", player->life);
+  sprintf(str,  "%i life remaining", player->life);
   text = TTF_RenderText_Blended(font, str, color);
   pos.x = 16;
   pos.y = 16;
   SDL_BlitSurface(text, NULL, screen, &pos);
-  sprintf(str, "%d ammo", player->item.weapon);  
+  sprintf(str, "%d ammo", player->item.weapon);
   text = TTF_RenderText_Blended(font, str, color);
   pos.y = 32;
   SDL_BlitSurface(text, NULL, screen, &pos);
