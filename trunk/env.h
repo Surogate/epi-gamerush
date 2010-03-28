@@ -13,7 +13,7 @@
 
 typedef struct	s_obj
 {
-  int		keys;
+  int		key;
   int		weapon;
 }		t_obj;
 
@@ -28,12 +28,11 @@ typedef	struct	s_player
   SDL_Surface	*player_img5;
   SDL_Surface	*player_img6;
   SDL_Surface	*imageDeFond;
-  t_obj		item[1];
+  t_obj		item;
   int		wait;
   int		img_height;
   int		img_lenght;
   int		life;
-  int		weapon;
   int		direction;
   int		move;
 }		t_player;
