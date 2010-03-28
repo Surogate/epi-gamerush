@@ -101,6 +101,5 @@ int		img_delete(t_image *img)
   SDL_FreeSurface(img->hero5);
   SDL_FreeSurface(img->hero6);
   SDL_FreeSurface(img->key);
-  free(img->tab);
   return (EXIT_SUCCESS);
 }

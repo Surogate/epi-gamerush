@@ -101,11 +101,10 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
     }
 }
 
-t_imgtab	*init_da_tab()
+t_imgtab		*init_da_tab()
 {
-  t_imgtab	*res;
+  static t_imgtab	res[10];
 
-  res = xmalloc(11 * sizeof(*res));
   res[0].obj = EMPTY_CHAR;
   res[0].img = img_load(WHIT_DIR);
   res[1].obj = WALL_CHAR;
