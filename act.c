@@ -27,23 +27,37 @@ int		something_on_da_way(t_player *player, t_map *map, int fall_len)
   return (height);
 }
 
+int		falling(t_player *player, t_map *map, int fall_len)
+{
+  int		temp;
+
+  temp = something_on_da_way(player, map, (int)pow(2, fall_len));
+  player->position.y += temp;
+  return (temp);
+}
+
+void		life_verif(t_player *player, t_map *map, int save)
+{
+  if (save > 4)
+    you_loose(player, map);
+  player->wait = 0;
+}
+
 void		gravite(t_player *player, t_map *map)
 {
-  int			tempsActuel = 0;
+  int			tempsActuel;
   static int		tempsPrecedent = 0;
   static int		fall_len = 0;
   static int		save = 0;
-  int			temp;
 
   if (map->map[player->position.y + 1][player->position.x] != WALL_CHAR &&
-      map->map[player->position.y][player->position.x] != LADDER_CHAR)
+      map->map[player->position.y][player->position.x] != LADDER_CHAR &&
+      map->map[player->position.y + 1][player->position.x] != LADDER_CHAR)
     {
       tempsActuel = SDL_GetTicks();
       if (tempsActuel - tempsPrecedent > 30)
 	{
-	  temp = something_on_da_way(player, map, (int)pow(2, fall_len));
-	  save += temp;
-	  player->position.y += temp;
+	  save += falling(player, map, fall_len);
 	  tempsPrecedent = tempsActuel;
 	  fall_len++;
 	}
@@ -52,12 +66,9 @@ void		gravite(t_player *player, t_map *map)
     }
   else
     {
-      if (save > 4)
-	you_loose(player, map);
-      
+      life_verif(player, map, save);
       fall_len = 0;
       save = 0;
-      player->wait = 0;
     }
 }
 
