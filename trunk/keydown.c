@@ -65,15 +65,12 @@ int		key_func(t_player *player, t_map *map)
   i = 0;
   retour = 1;
   if (keystate[SDLK_UP] && keystate[SDLK_RIGHT])
-    {
       player->direction = 1;
-      jump_in_front(player, map);
-    }
   else if (keystate[SDLK_UP] && keystate[SDLK_LEFT])
-    {
       player->direction = -1;
+  if ((keystate[SDLK_UP] && keystate[SDLK_RIGHT]) ||
+      (keystate[SDLK_UP] && keystate[SDLK_LEFT]))
       jump_in_front(player, map);
-    }
   else
     while (key_list[i].keycode)
       {

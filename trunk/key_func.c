@@ -23,6 +23,8 @@ int		pass(t_player *player)
 
 int		jump_in_front(t_player *player, t_map *map)
 {
+  int		move;
+
   if ((map->map[player->position.y + 1][player->position.x] == WALL_CHAR ||
        map->map[player->position.y + 1][player->position.x] == LADDER_CHAR ||
        map->map[player->position.y][player->position.x] == LADDER_CHAR) &&
@@ -33,11 +35,12 @@ int		jump_in_front(t_player *player, t_map *map)
 	  player->position.y--;
 	  player->wait = 1;
 	  player->move--;
-	  if (map->map[player->position.y][player->position.x + player->direction] != WALL_CHAR)
+	  move = player->direction;
+	  if (map->map[player->position.y][player->position.x + move] != WALL_CHAR)
 	    {
 	      player->position.x += player->direction;
 	      if (map->map[player->position.y][player->position.x] != LADDER_CHAR &&
-		  map->map[player->position.y][player->position.x + player->direction] != WALL_CHAR)
+		  map->map[player->position.y][player->position.x + move] != WALL_CHAR)
 		{
 		  player->position.x += player->direction;
 		}
@@ -58,7 +61,7 @@ int		press_up(t_player *player, t_map *map)
 	{
 	  player->position.y--;
 	  player->wait = 1;
-	  if (map->map[player->position.y + 1][player->position.x] != WALL_CHAR &&
+	  if (map->map[player->position.y - 1][player->position.x] != WALL_CHAR &&
 	      map->map[player->position.y][player->position.x] != LADDER_CHAR)
 	    {     
 	      SDL_Delay(30);

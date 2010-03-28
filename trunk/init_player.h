@@ -11,7 +11,7 @@
 #ifndef		INIT_PLAYER_C_INCLUDED
 # define	INIT_PLAYER_C_INCLUDED
 
-void		search_pos(t_map *map, int *res);
+void		search_pos(t_map *map, int *res, char to_find);
 void		init(t_player *player, t_map *map, t_image *img);
 
 #endif		/* INIT_PLAYER_C_INCLUDED */
