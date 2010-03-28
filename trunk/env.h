@@ -17,6 +17,14 @@ typedef struct	s_obj
   int		weapon;
 }		t_obj;
 
+typedef struct	s_projectil
+{
+  SDL_Rect	pos;
+  SDL_Surface	*img;
+  int		move;
+  int		dir;
+}		t_projectil;
+
 typedef	struct	s_player
 {
   SDL_Rect	position;
@@ -30,6 +38,7 @@ typedef	struct	s_player
   SDL_Surface	*imageDeFond;
   t_obj		item;
   int		wait;
+  t_projectil	banane;
   int		img_height;
   int		img_lenght;
   int		life;

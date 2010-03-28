@@ -22,6 +22,7 @@ SRCS	= err.c			\
 	exec_fct.c		\
 	image_fct.c		\
 	key_func.c		\
+	special_action.c	\
 	act.c			\
 	act2.c			\
 	init_player.c		\
