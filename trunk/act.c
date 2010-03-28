@@ -100,6 +100,7 @@ int		env_act(t_map *map,
 			t_player *player, t_npc *monsters)
 {
   int		retour;
+
   if (!player->move)
     {
       if (!monsters->move)

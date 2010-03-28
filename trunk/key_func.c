@@ -25,7 +25,7 @@ int		take_it(t_player *player, t_map *map)
   search_pos(map, pos, KEY_CHAR);
   if (pos[0] == player->position.x && pos[1]== player->position.y)
     {
-      printf("Clef rammaser\n");
+      printf("You got a key.\n");
       map->map[pos[1]][pos[0]] = '.';
       player->item.key = 1;
       return (1);
