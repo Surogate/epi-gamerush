@@ -104,7 +104,7 @@ t_imgtab	*init_da_tab()
 {
   t_imgtab	*res;
 
-  res = malloc(10 * sizeof(*res));
+  res = malloc(11 * sizeof(*res));
   if (res)
     {
       res[0].obj = EMPTY_CHAR;
@@ -123,10 +123,12 @@ t_imgtab	*init_da_tab()
       res[6].img = img_load(KEY_DIR);
       res[7].obj = BLOOD_CHAR;
       res[7].img = img_load(BLOOD_DIR);
-      res[8].obj = LIFE_CHAR;
-      res[8].img = img_load(LIFE_DIR);
-      res[9].obj = '\0';
-      res[9].img = NULL;
+      res[8].obj = GUN_CHAR;
+      res[8].img = img_load(GUN_DIR);
+      res[9].obj = LIFE_CHAR;
+      res[9].img = img_load(LIFE_DIR);
+      res[10].obj = '\0';
+      res[10].img = NULL;
     }
   return (res);
 }
@@ -150,10 +152,22 @@ void		display_life(SDL_Surface *screen, t_player *player)
       fprintf(stderr, "TTF error : %s", TTF_GetError());
       return ;
     }
-  sprintf(str, "%i lives remaining", player->life);
+  sprintf(str, "%i life remainingn", player->life);
   text = TTF_RenderText_Solid(font, str, color);
   pos.x = 16;
   pos.y = 16;
+  SDL_BlitSurface(text, NULL, screen, &pos);
+  sprintf(str, "%d ammo", player->item.weapon);
+  text = TTF_RenderText_Solid(font, str, color);
+  pos.y = 32;
+  SDL_BlitSurface(text, NULL, screen, &pos);
+  sprintf(str, "%d move", player->move);
+  text = TTF_RenderText_Solid(font, str, color);
+  pos.y = 48;
+  SDL_BlitSurface(text, NULL, screen, &pos);
+  sprintf(str, "%d key", player->item.key);
+  text = TTF_RenderText_Solid(font, str, color);
+  pos.y = 64;
   SDL_BlitSurface(text, NULL, screen, &pos);
   TTF_CloseFont(font);
   TTF_Quit();

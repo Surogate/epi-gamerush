@@ -20,6 +20,7 @@
 # define KEY_CHAR	'k'
 # define BLOOD_CHAR	'b'
 # define LIFE_CHAR	'l'
+# define GUN_CHAR	'g'
 
 typedef struct		s_map
 {

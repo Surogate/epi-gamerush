@@ -26,17 +26,28 @@ int		main()
 {
   char		*level;
   int		continuer;
-  int		tab[6];
+  int		finished;
 
+  finished = 0;
   continuer = 1;
   while (continuer)
     {
-      level = exec_menu(tab);
+      level = exec_menu();
       if (level == (char *)-1)
 	continuer = 0;
       else
 	{
-	  continuer = exec_map(level);
+	  while ((continuer = exec_map(level)) == 0)
+	    {
+	      get_next_level(&level, &finished);
+	      if (finished)
+		printf("\033[35mYOU FINISHED THE GAME BASTERD !!!!!!!!!!!!\n\033[00m");
+	      if (level == NULL)
+		{
+		  continuer = 1;
+		  break;
+		}
+	    }
 	}
     }
   return (EXIT_SUCCESS);

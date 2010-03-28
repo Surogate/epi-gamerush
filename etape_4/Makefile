@@ -21,6 +21,7 @@ SRCS	= err.c			\
 	act.c			\
 	init_player.c		\
 	keydown.c		\
+	next_level.c		\
 	map.c			\
 	back_to_start.c		\
 	main.c			\

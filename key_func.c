@@ -39,6 +39,11 @@ int		take_it(t_player *player, t_map *map)
       printf("\033[36mLevel complete!\033[00m\n");
       return (0);
     }
+  if (map->map[player->position.y][player->position.x] == GUN_CHAR)
+     {
+       player->item.weapon++;
+       map->map[player->position.y][player->position.x] = EMPTY_CHAR;
+     }
   return (1);
 }
 
