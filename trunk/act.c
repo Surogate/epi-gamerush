@@ -68,14 +68,14 @@ int		gravite(t_player *player, t_map *map)
       map->map[player->position.y + 1][player->position.x] != LADDER_CHAR)
     {
       tempsActuel = SDL_GetTicks();
-      if (tempsActuel - tempsPrecedent > 30)
+      if (tempsActuel - tempsPrecedent > 50)
 	{
 	  save += falling(player, map, fall_len);
 	  tempsPrecedent = tempsActuel;
 	  fall_len++;
 	}
       else
-	SDL_Delay(30 - (tempsActuel - tempsPrecedent));
+	SDL_Delay(50 - (tempsActuel - tempsPrecedent));
     }
   else
     {
