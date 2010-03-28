@@ -13,6 +13,7 @@
 #include	<stdio.h>
 #include	<SDL/SDL.h>
 #include	<SDL/SDL_ttf.h>
+
 #include	"t_image.h"
 #include	"image_fct.h"
 #include	"map.h"
@@ -77,14 +78,14 @@ void		disp_menu(SDL_Surface *screen)
 
   if (TTF_Init() < 0)
     {
-      fprintf(stderr, "TTF error : %s", TTF_GetError());
-      return ;
+      fprintf(stderr, "TTF error : %s\n", TTF_GetError());
+      exit(EXIT_FAILURE);
     }
   font = TTF_OpenFont(MENU_FONT, FONT_SIZE);
   if (!font)
     {
-      fprintf(stderr, "TTF error : %s", TTF_GetError());
-      return ;
+      fprintf(stderr, "TTF error : %s\n", TTF_GetError());
+      exit(EXIT_FAILURE);
     }
   print_menu(screen, font);
   SDL_Flip(screen);
