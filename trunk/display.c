@@ -22,8 +22,12 @@
 #include	"exec_fct.h"
 #include	"xio.h"
 
-void    aff_da_banana(t_player *player, SDL_Surface *screen)
+void		aff_da_banana(t_player *player, SDL_Surface *screen)
 {
+  unsigned int	co;
+
+  co = SDL_MapRGB(screen->format, 255, 255, 255);
+  SDL_SetColorKey(player->banane.img, SDL_RLEACCEL | SDL_SRCCOLORKEY, co);
   player->banane.move--;
   blit_img_case(player->banane.img, screen,
 		player->banane.pos.x, player->banane.pos.y);
