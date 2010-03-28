@@ -19,7 +19,7 @@ void			monster_die(t_npc *npc, t_map *map, t_player *player)
   if (npc->life)
     {
       npc->life--;
-      if (  map->map[npc->y][npc->x] == '.')
+      if (map->map[npc->y][npc->x] == '.')
 	map->map[npc->y][npc->x] = 'b';
     }
   player->banane.move = 0;
@@ -38,10 +38,13 @@ int			monster_time(t_player *player, t_map *map, t_npc *npc)
 	      (map->map[npc->y + 1][npc->x + npc->vx] == WALL_CHAR ||
 	       map->map[npc->y + 1][npc->x + npc->vx] == LADDER_CHAR) &&
 	      map->map[npc->y][npc->x + npc->vx] != ENTER_CHAR)
-	    if (npc->x == player->banane.pos.x && npc->y == player->banane.pos.y)
+	    if (player->banane.pos.y == npc->y &&
+		(player->banane.pos.x == npc->x ||
+		 (player->banane.pos.x + player->banane.dir == npc->x &&
+		  player->banane.move)))
 	      monster_die(npc, map, player);
-		else
-		  npc->x += npc->vx;
+	    else
+	      npc->x += npc->vx;
 	  else
 	    npc->vx *= -1;
 	  npc->move--;
