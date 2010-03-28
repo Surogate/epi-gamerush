@@ -21,7 +21,8 @@ int		are_you_dying(t_npc *npc, t_player *player, t_map *map)
 {
   while (npc)
     {
-      if (npc->x == player->position.x && npc->y == player->position.y)
+      if (npc->x == player->position.x && npc->y == player->position.y &&
+	  npc->life)
 	{
 	  return (you_loose(player, map));
 	}
