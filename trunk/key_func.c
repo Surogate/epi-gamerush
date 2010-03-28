@@ -14,6 +14,7 @@
 #include	"map.h"
 #include	"npc.h"
 #include	"env.h"
+#include	"init_player.h"
 
 int		take_it(t_player *player, t_map *map)
 {
