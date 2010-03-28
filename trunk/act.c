@@ -10,13 +10,14 @@
 
 #include	<SDL/SDL.h>
 #include	<math.h>
+#include	<stdio.h>
 #include	"map.h"
 #include	"t_image.h"
 #include	"npc.h"
 #include	"env.h"
 #include	"keydown.h"
 #include	"back_to_start.h"
-#include	<stdio.h>
+#include	"define.h"
 
 int		something_on_da_way(t_player *player, t_map *map, int fall_len)
 {
@@ -49,7 +50,7 @@ int		life_verif(t_player *player, t_map *map, int *save)
   int		flag;
 
   flag = 0;
-  if (*save > 4)
+  if (*save > DEAD_FALL)
     flag = you_loose(player, map);
   player->wait = 0;
   *save = 0;
@@ -106,11 +107,11 @@ int		env_act(t_map *map,
       if (monsters)
 	{
 	  if (!monsters->move)
-	    monsters->move = 5;
+	    monsters->move = NB_MOVE;
 	  monster_time(player, map, monsters);
 	}
       else
-	player->move = 5;
+	player->move = NB_MOVE;
     }
   retour = are_you_dying(monsters, player, map);
   SDL_Delay(50);

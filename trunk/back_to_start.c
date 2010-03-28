@@ -15,6 +15,7 @@
 #include	"env.h"
 #include	"init_player.h"
 #include	"back_to_start.h"
+#include	"define.h"
 
 int		are_you_dying(t_npc *npc, t_player *player, t_map *map)
 {
@@ -41,6 +42,7 @@ int		you_loose(t_player *player, t_map *map)
   player->position.x = pos[0];
   player->position.y = pos[1];
   player->direction = -1;
+  player->move = NB_MOVE;
   if (!player->life)
     {
       printf("\033[31mgame over\033[00m\n");

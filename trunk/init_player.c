@@ -15,6 +15,7 @@
 #include	"env.h"
 #include	"exec_fct.h"
 #include	"init_player.h"
+#include	"define.h"
 
 void		search_pos(t_map *map, int *res, char to_find)
 {
@@ -47,7 +48,7 @@ void		init(t_player *player, t_map *map, t_image *img)
   search_pos(map, pos, ENTER_CHAR);
   player->position.x = pos[0];
   player->position.y = pos[1];
-  player->move = 5;
+  player->move = NB_MOVE;
   player->life = 3;
   player->wait = 0;
   player->item.weapon = 0;
