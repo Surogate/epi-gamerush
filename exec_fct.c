@@ -58,6 +58,7 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
       display_map(screen, map, &img);
       display_npcs(screen, monsters);
       display_player(screen, &player);
+      display_life(screen, &player);
       SDL_Flip(screen);
       gravite(&player, map);
       player_act(&continuer, map, &player);

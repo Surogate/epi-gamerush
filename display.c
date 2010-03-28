@@ -12,6 +12,7 @@
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<SDL/SDL.h>
+#include	<SDL/SDL_ttf.h>
 #include	"define.h"
 #include	"t_image.h"
 #include	"image_fct.h"
@@ -124,4 +125,33 @@ t_imgtab	*init_da_tab()
       res[7].img = NULL;
     }
   return (res);
+}
+
+void		display_life(SDL_Surface *screen, t_player *player)
+{
+  TTF_Font	*font;
+  SDL_Surface	*text;
+  char		str[50];
+  SDL_Rect	pos;
+  SDL_Color	color = {0, 0, 0, 0};
+
+  if (TTF_Init() < 0)
+    {
+      fprintf(stderr, "TTF error : %s", TTF_GetError());
+      return ;
+    }
+  
+  font = TTF_OpenFont("./font/SERIM___.ttf", 16);
+  if (!font)
+    {
+      fprintf(stderr, "TTF error : %s", TTF_GetError());
+      return ;
+    }
+  sprintf(str, "%i life remaining", player->life);
+  text = TTF_RenderText_Solid(font, str, color);
+  pos.x = 16;
+  pos.y = 16;
+  SDL_BlitSurface(text, NULL, screen, &pos);
+  TTF_CloseFont(font);
+  TTF_Quit();
 }

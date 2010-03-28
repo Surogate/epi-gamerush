@@ -15,5 +15,6 @@ void		display_player(SDL_Surface *screen, t_player *player);
 void		display_npcs(SDL_Surface *screen, t_npc *npc);
 void		display_map(SDL_Surface *screen, t_map *map, t_image *img);
 t_imgtab	*init_da_tab();
+void		display_life(SDL_Surface *screen, t_player *player);
 
 #endif
