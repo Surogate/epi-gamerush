@@ -57,6 +57,7 @@ void		img_init_suite(t_image *img)
 int		img_init(t_image *img)
 {
   img->white = img_load(WHIT_DIR);
+  img->blood = img_load(BLOOD_DIR);
   img->wall = img_load(WALL_DIR);
   img->ladder = img_load(LAD_DIR);
   img->exit = img_load(EXIT_DIR);
@@ -82,6 +83,7 @@ int		img_init(t_image *img)
 int		img_delete(t_image *img)
 {
   SDL_FreeSurface(img->white);
+  SDL_FreeSurface(img->blood);
   SDL_FreeSurface(img->wall);
   SDL_FreeSurface(img->ladder);
   SDL_FreeSurface(img->monster1);

@@ -18,6 +18,7 @@
 # define EXIT_CHAR	'o'
 # define EMPTY_CHAR	'.'
 # define KEY_CHAR	'k'
+# define BLOOD_CHAR	'b'
 
 typedef struct		s_map
 {
