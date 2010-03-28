@@ -19,6 +19,7 @@
 # define EMPTY_CHAR	'.'
 # define KEY_CHAR	'k'
 # define BLOOD_CHAR	'b'
+# define LIFE_CHAR	'l'
 
 typedef struct		s_map
 {
