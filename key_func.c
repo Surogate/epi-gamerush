@@ -24,7 +24,7 @@ int		take_it(t_player *player, t_map *map)
   search_pos(map, pos, KEY_CHAR);
   if (pos[0] == player->position.x && pos[1]== player->position.y)
     {
-      printf("Clef rammaser\n", pos[0], pos[1]);
+      printf("Clef rammaser\n");
       map->map[pos[1]][pos[0]] = '.';
       player->item.key = 1;
       return (1);
@@ -35,7 +35,7 @@ int		take_it(t_player *player, t_map *map)
   if (pos[0] == player->position.x && pos[1] == player->position.y && player->item.key)
     {
       printf("\033[36mLevel complete!\033[00m\n");
-      exit(0);
+      return (0);
     }
   return (1);
 }
