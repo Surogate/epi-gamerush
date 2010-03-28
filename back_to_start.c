@@ -33,9 +33,10 @@ void		you_loose(t_player *player, t_map *map)
   player->life--;
   pos[0] = 0;
   pos[1] = 0;
-  search_pos(map, pos);
+  search_pos(map, pos, ENTER_CHAR);
   player->position.x = pos[0];
   player->position.y = pos[1];
+  player->direction = -1;
   if (!player->life)
     {
       printf("\033[31mgame over\033[00m\n");
