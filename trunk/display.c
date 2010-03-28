@@ -5,7 +5,7 @@
 ** Login   <ancel_a@epitech.net>
 **
 ** Started on  Sat Mar 27 17:49:11 2010 francois1 ancel
-** Last update Sat Mar 27 17:49:11 2010 francois1 ancel
+** Last update Sun Mar 28 21:17:33 2010 francois1 ancel
 */
 
 #include	<unistd.h>
@@ -146,27 +146,27 @@ void		display_life(SDL_Surface *screen, t_player *player)
       fprintf(stderr, "TTF error : %s", TTF_GetError());
       return ;
     }  
-  font = TTF_OpenFont("./font/SERIM___.ttf", 16);
+  font = TTF_OpenFont(FONT_DIR, MFONT_SIZE);
   if (!font)
     {
       fprintf(stderr, "TTF error : %s", TTF_GetError());
       return ;
     }
-  sprintf(str, "%i life remainingn", player->life);
-  text = TTF_RenderText_Solid(font, str, color);
+  snprintf(str, 50,  "%i life remaining", player->life);
+  text = TTF_RenderText_Blended(font, str, color);
   pos.x = 16;
   pos.y = 16;
   SDL_BlitSurface(text, NULL, screen, &pos);
-  sprintf(str, "%d ammo", player->item.weapon);
-  text = TTF_RenderText_Solid(font, str, color);
+  sprintf(str, "%d ammo", player->item.weapon);  
+  text = TTF_RenderText_Blended(font, str, color);
   pos.y = 32;
   SDL_BlitSurface(text, NULL, screen, &pos);
   sprintf(str, "%d move", player->move);
-  text = TTF_RenderText_Solid(font, str, color);
+  text = TTF_RenderText_Blended(font, str, color);
   pos.y = 48;
   SDL_BlitSurface(text, NULL, screen, &pos);
   sprintf(str, "%d key", player->item.key);
-  text = TTF_RenderText_Solid(font, str, color);
+  text = TTF_RenderText_Blended(font, str, color);
   pos.y = 64;
   SDL_BlitSurface(text, NULL, screen, &pos);
   TTF_CloseFont(font);
