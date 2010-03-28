@@ -109,9 +109,9 @@ int		press_down(t_player *player, t_map *map)
 
 int		press_left(t_player *player, t_map *map)
 {
+  player->direction = -1;
   if (map->map[player->position.y][player->position.x - 1] != WALL_CHAR)
     {
-      player->direction = -1;
       player->position.x -= 1;
       return (1);     
     }
@@ -120,9 +120,9 @@ int		press_left(t_player *player, t_map *map)
 
 int		press_right(t_player *player, t_map *map)
 {
+  player->direction = 1;
   if (map->map[player->position.y][player->position.x + 1] != WALL_CHAR)
     {
-      player->direction = 1;
       player->position.x += 1;
       return (1);
     }
