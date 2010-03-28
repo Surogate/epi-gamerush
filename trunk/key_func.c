@@ -16,6 +16,13 @@
 #include	"env.h"
 #include	"init_player.h"
 
+
+int		pass(t_player *player)
+{
+  player->move = 0;
+  return (1);
+}
+
 int		fire(t_player *player, t_map *map)
 {
   if (player->item.weapon)
@@ -56,12 +63,6 @@ int		take_it(t_player *player, t_map *map)
        player->item.weapon++;
        map->map[player->position.y][player->position.x] = EMPTY_CHAR;
      }
-  return (1);
-}
-
-int		pass(t_player *player)
-{
-  player->move = 0;
   return (1);
 }
 
