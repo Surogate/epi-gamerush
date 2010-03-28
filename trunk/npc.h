@@ -17,6 +17,7 @@ typedef struct		s_npc
   int			y;
   int			vx;
   int			move;
+  int			life;
   int			frame;
   SDL_Surface		*img1;
   SDL_Surface		*img2;
