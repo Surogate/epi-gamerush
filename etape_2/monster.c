@@ -28,7 +28,6 @@ int			monster_time(t_map *map, t_npc *npc)
 	  map->map[npc->y][npc->x + npc->vx] != ENTER_CHAR)
 	{
 	  npc->x += npc->vx;
-	  SDL_Delay(30);
 	}
       else
 	npc->vx *= -1;
