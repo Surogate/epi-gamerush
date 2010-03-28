@@ -18,7 +18,6 @@
 
 int		take_it(t_player *player, t_map *map)
 {
-  
   if (map->map[player->position.y][player->position.x] == LIFE_CHAR)
     {
       printf("You get an extra life.\n");
