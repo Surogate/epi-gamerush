@@ -23,7 +23,7 @@ int		take_it(t_player *player, t_map *map)
   pos[0] = 0;
   pos[1] = 0;
   search_pos(map, pos, KEY_CHAR);
-  if (pos[0] == player->position.x && pos[1]== player->position.y)
+  if (pos[0] == player->position.x && pos[1] == player->position.y)
     {
       printf("You got a key.\n");
       map->map[pos[1]][pos[0]] = '.';
