@@ -22,6 +22,14 @@
 #include	"exec_fct.h"
 #include	"xio.h"
 
+void    aff_da_banana(t_player *player, SDL_Surface *screen)
+{
+  player->banane.move--;
+  blit_img_case(player->banane.img, screen,
+		player->banane.pos.x, player->banane.pos.y);
+  player->banane.pos.x += player->banane.dir;
+}
+
 void		display_player(SDL_Surface *screen, t_player *player)
 {
   static int	cpt = 0;
@@ -48,30 +56,35 @@ void		display_player(SDL_Surface *screen, t_player *player)
       blit_img_case(player->player_img3, screen, x, y);
     else
       blit_img_case(player->player_img6, screen, x, y);
+  if (player->banane.move)
+    aff_da_banana(player, screen);
 }
 
 void		display_npcs(SDL_Surface *screen, t_npc *npc)
 {
   while (npc != 0)
     {
-      npc->frame++;
-      if (npc->frame == 6)
-	npc->frame = 0;
-      if (npc->frame < 2)
-	if (npc->vx == 1)
-	  blit_img_case(npc->img1, screen, npc->x, npc->y);
-	else
-	  blit_img_case(npc->img4, screen, npc->x, npc->y);
-      else if (npc->frame < 4)
-	if (npc->vx == 1)
-	  blit_img_case(npc->img2, screen, npc->x, npc->y);
-	else
-	  blit_img_case(npc->img5, screen, npc->x, npc->y);
-      else
-	if (npc->vx == 1)
-	  blit_img_case(npc->img3, screen, npc->x, npc->y);
-	else
-	  blit_img_case(npc->img6, screen, npc->x, npc->y);
+      if (npc->life)
+	{
+	  npc->frame++;
+	  if (npc->frame == 6)
+	    npc->frame = 0;
+	  if (npc->frame < 2)
+	    if (npc->vx == 1)
+	      blit_img_case(npc->img1, screen, npc->x, npc->y);
+	    else
+	      blit_img_case(npc->img4, screen, npc->x, npc->y);
+	  else if (npc->frame < 4)
+	    if (npc->vx == 1)
+	      blit_img_case(npc->img2, screen, npc->x, npc->y);
+	    else
+	      blit_img_case(npc->img5, screen, npc->x, npc->y);
+	  else
+	    if (npc->vx == 1)
+	      blit_img_case(npc->img3, screen, npc->x, npc->y);
+	    else
+	      blit_img_case(npc->img6, screen, npc->x, npc->y);
+	}
       npc = npc->next;
     }
 }

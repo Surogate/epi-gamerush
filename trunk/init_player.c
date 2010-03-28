@@ -16,6 +16,7 @@
 #include	"exec_fct.h"
 #include	"init_player.h"
 #include	"define.h"
+#include	"image_fct.h"
 
 void		search_pos(t_map *map, int *res, char to_find)
 {
@@ -57,6 +58,7 @@ void		init(t_player *player, t_map *map, t_image *img)
   player->img_lenght = 10;
   player->img_height = 10;
   player->banane.move = 0;
+  player->banane.img = img_load(PROJECTIL);
   player->player_img1 = img->hero1;
   player->player_img2 = img->hero2;
   player->player_img3 = img->hero3;
