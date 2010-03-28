@@ -38,25 +38,23 @@ int		fire(t_player *player, t_map *map)
 
 int		take_it(t_player *player, t_map *map)
 {
+  if (map->map[player->position.y][player->position.x] == EXIT_CHAR &&
+      player->item.key)
+    {
+      printf("\033[36mLevel complete!\033[00m\n");
+      return (0);
+    }
   if (map->map[player->position.y][player->position.x] == LIFE_CHAR)
     {
       printf("You get an extra life.\n");
       map->map[player->position.y][player->position.x] = EMPTY_CHAR;
       player->life += 1;
-      return (1);
     }
   if (map->map[player->position.y][player->position.x] == KEY_CHAR)
     {
       printf("You got a key.\n");
       map->map[player->position.y][player->position.x] = EMPTY_CHAR;
       player->item.key = 1;
-      return (1);
-    }
-  if (map->map[player->position.y][player->position.x] == EXIT_CHAR &&
-      player->item.key)
-    {
-      printf("\033[36mLevel complete!\033[00m\n");
-      return (0);
     }
   if (map->map[player->position.y][player->position.x] == GUN_CHAR)
      {
