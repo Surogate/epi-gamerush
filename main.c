@@ -27,12 +27,6 @@ int		main()
   char		*level;
   int		continuer;
 
-  /*  result = EXIT_SUCCESS;
-  if (ac > 1)
-    result = exec_map(av[1]);
-  else
-    printf("Usage : ./prog [map/?.map]\n");
-    return (result);*/
   continuer = 1;
   while (continuer)
     {

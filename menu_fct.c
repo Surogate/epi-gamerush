@@ -52,8 +52,6 @@ void		menu_key(int *select, char **ret)
 	keylist[i].func(select, ret);
       i++;
     }
-  if (ret != (char *)-1)
-    printf("ret = %s\n", ret);
 }
 
 char		*menu_loop(SDL_Surface *screen)
