@@ -36,7 +36,7 @@ SRCS	= err.c			\
 	xio.c
 
 OBJS	= $(SRCS:.c=.o)
-CFLAGS	= -W -Wall -Wextra -g3 -ansi -pedantic -I. -Imenu
+CFLAGS	= -W -Wall -Wextra -ansi -pedantic -I. -Imenu
 LDFLAGS_Linux	= -lSDLmain -lSDL -lSDL_ttf
 LDFLAGS_FreeBSD	= -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL -lpthread -lSDL_ttf
 
