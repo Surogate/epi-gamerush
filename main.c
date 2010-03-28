@@ -22,21 +22,6 @@
 #include	"define.h"
 #include	"windows.h"
 
-void		manage_level(int *continuer, char **level, int *finished)
-{
-  while ((*continuer = exec_map(*level)) == 0)
-    {
-      get_next_level(level, finished);
-      if (*finished)
-	printf("\033[35mYOU HAVE FINISHED THE GAME !!!\n\033[00m");
-      if (*level == NULL)
-	{
-	  *continuer = 1;
-	  break;
-	}
-    }
-}
-
 int		main()
 {
   char		*level;
@@ -47,11 +32,20 @@ int		main()
   continuer = 1;
   while (continuer)
     {
-      level = exec_menu();
-      if (level == (char *)-1)
+      if ((level = exec_menu()) == (char *)-1)
 	continuer = 0;
       else
-	manage_level(&continuer, &level, &finished);
+	while ((continuer = exec_map(level)) == 0)
+	  {
+	    get_next_level(&level, &finished);
+	    if (finished)
+	      printf("\033[35mYOU HAVE FINISHED THE GAME !!!\n\033[00m");
+	    if (level == NULL)
+	      {
+		continuer = 1;
+		break;
+	      }
+	  }
     }
   return (EXIT_SUCCESS);
 }

@@ -39,8 +39,7 @@ int		handle_event(t_player *player, t_map *map)
   return (1);
 }
 
-void		env_act(int *jump, t_map *map, 
-			t_player *player, t_npc *monsters)
+void		env_act(int *jump, t_map *map, t_player *player, t_npc *monsters)
 {
   if (*jump == 0)
     gravite(player, map);
