@@ -26,11 +26,8 @@ typedef struct
 int		exec_fct(SDL_Surface *screen, t_map *map);
 int		gravite(t_player *player, t_map *map);
 int		handle_event(t_player *player, t_map *map);
-void		blit_img_case(SDL_Surface *img, SDL_Surface *to,
-			      int x, int y);
-void		player_act(int *continuer,
-			   t_map *map, t_player *player);
-int		env_act(t_map *map, 
-			t_player *player, t_npc *monsters);
+void		blit_img_case(SDL_Surface *img, SDL_Surface *to, int x, int y);
+void		player_act(int *continuer, t_map *map, t_player *player);
+int		env_act(t_map *map, t_player *player, t_npc *monsters);
 
 #endif
