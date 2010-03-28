@@ -16,7 +16,7 @@
 #include	"exec_fct.h"
 #include	"init_player.h"
 
-void		search_pos(t_map *map, int *res)
+void		search_pos(t_map *map, int *res, char to_find)
 {
   int		width;
   int		height;
@@ -27,7 +27,7 @@ void		search_pos(t_map *map, int *res)
       width = 0;
       while (width < map->width)
 	{
-	  if (map->map[height][width] == ENTER_CHAR)
+	  if (map->map[height][width] == to_find)
 	    {
 	      res[0] = width;
 	      res[1] = height;
@@ -44,14 +44,15 @@ void		init(t_player *player, t_map *map, t_image *img)
 
   pos[0] = 0;
   pos[1] = 0;
-  search_pos(map, pos);
+  search_pos(map, pos, ENTER_CHAR);
   player->position.x = pos[0];
   player->position.y = pos[1];
   player->move = 5;
   player->life = 3;
   player->wait = 0;
-  player->weapon = 0;
-  player->direction = 1;
+  player->item.weapon = 0;
+  player->item.key = 0;
+  player->direction = -1;
   player->img_lenght = 10;
   player->img_height = 10;
   player->player_img1 = img->hero1;
