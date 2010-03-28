@@ -23,37 +23,29 @@
 void		display_player(SDL_Surface *screen, t_player *player)
 {
   static int	cpt = 0;
+  int		x;
+  int		y;
 
+  x = player->position.x;
+  y = player->position.y;
   cpt++;
   if (cpt == 6)
     cpt = 0;
   if (cpt < 2)
-    {
-      if (player->direction == -1)
-	blit_img_case(player->player_img1, screen,
-		      player->position.x, player->position.y);
-      else
-	blit_img_case(player->player_img4, screen,
-		      player->position.x, player->position.y);
-    }
+    if (player->direction == -1)
+      blit_img_case(player->player_img1, screen, x, y);
+    else
+      blit_img_case(player->player_img4, screen, x, y);
   else if (cpt < 4)
-    {
-      if (player->direction == -1)
-	blit_img_case(player->player_img2, screen,
-		      player->position.x, player->position.y);
-      else
-	blit_img_case(player->player_img5, screen,
-		      player->position.x, player->position.y);
-    }
+    if (player->direction == -1)
+      blit_img_case(player->player_img2, screen, x, y);
+    else
+      blit_img_case(player->player_img5, screen, x, y);
   else
-    {
-      if (player->direction == -1)
-	blit_img_case(player->player_img3, screen,
-		      player->position.x, player->position.y);
-      else
-	blit_img_case(player->player_img6, screen,
-		      player->position.x, player->position.y);
-    }
+    if (player->direction == -1)
+      blit_img_case(player->player_img3, screen, x, y);
+    else
+      blit_img_case(player->player_img6, screen, x, y);
 }
 
 void		display_npcs(SDL_Surface *screen, t_npc *npc)
@@ -64,34 +56,29 @@ void		display_npcs(SDL_Surface *screen, t_npc *npc)
       if (npc->frame == 6)
 	npc->frame = 0;
       if (npc->frame < 2)
-	{
-	  if (npc->vx == 1)
-	    blit_img_case(npc->img1, screen, npc->x, npc->y);
-	  else
-	    blit_img_case(npc->img4, screen, npc->x, npc->y);
-	}
+	if (npc->vx == 1)
+	  blit_img_case(npc->img1, screen, npc->x, npc->y);
+	else
+	  blit_img_case(npc->img4, screen, npc->x, npc->y);
       else if (npc->frame < 4)
-	{
-	  if (npc->vx == 1)
-	    blit_img_case(npc->img2, screen, npc->x, npc->y);
-	  else
-	    blit_img_case(npc->img5, screen, npc->x, npc->y);
-	}
+	if (npc->vx == 1)
+	  blit_img_case(npc->img2, screen, npc->x, npc->y);
+	else
+	  blit_img_case(npc->img5, screen, npc->x, npc->y);
       else
-	{
-	  if (npc->vx == 1)
-	    blit_img_case(npc->img3, screen, npc->x, npc->y);
-	  else
-	    blit_img_case(npc->img6, screen, npc->x, npc->y);
-	}
+	if (npc->vx == 1)
+	  blit_img_case(npc->img3, screen, npc->x, npc->y);
+	else
+	  blit_img_case(npc->img6, screen, npc->x, npc->y);
       npc = npc->next;
     }
 }
 
 void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
 {
-  int width;
-  int height;
+  int		i;
+  int		width;
+  int		height;
 
   height = 0;
   while (height < map->height)
@@ -99,38 +86,31 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
       width = 0;
       while (width < map->width)
 	{
-	  if (map->map[height][width] == WALL_CHAR)
-	    blit_img_case(img->wall, screen, width, height);
-	  else if (map->map[height][width] == LADDER_CHAR)
-	    blit_img_case(img->ladder, screen, width, height);
-	  else if (map->map[height][width] == EMPTY_CHAR)
-	    blit_img_case(img->white, screen, width, height);
-	  else if (map->map[height][width] == ENTER_CHAR)
-	    blit_img_case(img->enter, screen, width, height);
-	  else if (map->map[height][width] == EXIT_CHAR)
-	    blit_img_case(img->exit, screen, width, height);
-	  else if (map->map[height][width] == MONSTER_CHAR)
-	    blit_img_case(img->monster1, screen, width, height);
-	  else if (map->map[height][width] == KEY_CHAR)
-	    blit_img_case(img->key, screen, width, height);
+	  i = 0;
+	  while (img->tab[i].obj)
+	    {
+	      if (map->map[height][width] == img->tab[i].obj)
+		blit_img_case(img->tab[i].img, screen, width, height);
+	      i++;
+	    }
 	  width++;
 	}
       height++;
     }
 }
 
-test		*init_da_tab()
+t_imgtab	*init_da_tab()
 {
-  test		*res;
+  t_imgtab	*res;
 
-  res = malloc(7 * sizeof(*res));
+  res = malloc(8 * sizeof(*res));
   if (res)
     {
       res[0].obj = EMPTY_CHAR;
       res[0].img = img_load(WHIT_DIR);
-      res[1].obj = LADDER_CHAR;
+      res[1].obj = WALL_CHAR;
       res[1].img = img_load(WALL_DIR);
-      res[2].obj = WALL_CHAR;
+      res[2].obj = LADDER_CHAR;
       res[2].img = img_load(LAD_DIR);
       res[3].obj = MONSTER_CHAR;
       res[3].img = img_load(MON_DIR1);
@@ -140,6 +120,8 @@ test		*init_da_tab()
       res[5].img = img_load(ENT_DIR);
       res[6].obj = KEY_CHAR;
       res[6].img = img_load(KEY_DIR);
+      res[7].obj = '\0';
+      res[7].img = NULL;
     }
   return (res);
 }

@@ -15,6 +15,10 @@
 #include	"define.h"
 #include	"err.h"
 #include	"t_image.h"
+#include	"map.h"
+#include	"npc.h"
+#include	"env.h"
+#include	"display.h"
 
 SDL_Surface	*img_load(char *path)
 {
@@ -71,6 +75,7 @@ int		img_init(t_image *img)
   img->hero6 = img_load(HERO_DIR6);
   img->key = img_load(KEY_DIR);
   img_init_suite(img);
+  img->tab = init_da_tab();
   return (EXIT_SUCCESS);
 }
 
@@ -94,5 +99,6 @@ int		img_delete(t_image *img)
   SDL_FreeSurface(img->hero5);
   SDL_FreeSurface(img->hero6);
   SDL_FreeSurface(img->key);
+  free(img->tab);
   return (EXIT_SUCCESS);
 }

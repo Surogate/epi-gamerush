@@ -12,8 +12,8 @@ NAME	= epikong_etape_2
 CC	= gcc
 RM	= rm -rf
 SRCS	= err.c			\
-	menu_exec.c		\
-	menu_fct.c		\
+	menu/menu_exec.c	\
+	menu/menu_fct.c		\
 	display.c		\
 	exec_fct.c		\
 	image_fct.c		\
@@ -30,7 +30,7 @@ SRCS	= err.c			\
 	xio.c
 
 OBJS	= $(SRCS:.c=.o)
-CFLAGS	= -W -Wall -Wextra -g3 -ansi -pedantic
+CFLAGS	= -W -Wall -Wextra -g3 -ansi -pedantic -I. -Imenu
 LDFLAGS	= -lSDLmain -lSDL -lSDL_ttf
 
 $(NAME)	: $(OBJS)
