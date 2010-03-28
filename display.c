@@ -150,7 +150,7 @@ void		display_life(SDL_Surface *screen, t_player *player)
       fprintf(stderr, "TTF error : %s", TTF_GetError());
       return ;
     }
-  sprintf(str,  "%i life remaining", player->life);
+  sprintf(str, "%i life remaining", player->life);
   text = TTF_RenderText_Blended(font, str, color);
   pos.x = 16;
   pos.y = 16;
