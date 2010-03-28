@@ -5,7 +5,7 @@
 ** Login   <ancel_a@epitech.net>
 **
 ** Started on  Sat Mar 27 01:06:35 2010 francois1 ancel
-** Last update Sat Mar 27 01:06:35 2010 francois1 ancel
+** Last update Sun Mar 28 21:11:56 2010 francois1 ancel
 */
 
 #include	<unistd.h>
@@ -65,7 +65,7 @@ void		print_menu(SDL_Surface *screen, TTF_Font *font)
   i = 0;
   while (name[i])
     {
-      text = TTF_RenderText_Solid(font, name[i], color);
+      text = TTF_RenderText_Blended(font, name[i], color);
       pos.y = 380 + i * (FONT_SIZE + 5);
       SDL_BlitSurface(text, NULL, screen, &pos);
       i++;

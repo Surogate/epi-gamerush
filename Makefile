@@ -5,10 +5,12 @@
 ## Login   <ancel_a@epitech.net>
 ##
 ## Started on  Fri Mar 26 22:19:44 2010 francois1 ancel
-## Last update Fri Mar 26 22:19:44 2010 francois1 ancel
+## Last update Sun Mar 28 20:42:18 2010 francois1 ancel
 ##
 
 NAME	= epikong_etape_4
+OSNAME	= $(shell uname -s)
+OSNAME	!= uname -s
 CC	= gcc
 RM	= rm -rf
 SRCS	= err.c			\
@@ -32,14 +34,16 @@ SRCS	= err.c			\
 
 OBJS	= $(SRCS:.c=.o)
 CFLAGS	= -W -Wall -Wextra -g3 -ansi -pedantic -I. -Imenu
-LDFLAGS	= -lSDLmain -lSDL -lSDL_ttf
+LDFLAGS_Linux	= -lSDLmain -lSDL -lSDL_ttf
+LDFLAGS_FreeBSD	= -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL -lpthread -lSDL_ttf
 
 $(NAME)	: $(OBJS)
-	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(LDFLAGS_$(OSNAME)) -o $(NAME) $(OBJS)
 
 all	: $(NAME)
 
-.c.o	: $(CC) -c -o $@ $<
+.c.o	: 
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean	:
 	$(RM) $(OBJS)
