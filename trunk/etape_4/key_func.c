@@ -16,8 +16,35 @@
 #include	"env.h"
 #include	"init_player.h"
 
+
+int		pass(t_player *player)
+{
+  player->move = 0;
+  return (1);
+}
+
+int		fire(t_player *player, t_map *map)
+{
+  if (player->item.weapon)
+    {
+      printf("FIRE!!!\n");
+      player->item.weapon--;
+      pass(player);
+    }
+  else
+    printf("NO MORE AMMO!!!\n");
+  return (1);
+}
+
 int		take_it(t_player *player, t_map *map)
 {
+  if (map->map[player->position.y][player->position.x] == LIFE_CHAR)
+    {
+      printf("You get an extra life.\n");
+      map->map[player->position.y][player->position.x] = EMPTY_CHAR;
+      player->life += 1;
+      return (1);
+    }
   if (map->map[player->position.y][player->position.x] == KEY_CHAR)
     {
       printf("You got a key.\n");
@@ -32,17 +59,10 @@ int		take_it(t_player *player, t_map *map)
       return (0);
     }
   if (map->map[player->position.y][player->position.x] == GUN_CHAR)
-    {
-      player->item.weapon++;
-      map->map[player->position.y][player->position.x] = EMPTY_CHAR;
-      printf("Banana!\n");
-    }
-  return (1);
-}
-
-int		pass(t_player *player)
-{
-  player->move = 0;
+     {
+       player->item.weapon++;
+       map->map[player->position.y][player->position.x] = EMPTY_CHAR;
+     }
   return (1);
 }
 
@@ -88,7 +108,7 @@ int		press_up(t_player *player, t_map *map)
 	  player->wait = 1;
 	  if (map->map[player->position.y - 1][player->position.x] != WALL_CHAR &&
 	      map->map[player->position.y][player->position.x] != LADDER_CHAR)
-	    {     
+	    {
 	      SDL_Delay(30);
 	      player->position.y--;
 	    }
@@ -114,11 +134,11 @@ int		press_down(t_player *player, t_map *map)
 
 int		press_left(t_player *player, t_map *map)
 {
+  player->direction = -1;
   if (map->map[player->position.y][player->position.x - 1] != WALL_CHAR)
     {
       if (player->move)
 	{
-	  player->direction = -1;
 	  player->position.x -= 1;
 	  player->move -= 1;
 	}
@@ -129,11 +149,11 @@ int		press_left(t_player *player, t_map *map)
 
 int		press_right(t_player *player, t_map *map)
 {
+  player->direction = 1;
   if (map->map[player->position.y][player->position.x + 1] != WALL_CHAR)
     {
       if (player->move)
 	{
-	  player->direction = 1;
 	  player->position.x += 1;
 	  player->move -= 1;
 	}
