@@ -82,7 +82,7 @@ int		press_up(t_player *player, t_map *map)
 	  player->wait = 1;
 	  if (map->map[player->position.y - 1][player->position.x] != WALL_CHAR &&
 	      map->map[player->position.y][player->position.x] != LADDER_CHAR)
-	    {     
+	    {
 	      SDL_Delay(30);
 	      player->position.y--;
 	    }
@@ -108,11 +108,11 @@ int		press_down(t_player *player, t_map *map)
 
 int		press_left(t_player *player, t_map *map)
 {
+  player->direction = -1;
   if (map->map[player->position.y][player->position.x - 1] != WALL_CHAR)
     {
       if (player->move)
 	{
-	  player->direction = -1;
 	  player->position.x -= 1;
 	  player->move -= 1;
 	}
@@ -123,11 +123,11 @@ int		press_left(t_player *player, t_map *map)
 
 int		press_right(t_player *player, t_map *map)
 {
+  player->direction = 1;
   if (map->map[player->position.y][player->position.x + 1] != WALL_CHAR)
     {
       if (player->move)
 	{
-	  player->direction = 1;
 	  player->position.x += 1;
 	  player->move -= 1;
 	}
