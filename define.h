@@ -47,4 +47,12 @@
 #define FONT_SIZE	50
 #define MENU_X		440
 #define MENU_Y		380
+#define MARK_DIR	"./image/mark.bmp"
+
+#define MAP1_DIR	"./map/stage1.map"
+#define MAP2_DIR	"./map/stage2.map"
+#define MAP3_DIR	"./map/stage3.map"
+#define MAP4_DIR	"./map/stage4.map"
+#define MAP5_DIR	"./map/stage5.map"
+
 #endif

@@ -12,6 +12,8 @@ NAME	= epikong_etape_2
 CC	= gcc
 RM	= rm -rf
 SRCS	= err.c			\
+	menu_exec.c		\
+	menu_fct.c		\
 	display.c		\
 	exec_fct.c		\
 	image_fct.c		\
