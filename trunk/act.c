@@ -83,17 +83,19 @@ int		handle_event(t_player *player, t_map *map)
   return (1);
 }
 
-void		env_act(t_map *map, 
+int		env_act(t_map *map, 
 			t_player *player, t_npc *monsters)
 {
+  int		retour;
   if (!player->move)
     {
       if (!monsters->move)
 	monsters->move = 5;
       monster_time(player, map, monsters);
     }
-  are_you_dying(monsters, player, map);
+  retour = are_you_dying(monsters, player, map);
   SDL_Delay(50);
+  return (retour);
 }
 
 void		player_act(int *continuer,

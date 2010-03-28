@@ -11,7 +11,7 @@
 #ifndef BACK_TO_START_C_INCLUDED
 # define BACK_TO_START_C_INCLUDED
 
-void		are_you_dying(t_npc *npc, t_player *player, t_map *map);
-void		you_loose(t_player *player, t_map *map);
+int		are_you_dying(t_npc *npc, t_player *player, t_map *map);
+int		you_loose(t_player *player, t_map *map);
 
 #endif
