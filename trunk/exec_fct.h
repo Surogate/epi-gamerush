@@ -24,7 +24,7 @@ typedef struct
 }		t_dispmap;
 
 int		exec_fct(SDL_Surface *screen, t_map *map);
-void		gravite(t_player *player, t_map *map);
+int		gravite(t_player *player, t_map *map);
 int		handle_event(t_player *player, t_map *map);
 void		blit_img_case(SDL_Surface *img, SDL_Surface *to,
 			      int x, int y);

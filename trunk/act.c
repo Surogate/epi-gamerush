@@ -16,6 +16,7 @@
 #include	"env.h"
 #include	"keydown.h"
 #include	"back_to_start.h"
+#include	<stdio.h>
 
 int		something_on_da_way(t_player *player, t_map *map, int fall_len)
 {
@@ -43,14 +44,19 @@ int		falling(t_player *player, t_map *map, int fall_len)
   return (temp);
 }
 
-void		life_verif(t_player *player, t_map *map, int save)
+int		life_verif(t_player *player, t_map *map, int *save)
 {
-  if (save > 4)
-    you_loose(player, map);
+  int		flag;
+
+  flag = 0;
+  if (*save > 4)
+    flag = you_loose(player, map);
   player->wait = 0;
+  *save = 0;
+  return (flag);
 }
 
-void		gravite(t_player *player, t_map *map)
+int		gravite(t_player *player, t_map *map)
 {
   int			tempsActuel;
   static int		tempsPrecedent = 0;
@@ -73,10 +79,10 @@ void		gravite(t_player *player, t_map *map)
     }
   else
     {
-      life_verif(player, map, save);
       fall_len = 0;
-      save = 0;
+      return (life_verif(player, map, &save));
     }
+  return (0);
 }
 
 int		handle_event(t_player *player, t_map *map)
