@@ -39,6 +39,8 @@ int		you_loose(t_player *player, t_map *map)
   pos[0] = 0;
   pos[1] = 0;
   search_pos(map, pos, ENTER_CHAR);
+  if (map->map[player->position.y][player->position.x] == EMPTY_CHAR)
+    map->map[player->position.y][player->position.x] = BLOOD_CHAR;
   player->position.x = pos[0];
   player->position.y = pos[1];
   player->direction = -1;

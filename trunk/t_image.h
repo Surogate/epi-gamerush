@@ -20,6 +20,7 @@ typedef	struct
 typedef struct	s_image
 {
   SDL_Surface	*white;
+  SDL_Surface	*blood;
   SDL_Surface	*wall;
   SDL_Surface	*ladder;
   SDL_Surface	*monster1;

@@ -104,7 +104,7 @@ t_imgtab	*init_da_tab()
 {
   t_imgtab	*res;
 
-  res = malloc(8 * sizeof(*res));
+  res = malloc(9 * sizeof(*res));
   if (res)
     {
       res[0].obj = EMPTY_CHAR;
@@ -121,8 +121,10 @@ t_imgtab	*init_da_tab()
       res[5].img = img_load(ENT_DIR);
       res[6].obj = KEY_CHAR;
       res[6].img = img_load(KEY_DIR);
-      res[7].obj = '\0';
-      res[7].img = NULL;
+      res[7].obj = BLOOD_CHAR;
+      res[7].img = img_load(BLOOD_DIR);
+      res[8].obj = '\0';
+      res[8].img = NULL;
     }
   return (res);
 }
@@ -139,8 +141,7 @@ void		display_life(SDL_Surface *screen, t_player *player)
     {
       fprintf(stderr, "TTF error : %s", TTF_GetError());
       return ;
-    }
-  
+    }  
   font = TTF_OpenFont("./font/SERIM___.ttf", 16);
   if (!font)
     {

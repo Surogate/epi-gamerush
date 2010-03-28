@@ -29,6 +29,7 @@
 #define HERO_DIR4	"./image/Kong-4.bmp"
 #define HERO_DIR5	"./image/Kong-5.bmp"
 #define HERO_DIR6	"./image/Kong-6.bmp"
+#define	BLOOD_DIR	"./image/bg-blood.bmp"
 #define	WHIT_DIR	"./image/bg.bmp"
 #define MON_DIR1	"./image/zombi-1.bmp"
 #define MON_DIR2	"./image/zombi-2.bmp"
