@@ -145,7 +145,7 @@ void		display_life(SDL_Surface *screen, t_player *player)
     {
       fprintf(stderr, "TTF error : %s", TTF_GetError());
       return ;
-    }  
+    }
   font = TTF_OpenFont(FONT_DIR, MFONT_SIZE);
   if (!font)
     {

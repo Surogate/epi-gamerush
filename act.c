@@ -98,7 +98,7 @@ int		handle_event(t_player *player, t_map *map)
   return (1);
 }
 
-int		env_act(t_map *map, 
+int		env_act(t_map *map,
 			t_player *player, t_npc *monsters)
 {
   int		retour;
