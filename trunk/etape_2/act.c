@@ -80,7 +80,7 @@ int		gravite(t_player *player, t_map *map)
   else
     {
       fall_len = 0;
-      return (life_verif(player, map, &save));
+      player->wait = 0;
     }
   return (0);
 }
@@ -102,8 +102,9 @@ int		env_act(t_map *map,
   int		retour;
 
   monster_time(map, monsters);
-  retour = are_you_dying(monsters, player, map);
   SDL_Delay(40);
+  player->move = 5;
+  retour = 1;
   return (retour);
 }
 
