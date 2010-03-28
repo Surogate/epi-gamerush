@@ -24,18 +24,21 @@ int		pass(t_player *player)
 
 int		fire(t_player *player)
 {
-  if (player->item.weapon)
+  if (player->move)
     {
-      printf("FIRE!!!\n");
-      player->item.weapon--;
-      player->banane.move = PORTEE;
-      player->banane.dir = player->direction;
-      player->banane.pos.x = player->position.x + player->direction;
-      player->banane.pos.y = player->position.y;
-      pass(player);
+      if (player->item.weapon)
+	{
+	  printf("FIRE!!!\n");
+	  player->item.weapon--;
+	  player->banane.move = PORTEE;
+	  player->banane.dir = player->direction;
+	  player->banane.pos.x = player->position.x + player->direction;
+	  player->banane.pos.y = player->position.y;
+	  pass(player);
+	}
+      else
+	printf("NO MORE AMMO!!!\n");
     }
-  else
-    printf("NO MORE AMMO!!!\n");
   return (1);
 }
 
