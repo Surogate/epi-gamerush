@@ -34,7 +34,7 @@ void		blit_img_case(SDL_Surface *img, SDL_Surface *to, int x, int y)
   SDL_BlitSurface(img, NULL, to, &pos);
 }
 
-t_npc		*init_all( t_image *img, t_player *player, t_map *map)
+t_npc		*init_all(t_image *img, t_player *player, t_map *map)
 {
   img_init(img);
   init(player, map, img);
