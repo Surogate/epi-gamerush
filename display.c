@@ -26,12 +26,20 @@ void		aff_da_banana(t_player *player, SDL_Surface *screen)
 {
   unsigned int	co;
 
-  co = SDL_MapRGB(screen->format, 255, 255, 255);
-  SDL_SetColorKey(player->banane.img, SDL_RLEACCEL | SDL_SRCCOLORKEY, co);
-  player->banane.move--;
-  blit_img_case(player->banane.img, screen,
-		player->banane.pos.x, player->banane.pos.y);
-  player->banane.pos.x += player->banane.dir;
+  if (player->banane.move)
+    {
+      co = SDL_MapRGB(screen->format, 255, 255, 255);
+      SDL_SetColorKey(player->banane.img, SDL_RLEACCEL | SDL_SRCCOLORKEY, co);
+      player->banane.move--;
+      blit_img_case(player->banane.img, screen,
+		    player->banane.pos.x, player->banane.pos.y);
+      player->banane.pos.x += player->banane.dir;
+    }
+  else
+    {
+      player->banane.pos.x = 0;
+      player->banane.pos.y = 0;
+    }
 }
 
 void		display_player(SDL_Surface *screen, t_player *player)
@@ -60,8 +68,7 @@ void		display_player(SDL_Surface *screen, t_player *player)
       blit_img_case(player->player_img3, screen, x, y);
     else
       blit_img_case(player->player_img6, screen, x, y);
-  if (player->banane.move)
-    aff_da_banana(player, screen);
+  aff_da_banana(player, screen);
 }
 
 void		display_npcs(SDL_Surface *screen, t_npc *npc)
