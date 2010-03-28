@@ -26,15 +26,18 @@ int		main()
 {
   char		*level;
   int		continuer;
+  int		tab[6];
 
   continuer = 1;
   while (continuer)
     {
-      level = exec_menu();
+      level = exec_menu(tab);
       if (level == (char *)-1)
 	continuer = 0;
       else
-	continuer = exec_map(level);
+	{
+	  continuer = exec_map(level);
+	}
     }
   return (EXIT_SUCCESS);
 }

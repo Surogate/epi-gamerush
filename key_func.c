@@ -18,22 +18,15 @@
 
 int		take_it(t_player *player, t_map *map)
 {
-  int		pos[2];
-
-  pos[0] = 0;
-  pos[1] = 0;
-  search_pos(map, pos, KEY_CHAR);
-  if (pos[0] == player->position.x && pos[1]== player->position.y)
+  if (map->map[player->position.y][player->position.x] == KEY_CHAR)
     {
       printf("You got a key.\n");
-      map->map[pos[1]][pos[0]] = '.';
+      map->map[player->position.y][player->position.x] = EMPTY_CHAR;
       player->item.key = 1;
       return (1);
     }
-  pos[0] = 0;
-  pos[1] = 0;
-  search_pos(map, pos, EXIT_CHAR);
-  if (pos[0] == player->position.x && pos[1] == player->position.y && player->item.key)
+  if (map->map[player->position.y][player->position.x] == EXIT_CHAR &&
+      player->item.key)
     {
       printf("\033[36mLevel complete!\033[00m\n");
       return (0);
