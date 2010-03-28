@@ -19,6 +19,7 @@ SRCS	= err.c			\
 	image_fct.c		\
 	key_func.c		\
 	act.c			\
+	act2.c			\
 	init_player.c		\
 	keydown.c		\
 	map.c			\
@@ -27,6 +28,7 @@ SRCS	= err.c			\
 	npc.c			\
 	windows.c		\
 	monster.c		\
+	press_key.c		\
 	xio.c
 
 OBJS	= $(SRCS:.c=.o)

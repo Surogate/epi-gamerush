@@ -33,7 +33,8 @@ int		take_it(t_player *player, t_map *map)
   pos[0] = 0;
   pos[1] = 0;
   search_pos(map, pos, EXIT_CHAR);
-  if (pos[0] == player->position.x && pos[1] == player->position.y && player->item.key)
+  if (pos[0] == player->position.x && pos[1] ==
+      player->position.y && player->item.key)
     {
       printf("\033[36mLevel complete!\033[00m\n");
       return (0);
@@ -73,58 +74,4 @@ int		jump_in_front(t_player *player, t_map *map)
       }
     }
   return (1);
-}
-
-int		press_up(t_player *player, t_map *map)
-{
-  if (map->map[player->position.y -1][player->position.x] != WALL_CHAR &&
-      (map->map[player->position.y + 1][player->position.x] == WALL_CHAR ||
-       map->map[player->position.y + 1][player->position.x] == LADDER_CHAR ||
-       map->map[player->position.y][player->position.x] == LADDER_CHAR))
-    { 
-      if (!player->wait)
-	{
-	  player->position.y--;
-	  player->wait = 1;
-	  if (map->map[player->position.y - 1][player->position.x] != WALL_CHAR &&
-	      map->map[player->position.y][player->position.x] != LADDER_CHAR)
-	    {     
-	      SDL_Delay(30);
-	      player->position.y--;
-	    }
-	}
-    }
-  return (1);
-}
-
-int		press_down(t_player *player, t_map *map)
-{
-  if (map->map[player->position.y + 1][player->position.x] != WALL_CHAR)
-    {
-      player->position.y += 1;
-      return (1);
-    }
-  return (2);
-}
-
-int		press_left(t_player *player, t_map *map)
-{
-  player->direction = -1;
-  if (map->map[player->position.y][player->position.x - 1] != WALL_CHAR)
-    {
-      player->position.x -= 1;
-      return (1);     
-    }
-  return (2);
-}
-
-int		press_right(t_player *player, t_map *map)
-{
-  player->direction = 1;
-  if (map->map[player->position.y][player->position.x + 1] != WALL_CHAR)
-    {
-      player->position.x += 1;
-      return (1);
-    }
-  return (2);
 }
