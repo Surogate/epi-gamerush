@@ -101,6 +101,7 @@ char		*exec_menu()
   int		continuer;
   char		*ret;
 
+  ret = 0;
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
     err_SDL("Can't init SDL", 1);
   SDL_WM_SetIcon(SDL_LoadBMP("image/DonkeyKong2.bmp"), NULL);
