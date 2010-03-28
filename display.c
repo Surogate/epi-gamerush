@@ -104,7 +104,7 @@ t_imgtab	*init_da_tab()
 {
   t_imgtab	*res;
 
-  res = malloc(9 * sizeof(*res));
+  res = malloc(10 * sizeof(*res));
   if (res)
     {
       res[0].obj = EMPTY_CHAR;
@@ -123,8 +123,10 @@ t_imgtab	*init_da_tab()
       res[6].img = img_load(KEY_DIR);
       res[7].obj = BLOOD_CHAR;
       res[7].img = img_load(BLOOD_DIR);
-      res[8].obj = '\0';
-      res[8].img = NULL;
+      res[8].obj = LIFE_CHAR;
+      res[8].img = img_load(LIFE_DIR);
+      res[9].obj = '\0';
+      res[9].img = NULL;
     }
   return (res);
 }
