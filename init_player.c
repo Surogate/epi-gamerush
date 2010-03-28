@@ -56,6 +56,7 @@ void		init(t_player *player, t_map *map, t_image *img)
   player->direction = -1;
   player->img_lenght = 10;
   player->img_height = 10;
+  player->banane.move = 0;
   player->player_img1 = img->hero1;
   player->player_img2 = img->hero2;
   player->player_img3 = img->hero3;

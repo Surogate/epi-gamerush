@@ -44,6 +44,7 @@
 #define ENT_DIR		"./image/enter.bmp"
 #define KEY_DIR		"./image/key.bmp"
 #define GUN_DIR		"./image/ammo.bmp"
+#define PROJECTIL	"./image/ammo.bmp"
 
 /*Menu's define*/
 #define MENU_BACK	"./image/menu.bmp"
@@ -66,5 +67,6 @@
 #define	NB_MOVE		4
 #define	DEAD_FALL	4
 #define	NB_LIFE		3
+#define PORTEE		4
 
 #endif
