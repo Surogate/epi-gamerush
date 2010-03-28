@@ -8,15 +8,15 @@
 ** Last update Fri Mar 26 22:16:19 2010 francois1 ancel
 */
 
-#ifndef DEFINE_INCLUDED
-# define DEFINE_INCLUDED
+#ifndef			DEFINE_INCLUDED
+# define		DEFINE_INCLUDED
 
-#define IMG_SIZE 16
+#define IMG_SIZE	16
 
-#define MWIN_WIDTH 1024
-#define MWIN_HEIGHT 768
+#define MWIN_WIDTH	1024
+#define MWIN_HEIGHT	768
 
-#define WIN_COLOR  16
+#define WIN_COLOR	16
 
 /*Player's define*/
 #define	LIFE		1
