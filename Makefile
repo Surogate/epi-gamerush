@@ -8,7 +8,7 @@
 ## Last update Fri Mar 26 22:19:44 2010 francois1 ancel
 ##
 
-NAME	= epikong_etape_2
+NAME	= epikong_etape_3
 CC	= gcc
 RM	= rm -rf
 SRCS	= err.c			\
