@@ -12,6 +12,6 @@
 # define GAME_TEXT_C_INCLUDED
 
 void		display_life(SDL_Surface *screen, t_player *player);
-void		display_text(SDL_Surface *screen, t_player *player, 
+void		display_text(SDL_Surface *screen, t_player *player,
 			     TTF_Font *font);
 #endif
