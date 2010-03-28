@@ -103,9 +103,12 @@ int		env_act(t_map *map,
 
   if (!player->move)
     {
-      if (!monsters->move)
-	monsters->move = 5;
-      monster_time(player, map, monsters);
+      if (monsters)
+	{
+	  if (!monsters->move)
+	    monsters->move = 5;
+	  monster_time(player, map, monsters);
+	}
     }
   retour = are_you_dying(monsters, player, map);
   SDL_Delay(50);
