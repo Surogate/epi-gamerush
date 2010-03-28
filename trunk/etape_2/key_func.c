@@ -59,7 +59,7 @@ int		jump_in_front(t_player *player, t_map *map)
     {
       if (!player->wait)
       {
-	player->position.y--;	 
+	player->position.y--;
 	player->wait = 1;
 	move = player->direction;
 	if (map->map[player->position.y][player->position.x + move] != WALL_CHAR)
