@@ -48,7 +48,7 @@ int		event_loop(SDL_Event *event, t_player *player, t_map *map)
   int		continuer;
 
   i = 0;
-  continuer = 0;
+  continuer = 1;
   while (event_func[i].type)
     {
       if (event->type == event_func[i].type)
