@@ -17,24 +17,24 @@
 #include	"exec_fct.h"
 #include	"keydown.h"
 
-t_key		key_list[]=
+t_key		key_list[] =
   {
-    {SDLK_ESCAPE	, exit_func},
-    {SDLK_LEFT		, press_left},
-    {SDLK_RIGHT		, press_right},
-    {SDLK_UP		, press_up},
-    {SDLK_DOWN		, press_down},
-    {SDLK_RETURN	, take_it},
+    {SDLK_ESCAPE, exit_func},
+    {SDLK_LEFT, press_left},
+    {SDLK_RIGHT, press_right},
+    {SDLK_UP, press_up},
+    {SDLK_DOWN, press_down},
+    {SDLK_RETURN, take_it},
     {SDLK_TAB, pass},
     {SDLK_SPACE, fire},
-    {0,0}
+    {0, 0}
   };
 
-t_func		event_func[]=
+t_func		event_func[] =
   {
-    {SDL_QUIT		, exit_func},
-    {SDL_KEYDOWN	, key_func},
-    {0,0}
+    {SDL_QUIT, exit_func},
+    {SDL_KEYDOWN, key_func},
+    {0, 0}
   };
 
 int		exit_func()
