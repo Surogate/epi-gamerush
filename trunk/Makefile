@@ -31,7 +31,7 @@ SRCS	= err.c			\
 
 OBJS	= $(SRCS:.c=.o)
 CFLAGS	= -W -Wall -Wextra -g3 -ansi -pedantic
-LDFLAGS	= -lSDLmain -lSDL
+LDFLAGS	= -lSDLmain -lSDL -lSDL_ttf
 
 $(NAME)	: $(OBJS)
 	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS)

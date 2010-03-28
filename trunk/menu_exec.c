@@ -39,7 +39,6 @@ int			menu_return(int *i, char **ret)
   };
 
   *ret = tab[*i];
-  printf("init ret a %s\n", *ret);
   return (0);
 }
 

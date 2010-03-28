@@ -115,11 +115,7 @@ char		*exec_menu()
       disp_menu(screen);
       ret = menu_loop(screen);
       if (ret)
-	{
-	  continuer = 0;
-	  if (ret != (char *)-1)
-	    printf("ret renvoyer %s", ret);
-	}
+	continuer = 0;
     }
   SDL_Quit();
   return (ret);
