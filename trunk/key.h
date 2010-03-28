@@ -23,6 +23,7 @@ int		press_down(t_player *player, t_map *map);
 int		jump_in_front(t_player *player, t_map *map);
 int		press_left(t_player *player, t_map *map);
 int		press_right(t_player *player, t_map *map);
+int		take_it(t_player *player, t_map *map);
 int		pass(t_player *player);
 
 #endif		/* __KEY_H__ */

@@ -15,6 +15,31 @@
 #include	"npc.h"
 #include	"env.h"
 
+int		take_it(t_player *player, t_map *map)
+{
+  int		pos[2];
+
+  pos[0] = 0;
+  pos[1] = 0;
+  search_pos(map, pos, KEY_CHAR);
+  if (pos[0] == player->position.x && pos[1]== player->position.y)
+    {
+      printf("Clef rammaser\n", pos[0], pos[1]);
+      map->map[pos[1]][pos[0]] = '.';
+      player->item.key = 1;
+      return (1);
+    }
+  pos[0] = 0;
+  pos[1] = 0;
+  search_pos(map, pos, EXIT_CHAR);
+  if (pos[0] == player->position.x && pos[1] == player->position.y && player->item.key)
+    {
+      printf("\033[36mLevel complete!\033[00m\n");
+      exit(0);
+    }
+  return (1);
+}
+
 int		pass(t_player *player)
 {
   player->move = 0;

@@ -31,6 +31,7 @@ void		you_loose(t_player *player, t_map *map)
   int		pos[2];
 
   player->life--;
+  printf("\033[31m%d life remening!\033[00m\n", player->life);
   pos[0] = 0;
   pos[1] = 0;
   search_pos(map, pos, ENTER_CHAR);
