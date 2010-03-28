@@ -17,17 +17,17 @@
 #include	"exec_fct.h"
 #include	"keydown.h"
 
-t_key		key_list[]=
+t_key		key_list[] =
   {
-    {SDLK_ESCAPE	, exit_func},
-    {0,0}
+    {SDLK_ESCAPE, exit_func},
+    {0, 0}
   };
 
-t_func		event_func[]=
+t_func		event_func[] =
   {
-    {SDL_QUIT		, exit_func},
-    {SDL_KEYDOWN	, key_func},
-    {0,0}
+    {SDL_QUIT, exit_func},
+    {SDL_KEYDOWN, key_func},
+    {0, 0}
   };
 
 int		exit_func()

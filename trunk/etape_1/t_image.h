@@ -22,7 +22,7 @@ typedef struct	s_image
   SDL_Surface	*monster4;
   SDL_Surface	*monster5;
   SDL_Surface	*monster6;
-  SDL_Surface	*exit;  
+  SDL_Surface	*exit;
   SDL_Surface	*enter;
   SDL_Surface	*hero1;
   SDL_Surface	*hero2;
