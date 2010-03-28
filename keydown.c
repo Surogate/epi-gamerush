@@ -38,7 +38,7 @@ t_func		event_func[]=
 
 int		exit_func()
 {
-  return (0);
+  return (-1);
 }
 
 int		event_loop(SDL_Event *event, t_player *player, t_map *map)
@@ -51,6 +51,8 @@ int		event_loop(SDL_Event *event, t_player *player, t_map *map)
     {
       if (event->type == event_func[i].type)
 	continuer = event_func[i].func(player, map);
+      if (continuer == 0)
+	putstr("TU GAGNES");
       i++;
     }
   return (continuer);
