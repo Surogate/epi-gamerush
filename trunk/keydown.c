@@ -51,8 +51,6 @@ int		event_loop(SDL_Event *event, t_player *player, t_map *map)
     {
       if (event->type == event_func[i].type)
 	continuer = event_func[i].func(player, map);
-      if (continuer == 0)
-	printf("TU GAGNES\n");
       i++;
     }
   return (continuer);

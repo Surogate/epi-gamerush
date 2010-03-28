@@ -8,10 +8,10 @@
 ** Last update Sun Mar 28 03:30:58 2010 francois1 ancel
 */
 
-#ifndef MENU_FCT_C_INCLUDED
-# define MENU_FCT_C_INCLUDED
+#ifndef		MENU_FCT_C_INCLUDED
+# define	MENU_FCT_C_INCLUDED
 
-void			print_mark(SDL_Surface *screen, int select);
+void		print_mark(SDL_Surface *screen, int select);
 void		menu_key(int *select, char *ret);
 char		*menu_loop(SDL_Surface *screen);
 

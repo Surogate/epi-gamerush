@@ -29,5 +29,6 @@ typedef struct		s_map
 
 t_map			*get_map(char *path);
 t_map			*check_map(t_map *map);
+void			get_next_level(char **map, int *finished);
 
 #endif			/* __MAP_H__ */

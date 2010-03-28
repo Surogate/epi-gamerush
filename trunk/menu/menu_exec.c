@@ -8,10 +8,11 @@
 ** Last update Sun Mar 28 03:08:12 2010 francois1 ancel
 */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "define.h"
+#include		<unistd.h>
+#include		<stdlib.h>
+#include		<stdio.h>
+
+#include		"define.h"
 
 int			menu_up(int *i)
 {
@@ -29,7 +30,7 @@ int			menu_down(int *i)
 
 int			menu_return(int *i, char **ret)
 {
-  static char *tab[] = {
+  static char		*tab[] = {
     MAP1_DIR,
     MAP2_DIR,
     MAP3_DIR,
