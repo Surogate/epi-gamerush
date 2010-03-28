@@ -14,6 +14,7 @@ RM	= rm -rf
 SRCS	= err.c			\
 	menu/menu_exec.c	\
 	menu/menu_fct.c		\
+	next_level.c		\
 	display.c		\
 	exec_fct.c		\
 	image_fct.c		\
