@@ -61,7 +61,8 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
       SDL_Flip(screen);
       gravite(&player, map);
       player_act(&continuer, map, &player);
-      env_act(map, &player, monsters);
+      if (continuer > 0)
+	continuer = env_act(map, &player, monsters);
     }
   img_delete(&img);
   return (1);

@@ -16,17 +16,20 @@
 #include	"init_player.h"
 #include	"back_to_start.h"
 
-void		are_you_dying(t_npc *npc, t_player *player, t_map *map)
+int		are_you_dying(t_npc *npc, t_player *player, t_map *map)
 {
   while (npc)
     {
       if (npc->x == player->position.x && npc->y == player->position.y)
-	you_loose(player, map);
+	{
+	  return (you_loose(player, map));
+	}
       npc = npc->next;
     }
+  return (1);
 }
 
-void		you_loose(t_player *player, t_map *map)
+int		you_loose(t_player *player, t_map *map)
 {
   int		pos[2];
 
@@ -41,6 +44,7 @@ void		you_loose(t_player *player, t_map *map)
   if (!player->life)
     {
       printf("\033[31mgame over\033[00m\n");
-      exit(0);
+      return (-1);
     }
+  return (1);
 }
