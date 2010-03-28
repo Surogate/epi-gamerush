@@ -16,6 +16,19 @@
 #include	"env.h"
 #include	"init_player.h"
 
+int		fire(t_player *player, t_map *map)
+{
+  if (player->item.weapon)
+    {
+      printf("FIRE!!!\n");
+      player->item.weapon--;
+      pass(player);
+    }
+  else
+    printf("NO MORE AMMO!!!\n");
+  return (1);
+}
+
 int		take_it(t_player *player, t_map *map)
 {
   if (map->map[player->position.y][player->position.x] == LIFE_CHAR)

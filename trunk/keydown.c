@@ -25,7 +25,8 @@ t_key		key_list[]=
     {SDLK_UP		, press_up},
     {SDLK_DOWN		, press_down},
     {SDLK_RETURN	, take_it},
-    {SDLK_SPACE, pass},
+    {SDLK_TAB, pass},
+    {SDLK_SPACE, fire},
     {0,0}
   };
 
