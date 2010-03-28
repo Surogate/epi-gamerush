@@ -22,6 +22,7 @@
 #include	"err.h"
 #include	"windows.h"
 #include	"exec_fct.h"
+#include	"menu_fct.h"
 
 int		exec_map(char *path)
 {
@@ -40,7 +41,7 @@ int		exec_map(char *path)
   result = exec_fct(screen, map);
   SDL_FreeSurface(screen);
   SDL_Quit();
-  return (EXIT_SUCCESS);
+  return (result);
 }
 
 void		print_menu(SDL_Surface *screen, TTF_Font *font)
@@ -96,6 +97,8 @@ char		*exec_menu()
   SDL_Surface	*screen;
   SDL_Surface	*background;
   SDL_Rect	pos;
+  int		continuer;
+  char		*ret;
 
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
     err_SDL("Can't init SDL", 1);
@@ -106,11 +109,20 @@ char		*exec_menu()
   background = img_load(MENU_BACK);
   pos.x = 0;
   pos.y = 0;
-  SDL_BlitSurface(background, NULL, screen, &pos);
-  disp_menu(screen);
-  pause();
+  while (continuer)
+    {
+      SDL_BlitSurface(background, NULL, screen, &pos);
+      disp_menu(screen);
+      ret = menu_loop(screen);
+      if (ret)
+	{
+	  continuer = 0;
+	  if (ret != (char *)-1)
+	    printf("ret renvoyer %s", ret);
+	}
+    }
   SDL_Quit();
-  return (NULL);
+  return (ret);
 }
 
 SDL_Surface	*creat_win(t_map *map)

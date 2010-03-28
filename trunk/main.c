@@ -12,6 +12,7 @@
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<SDL/SDL.h>
+#include	<SDL/SDL_ttf.h>
 #include	"t_image.h"
 #include	"err.h"
 #include	"map.h"
@@ -23,12 +24,23 @@
 
 int		main()
 {
+  char		*level;
+  int		continuer;
+
   /*  result = EXIT_SUCCESS;
   if (ac > 1)
     result = exec_map(av[1]);
   else
     printf("Usage : ./prog [map/?.map]\n");
     return (result);*/
-  exec_menu();
+  continuer = 1;
+  while (continuer)
+    {
+      level = exec_menu();
+      if (level == (char *)-1)
+	continuer = 0;
+      else
+	continuer = exec_map(level);
+    }
   return (EXIT_SUCCESS);
 }

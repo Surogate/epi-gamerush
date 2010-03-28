@@ -64,5 +64,5 @@ int		exec_fct(SDL_Surface *screen, t_map *map)
       env_act(map, &player, monsters);
     }
   img_delete(&img);
-  return (EXIT_SUCCESS);
+  return (1);
 }
