@@ -3,6 +3,7 @@
 */
 #include <SDL/SDL.h>
 #include "define.h"
+#include "boss.h"
 #include "map.h"
 #include "t_image.h"
 #include "npc.h"
@@ -10,7 +11,7 @@
 #include "init_player.h"
 #include "image_fct.h"
 
-void	init_boss(t_player *boss, t_map *map)
+void	init_boss(t_boss *boss, t_map *map)
 {
   int		pos[2];
 
