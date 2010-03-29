@@ -29,5 +29,6 @@ typedef struct		s_npc
 }			t_npc;
 
 t_npc			*get_npc_monsters(t_map *map, t_image *img);
+void			init_boss(t_boss *boss, t_map *map);
 
 #endif			/* __NPC_H__ */
