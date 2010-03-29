@@ -60,6 +60,7 @@
 #define MAP3_DIR	"./map/stage3.map"
 #define MAP4_DIR	"./map/stage4.map"
 #define MAP5_DIR	"./map/stage5.map"
+#define BOSS_DIR	"./map/boss.map"
 #define FONT_DIR	"./font/MONACO.ttf"
 #define MFONT_SIZE	10
 

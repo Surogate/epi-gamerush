@@ -45,7 +45,7 @@ int		gravite(t_player *player, t_map *map)
       fall_len = 0;
       return (life_verif(player, map, &save));
     }
-  return (0);
+  return (1);
 }
 
 int		handle_event(t_player *player, t_map *map)
