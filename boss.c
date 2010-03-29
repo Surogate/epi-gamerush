@@ -23,7 +23,7 @@ void	init_boss(t_player *boss, t_map *map)
     {
       boss->direction = 1;
       boss->move = 0;
-      player->banane.move = 0;
+      boss->banane.move = 0;
       boss->banane.img = img_load(BG_DIR);
       boss->player_img1 = img_load(BOSS_DIR1);
     }
