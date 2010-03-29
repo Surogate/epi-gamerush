@@ -40,7 +40,10 @@ int		main()
 	  {
 	    get_next_level(&level, &finished);
 	    if (finished)
-	      exec_map(BOSS_DIR);
+	      {
+		printf("\033[31mBoss Level!\033[00m\n");
+		exec_map(BOSS_DIR);
+	      }
 	    if (level == NULL)
 	      {
 		continuer = 1;
