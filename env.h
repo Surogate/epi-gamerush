@@ -47,5 +47,6 @@ typedef	struct	s_player
 }		t_player;
 
 int		monster_time(t_player *player, t_map *map, t_npc *npc);
+void		ia(t_player *player, t_boss *boss, t_map *map);
 
 #endif
