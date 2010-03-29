@@ -76,6 +76,7 @@ void		display_npcs(SDL_Surface *screen, t_npc *npc)
 
 void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
 {
+  int		i;
   int		width;
   int		height;
 
@@ -85,47 +86,43 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
       width = 0;
       while (width < map->width)
 	{
-	  if (map->map[height][width] == 'w')
-	    blit_img_case(img->wall, screen, width, height);
-	  else if (map->map[height][width] == 's')
-	    blit_img_case(img->ladder, screen, width, height);
-	  else if (map->map[height][width] == '.')
-	    blit_img_case(img->white, screen, width, height);
-	  else if (map->map[height][width] == 'i')
-	    blit_img_case(img->enter, screen, width, height);
-	  else if (map->map[height][width] == 'o')
-	    blit_img_case(img->exit, screen, width, height);
-	  else if (map->map[height][width] == 'm')
-	    blit_img_case(img->monster1, screen, width, height);
-	  else if (map->map[height][width] == 'k')
-	    blit_img_case(img->key, screen, width, height);
+	  i = 0;
+	  while (img->tab[i].obj)
+	    {
+	      if (map->map[height][width] == img->tab[i].obj)
+		blit_img_case(img->tab[i].img, screen, width, height);
+	      i++;
+	    }
 	  width++;
 	}
       height++;
     }
 }
-
-test		*init_da_tab()
+t_imgtab		*init_da_tab()
 {
-  test		*res;
+  static t_imgtab	res[11];
 
-  res = malloc(7 * sizeof(*res));
-  if (res)
-    {
-      res[0].obj = '.';
-      res[0].img = img_load(WHIT_DIR);
-      res[1].obj = 's';
-      res[1].img = img_load(WALL_DIR);
-      res[2].obj = 'w';
-      res[2].img = img_load(LAD_DIR);
-      res[3].obj = 'm';
-      res[3].img = img_load(MON_DIR1);
-      res[4].obj = 'o';
-      res[4].img = img_load(EXIT_DIR);
-      res[5].obj = 'i';
-      res[5].img = img_load(ENT_DIR);
-      res[6].obj = 'k';
-      res[6].img = img_load(KEY_DIR);
-    }
+  res[0].obj = EMPTY_CHAR;
+  res[0].img = img_load(WHIT_DIR);
+  res[1].obj = WALL_CHAR;
+  res[1].img = img_load(WALL_DIR);
+  res[2].obj = LADDER_CHAR;
+  res[2].img = img_load(LAD_DIR);
+  res[3].obj = MONSTER_CHAR;
+  res[3].img = img_load(MON_DIR1);
+  res[4].obj = EXIT_CHAR;
+  res[4].img = img_load(EXIT_DIR);
+  res[5].obj = ENTER_CHAR;
+  res[5].img = img_load(ENT_DIR);
+  res[6].obj = KEY_CHAR;
+  res[6].img = img_load(KEY_DIR);
+  res[7].obj = BLOOD_CHAR;
+  res[7].img = img_load(BLOOD_DIR);
+  res[8].obj = GUN_CHAR;
+  res[8].img = img_load(GUN_DIR);
+  res[9].obj = LIFE_CHAR;
+  res[9].img = img_load(LIFE_DIR);
+  res[10].obj = '\0';
+  res[10].img = NULL;
   return (res);
 }

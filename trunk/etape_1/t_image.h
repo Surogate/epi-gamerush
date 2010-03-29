@@ -11,9 +11,16 @@
 #ifndef		T_IMAGE_INCLUDED
 # define	T_IMAGE_INCLUDED
 
+typedef	struct
+{
+  char		obj;
+  SDL_Surface	*img;
+}		t_imgtab;
+
 typedef struct	s_image
 {
   SDL_Surface	*white;
+  SDL_Surface	*blood;
   SDL_Surface	*wall;
   SDL_Surface	*ladder;
   SDL_Surface	*monster1;
@@ -31,12 +38,7 @@ typedef struct	s_image
   SDL_Surface	*hero5;
   SDL_Surface	*hero6;
   SDL_Surface	*key;
+  t_imgtab	*tab;
 }		t_image;
-
-typedef	struct
-{
-  char		obj;
-  SDL_Surface	*img;
-}		test;
 
 #endif

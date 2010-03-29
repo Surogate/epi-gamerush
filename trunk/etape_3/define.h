@@ -45,8 +45,8 @@
 
 /*Menu's define*/
 #define MENU_BACK	"./image/menu.bmp"
-#define MENU_FONT	"./font/28 Days Later.ttf"
-#define FONT_SIZE	50
+#define MENU_FONT	"./font/MONACO.ttf"
+#define FONT_SIZE	40
 #define MENU_X		440
 #define MENU_Y		380
 #define MARK_DIR	"./image/mark.bmp"
