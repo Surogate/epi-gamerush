@@ -10,6 +10,7 @@
 
 NAME	= epikong_etape_1
 OSNAME	= $(shell uname -s)
+OSNAME	!= uname -s
 CC	= gcc
 RM	= rm -rf
 SRCS	= err.c			\

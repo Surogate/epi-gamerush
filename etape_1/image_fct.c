@@ -15,6 +15,10 @@
 #include	"define.h"
 #include	"err.h"
 #include	"t_image.h"
+#include	"map.h"
+#include	"npc.h"
+#include	"env.h"
+#include	"display.h"
 
 SDL_Surface	*img_load(char *path)
 {
@@ -53,6 +57,7 @@ void		img_init_suite(t_image *img)
 int		img_init(t_image *img)
 {
   img->white = img_load(WHIT_DIR);
+  img->blood = img_load(BLOOD_DIR);
   img->wall = img_load(WALL_DIR);
   img->ladder = img_load(LAD_DIR);
   img->exit = img_load(EXIT_DIR);
@@ -71,12 +76,14 @@ int		img_init(t_image *img)
   img->hero6 = img_load(HERO_DIR6);
   img->key = img_load(KEY_DIR);
   img_init_suite(img);
+  img->tab = init_da_tab();
   return (EXIT_SUCCESS);
 }
 
 int		img_delete(t_image *img)
 {
   SDL_FreeSurface(img->white);
+  SDL_FreeSurface(img->blood);
   SDL_FreeSurface(img->wall);
   SDL_FreeSurface(img->ladder);
   SDL_FreeSurface(img->monster1);
