@@ -24,6 +24,7 @@ SRCS	= err.c			\
 	key_func.c		\
 	special_action.c	\
 	act.c			\
+	ia.c			\
 	act2.c			\
 	init_player.c		\
 	keydown.c		\
