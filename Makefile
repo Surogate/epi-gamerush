@@ -18,6 +18,7 @@ SRCS	= err.c			\
 	menu/menu_fct.c		\
 	game_text.c		\
 	next_level.c		\
+	boss.c			\
 	display.c		\
 	exec_fct.c		\
 	image_fct.c		\
