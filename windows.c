@@ -34,6 +34,7 @@ int		exec_map(char *path)
   map = check_map(get_map(path));
   if (!map)
     return (EXIT_FAILURE);
+  init_boss(&map->boss, map);
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
     err_SDL("Can't init SDL", 1);
   screen = creat_win(map);
