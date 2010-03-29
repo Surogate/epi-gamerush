@@ -24,6 +24,7 @@
 
 /*Img's define*/
 #define BOSS_DIR1	"./image/boss-1.bmp"
+#define BOSS_DIR2	"./image/boss-1.bmp"
 #define HERO_DIR1	"./image/Kong-1.bmp"
 #define HERO_DIR2	"./image/Kong-2.bmp"
 #define HERO_DIR3	"./image/Kong-3.bmp"

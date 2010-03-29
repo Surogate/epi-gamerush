@@ -15,6 +15,7 @@
 #include	<SDL/SDL_ttf.h>
 #include	"t_image.h"
 #include	"err.h"
+#include	"boss.h"
 #include	"map.h"
 #include	"npc.h"
 #include	"env.h"

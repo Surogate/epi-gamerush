@@ -3,6 +3,7 @@
 */
 #include	<SDL/SDL.h>
 #include	"define.h"
+#include	"boss.h"
 #include	"map.h"
 #include	"t_image.h"
 #include	"npc.h"

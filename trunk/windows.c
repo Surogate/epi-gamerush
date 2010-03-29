@@ -13,9 +13,9 @@
 #include	<stdio.h>
 #include	<SDL/SDL.h>
 #include	<SDL/SDL_ttf.h>
-
 #include	"t_image.h"
 #include	"image_fct.h"
+#include	"boss.h"
 #include	"map.h"
 #include	"npc.h"
 #include	"env.h"

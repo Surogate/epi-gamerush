@@ -18,14 +18,15 @@ void	init_boss(t_boss *boss, t_map *map)
   pos[0] = 0;
   pos[1] = 0;
   search_pos(map, pos, BOSS_CHAR);
-  boss->position.x = pos[0];
-  boss->position.y = pos[1];
+  boss->pos.x = pos[0];
+  boss->pos.y = pos[1];
   if (pos[1] && pos[0])
     {
-      boss->direction = 1;
+      boss->dir = 1;
       boss->move = 0;
-      boss->banane.move = 0;
-      boss->banane.img = img_load(BG_DIR);
-      boss->player_img1 = img_load(BOSS_DIR1);
+      boss->ammo_move = 0;
+      boss->ammo = img_load(BG_DIR);
+      boss->img1 = img_load(BOSS_DIR1);
+      boss->img1 = img_load(BOSS_DIR2);
     }
 }

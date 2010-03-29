@@ -28,6 +28,7 @@ typedef struct		s_map
   char			**map;
   int			width;
   int			height;
+  t_boss		boss;
 }			t_map;
 
 t_map			*get_map(char *path);
