@@ -33,8 +33,9 @@ int		take_it(t_player *player, t_map *map)
   pos[0] = 0;
   pos[1] = 0;
   search_pos(map, pos, EXIT_CHAR);
-  if (pos[0] == player->position.x && pos[1] ==
-      player->position.y && player->item.key)
+  if (pos[0] == player->position.x 
+      && pos[1] == player->position.y 
+      && player->item.key)
     {
       printf("\033[36mLevel complete!\033[00m\n");
       return (0);

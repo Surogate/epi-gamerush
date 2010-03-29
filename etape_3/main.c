@@ -36,19 +36,17 @@ int		main()
       if (level == (char *)-1)
 	continuer = 0;
       else
-	{
-	  while ((continuer = exec_map(level)) == 0)
-	    {
-	      get_next_level(&level, &finished);
-	      if (finished)
-		printf("\033[35mYOU FINISHED THE GAME BASTERD !!!!!!!!!!!!\n\033[00m");
-	      if (level == NULL)
-		{
-		  continuer = 1;
-		  break;
-		}
-	    }
-	}
+	while ((continuer = exec_map(level)) == 0)
+	  {
+	    get_next_level(&level, &finished);
+	    if (finished)
+	      printf("\033[35mYOU FINISHED THE GAME BASTERD !\n\033[00m");
+	    if (level == NULL)
+	      {
+		continuer = 1;
+		break;
+	      }
+	  }
     }
   return (EXIT_SUCCESS);
 }
