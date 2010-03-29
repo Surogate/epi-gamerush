@@ -10,15 +10,18 @@
 
 void	rand_move(t_player *boss, t_map *map)
 {
-  if (map->map[boss->position.y][boss->position.x + boss->direction] != WALL_CHAR &&
-      (map->map[boss->position.y + 1][boss->position.x + boss->direction] == LADDER_CHAR ||
-       map->map[boss->position.y + 1][boss->position.x + boss->direction] == WALL_CHAR))
+  int	dir;
+
+  dir = boss->direction;
+  if (map->map[boss->position.y][boss->position.x + dir] != WALL_CHAR &&
+      (map->map[boss->position.y + 1][boss->position.x + dir] == LADDER_CHAR ||
+       map->map[boss->position.y + 1][boss->position.x + dir] == WALL_CHAR))
     boss->position.x += boss->direction;
   else
     boss->direction *= -1;
 }
 
-void	shoot(t_player *boss, t_player *player, t_map *map)
+void	shoot(t_player *boss, t_player *player)
 {
   int	direction;
 
@@ -35,16 +38,17 @@ void	shoot(t_player *boss, t_player *player, t_map *map)
 
 void	path_finding(t_player *player, t_player *boss, t_map *map)
 {
-  int	direction;
+  int	dir;
 
-  direction = player->move - boss->move;
-  if (direction > 0)
-    boss->direction = 1;
+  dir = player->move - boss->move;
+  if (dir > 0)
+    dir = 1;
   else
-    boss->direction = -1;
-  if (map->map[boss->position.y][boss->position.x + boss->direction] != WALL_CHAR &&
-      (map->map[boss->position.y + 1][boss->position.x + boss->direction] == LADDER_CHAR ||
-       map->map[boss->position.y + 1][boss->position.x + boss->direction] == WALL_CHAR))
+    dir = -1;
+  boss->direction = dir;
+  if (map->map[boss->position.y][boss->position.x + dir] != WALL_CHAR &&
+      (map->map[boss->position.y + 1][boss->position.x + dir] == LADDER_CHAR ||
+       map->map[boss->position.y + 1][boss->position.x + dir] == WALL_CHAR))
     boss->position.x += boss->direction;
       
 }
@@ -61,7 +65,7 @@ void	ia(t_player *player, t_player *boss, t_map *map)
 	  if (test < 0)
 	    test *= -1;
 	  if (test <= PORTEE && test > boss->move) 
-	    shoot(boss, player, map);
+	    shoot(boss, player);
 	  else
 	    path_finding(player, boss, map);
 	}
