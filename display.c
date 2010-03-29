@@ -124,6 +124,8 @@ void		display_map(SDL_Surface *screen, t_map *map, t_image *img)
 	}
       height++;
     }
+  if (map->boss.img1)
+    blit_img_case(map->boss.img1, screen, map->boss.pos.x, map->boss.pos.y);
 }
 
 t_imgtab		*init_da_tab()
