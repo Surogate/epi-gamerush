@@ -67,7 +67,13 @@ int		env_act(t_map *map,
 
   if (!player->move)
     {
-      if (monsters)
+      if (map->boss.img1)
+	{
+	  if (!map->boss.move)
+	    map->boss.move = NB_MOVE;
+	  ia(player, &map->boss, map);
+	}
+      else if (monsters)
 	{
 	  if (!monsters->move)
 	    monsters->move = NB_MOVE;
