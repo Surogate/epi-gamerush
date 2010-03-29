@@ -11,6 +11,7 @@
 #include	<SDL/SDL.h>
 #include	<math.h>
 #include	<stdio.h>
+#include	"boss.h"
 #include	"map.h"
 #include	"t_image.h"
 #include	"npc.h"

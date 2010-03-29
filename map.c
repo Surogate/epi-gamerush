@@ -8,6 +8,7 @@
 ** Last update Fri Mar 26 22:16:19 2010 francois1 ancel
 */
 
+#include		<SDL/SDL.h>
 #include		<errno.h>
 #include		<fcntl.h>
 #include		<stdio.h>
@@ -15,6 +16,7 @@
 #include		<string.h>
 #include		<unistd.h>
 #include		"err.h"
+#include		"boss.h"
 #include		"map.h"
 #include		"xio.h"
 

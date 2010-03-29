@@ -15,6 +15,7 @@
 #include	"define.h"
 #include	"err.h"
 #include	"t_image.h"
+#include	"boss.h"
 #include	"map.h"
 #include	"npc.h"
 #include	"env.h"

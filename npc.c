@@ -12,6 +12,7 @@
 #include		<stdio.h>
 #include		<unistd.h>
 #include		"t_image.h"
+#include		"boss.h"
 #include		"map.h"
 #include		"npc.h"
 #include		"xio.h"
