@@ -39,7 +39,7 @@ int		main()
 	  {
 	    get_next_level(&level, &finished);
 	    if (finished)
-	      printf("\033[35mYOU HAVE FINISHED THE GAME !!!\n\033[00m");
+	      exec_map(BOSS_DIR);
 	    if (level == NULL)
 	      {
 		continuer = 1;

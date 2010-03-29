@@ -21,6 +21,7 @@
 # define BLOOD_CHAR	'b'
 # define LIFE_CHAR	'l'
 # define GUN_CHAR	'g'
+# define BOSS_CHAR	'M'
 
 typedef struct		s_map
 {
