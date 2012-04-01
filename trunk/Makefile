@@ -38,12 +38,12 @@ SRCS	= err.c			\
 	xio.c
 
 OBJS	= $(SRCS:.c=.o)
-CFLAGS	= -W -Wall -Wextra -ansi -pedantic -I. -Imenu
-LDFLAGS_Linux	= -lSDLmain -lSDL -lSDL_ttf
+CFLAGS	= -W -Wall -Wextra -ansi -pedantic -I. -Imenu $(shell sdl-config --cflags)
+LDFLAGS_Linux	= -lSDLmain $(shell sdl-config --libs) -lSDL_ttf
 LDFLAGS_FreeBSD	= -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL -lpthread -lSDL_ttf
 
 $(NAME)	: $(OBJS)
-	$(CC) $(LDFLAGS_$(OSNAME)) -o $(NAME) $(OBJS)
+	$(CC) -o $(NAME) $(OBJS) $(LDFLAGS_$(OSNAME))
 
 all	: $(NAME)
 
